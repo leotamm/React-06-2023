@@ -59,3 +59,14 @@
 .tekst2:hover {
   border: 3px solid brown;
 }
+.pilt {
+  position:absolute;
+  right: 0px;
+  height: 200px;
+}
+.pilt:hover {
+ border-radius: 20px;
+}
+.pilt:active {
+  opacity: 0.8;
+}
