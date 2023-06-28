@@ -1,14 +1,30 @@
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Avaleht from './pages/Avaleht';
+import Kontakt from './pages/Kontakt';
+import Uudised from './pages/Uudised';
+import Meist from './pages/Meist';
 
 function App() {
   return (
     <div>
+      <Link to='/'>
+        <button>Avalehele</button>
+      </Link>
+      <Link to='/uudised'>
+        <button>Uudiste lehele</button>
+      </Link>
+      <Link to='/kontakt'>
+        <button>Võta ühendust</button>
+      </Link>
+      <Link to='/meist'>
+        <button>Meist</button>
+      </Link>
       <Routes>
-        <Route path='/' element={ <div>See on avaleht, nähtav localhost:3000 aadressil</div>} />
-        <Route path='/uudised' element={ <div>See on avaleht, nähtav localhost:3000/uudised aadressil</div>} />
-        <Route path='/kontakt' element={ <div>See on avaleht, nähtav localhost:3000/kontakt aadressil</div>} />
-        <Route path='/meist' element={ <div>See on avaleht, nähtav localhost:3000/meist aadressil</div>} />
+        <Route path='/' element={ <Avaleht/>} />
+        <Route path='/uudised' element={ <Uudised/> } />
+        <Route path='/kontakt' element={ <Kontakt/>} />
+        <Route path='/meist' element={ <Meist/>} />
       </Routes>
     </div>
   );
