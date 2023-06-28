@@ -8,7 +8,6 @@ import Meist from './pages/Meist';
 function App() {
   return (
     <div>
-      <img source="https://www.novelsuspects.com/wp-content/uploads/2022/02/Why-Well-Always-Love-Nordic-Noir-.png" alt=""/>
       <Link to='/'>
         <button>Avalehele</button>
       </Link>
