@@ -2,7 +2,7 @@
 import './App.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import Avaleht from './pages/Avaleht';
-import Lisatoode from './pages/LisaToode';
+import Lisatoode from './pages/Lisatoode';
 import Ostukorv from './pages/Ostukorv';
 
 function App() {
