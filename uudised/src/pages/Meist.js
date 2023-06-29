@@ -3,8 +3,8 @@ import React from 'react'
 function Meist() {
   return (
     <div>
-      <div>See on meist leht, nähtav localhost:3000/meist aadressil</div>
-      <div>Töötajad:</div>
+      <h1>See on meist leht, nähtav localhost:3000/meist aadressil</h1>
+      <h2>Töötajad:</h2>
         <br/>
         <div>Mari Maasikas</div>
         <div>Telefon: +372 555 5555</div>

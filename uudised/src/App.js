@@ -9,16 +9,16 @@ function App() {
   return (
     <div>
       <Link to='/'>
-        <button>Avalehele</button>
+        <button className='menu-button'>Avalehele</button>
       </Link>
       <Link to='/uudised'>
-        <button>Uudiste lehele</button>
+        <button className='menu-button'>Uudiste lehele</button>
       </Link>
       <Link to='/kontakt'>
-        <button>Võta ühendust</button>
+        <button className='menu-button'>Võta ühendust</button>
       </Link>
       <Link to='/meist'>
-        <button>Meist</button>
+        <button className='menu-button'>Meist</button>
       </Link>
       <Routes>
         <Route path='/' element={ <Avaleht/>} />

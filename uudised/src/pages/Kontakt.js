@@ -3,8 +3,8 @@ import React from 'react'
 function Kontakt() {
   return (
     <div>
-        <div>See on kontaktide leht, nähtav localhost:3000/kontakt aadressil</div>
-        <div>Võta meiega ühendust:</div>
+        <h1>See on kontaktide leht, nähtav localhost:3000/kontakt aadressil</h1>
+        <h2>Võta meiega ühendust:</h2>
         <br/>
         <div>Keskus Alfa</div>
         <div>Telefon: +372 555 6666</div>

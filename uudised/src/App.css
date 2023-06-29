@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.menu-button {
+  background-color:black;
+  color: whitesmoke;
+  padding: 15px 32px;
+  width: 200px;
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.menu-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.avalehe-pilt {
+  width: 200px;
+}
