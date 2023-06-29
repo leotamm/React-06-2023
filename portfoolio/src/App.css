@@ -33,3 +33,21 @@
   text-decoration: none;
   font-family: 'Roboto';
 }
+.facebook-button img {
+  height: 30px;
+  padding: 20px 10px;
+}
+.facebook-button span {
+  position: relative;
+  top: -30px;
+  height: 30px;
+  color: white;
+}
+.facebook-button:hover {
+  color: #7ba9c3;
+  cursor: pointer;
+}
+.sm-buttons {
+  display: flex;
+  position: relative;
+}

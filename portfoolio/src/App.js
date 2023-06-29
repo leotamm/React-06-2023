@@ -30,7 +30,29 @@ function App() {
         <Route path='car-collection' element={<CarCollection />} />
         <Route path='conventions' element={<Convetions />} />
       </Routes>
+
+      {/* <div className='sm-buttons'>
+        <a href='https://facebook.com'>
+          <img src='/Files/facebook.png' alt='Facebook' />
+        </a>
+        <a href='https://twitter.com'>
+          <img src='Files/twitter.png' alt='Twitter' />
+        </a>
+        <a href='https://reddit.com'>
+          <img src='//reddit.png' alt='Reddit' />
+        </a>
+      </div> */}
+
+      <a className='facebook-button' href='https://facebook.com'>
+        <img src='/Files/facebook_logo.png' alt='Facebook logo'/>
+        <span>Facebook</span>
+        </a>
+      {/* <a className='facebook-button' href='Twitter logo'>
+        <img src='/twitter_logo.png' alt='Twitter logo'/>
+        <span>Twitter</span>
+      </a> */}
     </div>
+
   );
 }
 
