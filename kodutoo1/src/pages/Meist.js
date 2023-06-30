@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 
 function Meist() {
 
-//  uncaught runtime error lehe avamisel - infinite loop
-
 const [teade, muudaTeadet] = useState('Vali mõni tegevus!');
 
   return (
