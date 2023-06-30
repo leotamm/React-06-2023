@@ -2,24 +2,25 @@ import React, { useState } from 'react'
 
 function Avaleht() {
 
-  const [kogus, uuendaKogus] = useState(10); // vasak htmli, parem muudab vasakut
+  const [kogus, uuendaKogus] = useState(10); // vasak muutuja html-i, parem funktsioon muudab vasakut
   const [laigitud, uuendaLaigitud] = useState(false);
   const [sonum, uuendaSonum] = useState("Uuenda kogust"); //String-sõne
- 
- function nulli(){
-  uuendaKogus(0);
-  uuendaSonum("Panid koguse nulli!");
- }
 
- function vahenda(){
-  uuendaKogus( kogus - 1);
-  uuendaSonum("Vähendasid kogust!");
- }
+  // ES5 versioon - aegunud
+  function nulli() {
+    uuendaKogus(0);
+    uuendaSonum("Panid koguse nulli!");
+  }
 
- function suurenda(){
-  uuendaKogus( kogus + 1);
-  uuendaSonum("Suurendasid kogust!");
- }
+  function vahenda() {
+    uuendaKogus(kogus - 1);
+    uuendaSonum("Vähendasid kogust!");
+  }
+
+  function suurenda() {
+    uuendaKogus(kogus + 1);
+    uuendaSonum("Suurendasid kogust!");
+  }
 
   return (
     <div>
@@ -40,7 +41,7 @@ function Avaleht() {
       {kogus}
       <button onClick={suurenda}>+</button>
     </div>
-  ) 
+  )
 }
 
 export default Avaleht  
