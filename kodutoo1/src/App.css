@@ -1,34 +1,43 @@
 .nupp {
-  background-color: green;
-  color: lightgray;
+    background-color: green;
+    color: lightgray;
 }
+
 .nupp:hover {
-  height:100px;
+    height: 100px;
 }
+
 .nupp:active {
-  cursor: grab;
+    cursor: grab;
 }
-.tekst1{
-  color: blue
+
+.tekst1 {
+    color: blue
 }
+
 .tekst1:hover {
-  font-size: 24px;
+    font-size: 24px;
 }
+
 .tekst2 {
-  color: green;
-  border: 3px solid red  ;
+    color: green;
+    border: 3px solid red;
 }
+
 .tekst2:hover {
-  border: 3px solid brown;
+    border: 3px solid brown;
 }
+
 .pilt {
-  position:absolute;
-  right: 0px;
-  height: 200px;
+    position: absolute;
+    right: 0px;
+    height: 200px;
 }
+
 .pilt:hover {
- border-radius: 20px;
+    border-radius: 20px;
 }
+
 .pilt:active {
-  opacity: 0.8;
+    opacity: 0.8;
 }
