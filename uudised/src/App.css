@@ -41,7 +41,7 @@
   background-color:black;
   color: whitesmoke;
   padding: 15px 32px;
-  width: 200px;
+  width: 17 0px;
   border-radius: 15px;
   text-align: center;
   text-decoration: none;
@@ -58,6 +58,6 @@
   width: 200px;
 }
 
-.kontakt-tekst {
-  color: white;
+.hele-tekst {
+  color: lightblue;
 }

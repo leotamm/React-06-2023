@@ -5,7 +5,7 @@ function Meist() {
   const [telefoniNr, annaTelefoniNr] = useState("");
 
   return (
-    <div>
+    <div className='hele-tekst'>
       <h1>See on meist leht, nähtav localhost:3000/meist aadressil</h1>
       <h2>Töötajad:</h2>
       <br />

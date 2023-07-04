@@ -7,7 +7,7 @@ function Kontakt() {
   const [n2itaDeltaTel, muudaN2itaDeltaTel] = useState(false);
 
   return (
-    <div>
+    <div className='hele-tekst'>
       <h1>See on kontaktide leht, nähtav localhost:3000/kontakt aadressil</h1>
       <h2>Võta meiega ühendust:</h2>
       <br />
