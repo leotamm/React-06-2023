@@ -1,6 +1,6 @@
 import './App.css';
-import { Link, Routes, Route } from 'react-router-dom';
-import Avaleht from './pages/Avaleht';
+import { Link, Routes, Route, Navigate } from 'react-router-dom';
+
 import Kujundus from './pages/Kujundus';
 import Muutmine from './pages/Muutmine';
 import Ilmumine from './pages/Ilmumine';
@@ -8,10 +8,6 @@ import Ilmumine from './pages/Ilmumine';
 function App() {
   return (
     <div className="App">
-
-      <Link to='/'>
-        <button>Avalahele</button>
-      </Link>
 
       <Link to='/kujundus'>
         <button>Kujundus</button>
@@ -26,7 +22,7 @@ function App() {
       </Link>
 
 <Routes>
-    <Route path='/' element={ <Avaleht/> } />
+    <Route path='/' element={ <Navigate to='/ilmumine' /> } />
     <Route path='/kujundus' element={ <Kujundus/> } />
     <Route path='/muutmine' element={ <Muutmine/> } />
     <Route path='/ilmumine' element={ <Ilmumine/> } />

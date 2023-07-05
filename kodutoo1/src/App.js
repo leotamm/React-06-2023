@@ -3,6 +3,8 @@ import Avaleht from './pages/Avaleht'
 import Meist from './pages/Meist'
 import Kontakt from './pages/Kontakt'
 import Seaded from './pages/Seaded'
+import Leht from './pages/Leht';
+import Loader from './pages/Loader';
 import './App.css';
 import { useRef, useState } from 'react';
 
@@ -50,12 +52,20 @@ function App() {
       <Link to='/seaded'>
         <button>Seaded</button>
       </Link>
+      <Link to='/leht'>
+        <button>Leht</button>
+      </Link>
+      <Link to='/loader'>
+        <button>Loader</button>
+      </Link>
 
       <Routes>
         <Route path='/' element={<Avaleht />} />
         <Route path='/meist' element={<Meist />} />
         <Route path='/kontakt' element={<Kontakt />} />
         <Route path='/seaded' element={<Seaded />} />
+        <Route path='/leht' element={<Leht />} />
+        <Route path='/loader' element={<Loader/>} />
       </Routes>
 
     </div>
