@@ -22,9 +22,13 @@ function Seaded() {
   return (
     <div>
       <div>See on seadete leht</div>
-      { kujundus!=='dark_mode' && <div><button onClick={paneTumeTeema}>Pane tume teema</button></div>}
-      { kujundus!=='light_mode' && <div><button onClick={paneHeleTeema}>Pane hele teema</button></div>}
-      { kujundus!=='neutral_mode' && <div><button onClick={paneNeutraalneTeema}>Pane neutraalne teema</button></div>}
+      <button onClick={paneTumeTeema}>Tume leht</button>
+      <button onClick={paneHeleTeema}>Hele leht</button>
+      <button onClick={paneNeutraalneTeema}>Neutraalne leht</button>
+
+      { kujundus==='dark_mode' && <div>TUME LEHT</div>}
+      { kujundus==='light_mode' && <div>HELE LEHT</div>}
+      { kujundus==='neutral_mode' && <div>NEUTRAALNE LEHT</div>}
     </div>
   )
 }
