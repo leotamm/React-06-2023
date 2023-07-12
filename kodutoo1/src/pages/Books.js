@@ -39,7 +39,7 @@ function Books() {
         refreshBooks(books.slice());
     }
 
-    function sortByWordCountIncreasing() {
+    const sortByWordCountIncreasing = () => {
         // Create a new array to store the book names along with their respective word counts
         const booksWithWordCounts = books.map((oneBook) => {
             const words = oneBook.split(' ');
@@ -55,7 +55,7 @@ function Books() {
         refreshBooks(sortedBookNames.slice());
     }
 
-    function sortByWordCountDecreasing() {
+    const sortByWordCountDecreasing = () => {
         const booksWithWordCounts = books.map((oneBook) => {
             const words = oneBook.split(' ');
             return { name: oneBook, wordCount: words.length };
@@ -66,40 +66,68 @@ function Books() {
         refreshBooks(sortedBookNames.slice());
     }
 
-    function sortByLastButOneCharacterAZ() {
+    const sortByLastButOneCharacterAZ = () => {
         const lastButOneCharacter = books.map((oneBook) => {
             const character = oneBook[oneBook.length - 2];
-            console.log(character);
             return { name: oneBook, theCharacter: character }
         });
-        console.log(lastButOneCharacter);
         lastButOneCharacter.sort((a, b) => a.theCharacter.localeCompare(b.theCharacter));
         const sortedBookNames = lastButOneCharacter.map((book) => book.name);
         refreshBooks(sortedBookNames.slice());
-
     }
-    function sortByLastButOneCharacterZA() {
+
+    const sortByLastButOneCharacterZA = () => {
         const lastButOneCharacter = books.map((oneBook) => {
             const character = oneBook[oneBook.length - 2];
-            console.log(character);
             return { name: oneBook, theCharacter: character }
         });
-        console.log(lastButOneCharacter);
         lastButOneCharacter.sort((a, b) => b.theCharacter.localeCompare(a.theCharacter));
         const sortedBookNames = lastButOneCharacter.map((book) => book.name);
         refreshBooks(sortedBookNames.slice());
     }
 
+    const filterStartingWithThe = () => {
+        const filteredBooks = books.filter(oneBook => oneBook.startsWith("The"));
+        refreshBooks(filteredBooks);
+    }
 
+    const filterContainsAnd = () => {
+        const filteredBooks = books.filter(oneBook => oneBook.toLowerCase().includes("and"));
+        refreshBooks(filteredBooks);
+    }
+
+    const filterOver10Characters = () => {
+        const filteredBooks = books.filter(oneBook => oneBook.length > 10);
+        refreshBooks(filteredBooks);
+    }
+
+    const filterLesshan7Characters = () => {
+        const filteredBooks = books.filter(oneBook => oneBook.length < 7);
+        refreshBooks(filteredBooks);
+    }
+
+    const filterEqualOrMoreThan3Words = () => {
+        const filteredBooks = books.filter((oneBook) => {
+            const words = oneBook.split(' ');
+            return words.length >= 3;
+          });
+          refreshBooks(filteredBooks);
+    }
+
+    const filterLastButOneChracterIsC = () => {
+        const filteredBooks = books.filter((oneBook) => {
+            const character = oneBook[oneBook.length - 2];
+            return character === 'c';
+        })
+        refreshBooks(filteredBooks);
+    } 
 
     return (
         <div>
             <br />
-            <button onClick={resetList}>Reset book list</button>
-            <div>Raamatuid kokku: {books.length}</div>
-
-            <br />
-            {books.map(oneBook => <div key={oneBook}>{oneBook}</div>)}
+            <button onClick={resetList}>Nimekirja reset</button>
+            <div>Raamatuid kokku: {books.length}</div><br />
+            {books.map(oneBook => <div key={oneBook}>{oneBook}</div>)}<br />
             <button onClick={sortByFirstCharacterAZ}>Sorteeri esimese tähe järgi A-Z</button>
             <button onClick={sortByFirstCharacterZA}>Sorteeri esimese tähe järgi Z-A</button>
             <button onClick={sortByNameLengthIncreasing}>Sorteeri nime pikkuse järgi kasvavalt</button>
@@ -109,15 +137,13 @@ function Books() {
             <button onClick={sortByWordCountIncreasing}>Sorteeri tühikute järgi kasvavalt</button>
             <button onClick={sortByWordCountDecreasing}>Sorteeri tühikute järgi kahanevalt</button>
             <button onClick={sortByLastButOneCharacterAZ}>Sorteeri eelviimase tähe järgi A-Z</button>
-            <button onClick={sortByLastButOneCharacterZA}>Sorteeri eelviimase tähe järgi Z-A</button><br />
-            <button disabled onClick={sortByLastButOneCharacterZA}>Filtreeri "the" algusega</button>
-            <button disabled onClick={sortByLastButOneCharacterZA}>Filtreeri "and" sisaldavad</button>
-            <button disabled onClick={sortByLastButOneCharacterZA}>Filtreeri enam kui 10 tähemärgiga</button>
-            <button disabled onClick={sortByLastButOneCharacterZA}>Filtreeri vähem kui 7 tähemärgiga</button>
-            <button disabled onClick={sortByLastButOneCharacterZA}>Filtreeri enam kui 3-sõnalised</button>
-            <button disabled onClick={sortByLastButOneCharacterZA}>Filtreeri eelviimane täht "c"</button>
-
-
+            <button onClick={sortByLastButOneCharacterZA}>Sorteeri eelviimase tähe järgi Z-A</button><br /><br />
+            <button onClick={filterStartingWithThe}>Filtreeri "the" algusega</button>
+            <button onClick={filterContainsAnd}>Filtreeri "and" sisaldavad</button>
+            <button onClick={filterOver10Characters}>Filtreeri enam kui 10 tähemärgiga</button>
+            <button onClick={filterLesshan7Characters}>Filtreeri vähem kui 7 tähemärgiga</button>
+            <button onClick={filterEqualOrMoreThan3Words}>Filtreeri enam kui 3-sõnalised</button>
+            <button onClick={filterLastButOneChracterIsC}>Filtreeri eelviimane täht "c"</button>
         </div>
 
     )
