@@ -4,12 +4,12 @@ import { useState } from 'react';
 
 function Ostukorv() {
 
-const [ostukorv, uuendaOstukorv] = useState (["Coca", "Fanta", "Sprite"]);
+const [ostukorv, uuendaOstukorv] = useState (["Coca", "Fanta", "Sprite", "Friikad", "Salat", "Veiseliha burger", "Juustuburger", "Wrap"]);
 
   return (
     <div>
         {ostukorv.map((toode, index) => <div key={index}>{toode}</div>)}
-      Ostukorv onb tühi
+      Ostukorv on tühi
         <Link to="/">Mine tooteid lisama</Link>
     </div>
   )
