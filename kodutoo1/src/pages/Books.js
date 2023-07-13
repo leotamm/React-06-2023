@@ -122,7 +122,7 @@ function Books() {
             return character === 'c';
         })
         refreshBooks(filteredBooks);
-    } 
+    }
 
     return (
         <div>
@@ -147,7 +147,6 @@ function Books() {
             <button onClick={filterEqualOrMoreThan3Words}>Filtreeri enam kui 3-sõnalised</button>
             <button onClick={filterLastButOneChracterIsC}>Filtreeri eelviimane täht "c"</button>
         </div>
-
     )
 }
 
