@@ -63,10 +63,15 @@ function Poed() {
         uuendaPoed(sorditudPoed);
     }
 
-
+    const liidaTahed = () => {
+        let summa = 0;
+        poed.forEach(yksPood => summa += yksPood.length )
+        return summa;
+    }
 
     return (
         <div>
+            <div>{liidaTahed()}</div>
             <button onClick={reset}>Reset</button>
             <div>Kokku: {poed.length} poodi</div>
             <button onClick={sorteeriAZ}>Sorteeri A-Z</button>

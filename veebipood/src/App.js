@@ -9,6 +9,9 @@ import Seaded from './pages/Seaded';
 import Hinnad from './pages/HInnad';
 import Poed from './pages/Poed';
 import Tooted from './pages/Tooted';
+import HaldaTooteid from './pages/HaldaTooteid';
+import MuudaToodet from './pages/MuudaToodet';
+import YksikToode from './pages/YksikToode';
 
 function App() {
 
@@ -62,6 +65,11 @@ function App() {
       <button className="nupp">Tooted</button>
       </Link>
 
+      <Link to="/halda">
+      <button className="nupp">Halda tooteid</button>
+      </Link>
+
+
       <Routes>
         <Route path="" element={ <Avaleht/>}></Route>
         <Route path='lisatoode' element={ <Lisatoode/>}></Route>
@@ -70,6 +78,9 @@ function App() {
         <Route path='hinnad' element={ <Hinnad/>}></Route>
         <Route path='poed' element={ <Poed/>}></Route>
         <Route path='tooted' element={ <Tooted/>}></Route>
+        <Route path='halda' element={ <HaldaTooteid/>}></Route>
+        <Route path='muuda/:jrknr' element={ <MuudaToodet/>}></Route>
+        <Route path='toode/:index' element={ <YksikToode/>}></Route>
       </Routes>Ostukorv
     </div>
   );
