@@ -6,6 +6,7 @@ import Seaded from './pages/Seaded'
 import Leht from './pages/Leht';
 import Loader from './pages/Loader';
 import Books from './pages/Books';
+import Numbrid from './pages/Numbrid';
 import './App.css';
 import { useRef, useState } from 'react';
 
@@ -62,6 +63,9 @@ function App() {
       <Link to='/books'>
         <button>Books</button>
       </Link>
+      <Link to='/numbrid'>
+        <button>Numbrid</button>
+      </Link>
 
       <Routes>
         <Route path='/' element={<Avaleht />} />
@@ -69,8 +73,9 @@ function App() {
         <Route path='/kontakt' element={<Kontakt />} />
         <Route path='/seaded' element={<Seaded />} />
         <Route path='/leht' element={<Leht />} />
-        <Route path='/loader' element={<Loader/>} />
-        <Route path='/books' element={<Books/>} />
+        <Route path='/loader' element={<Loader />} />
+        <Route path='/books' element={<Books />} />
+        <Route path='/numbrid' element={<Numbrid />} />
       </Routes>
 
     </div>

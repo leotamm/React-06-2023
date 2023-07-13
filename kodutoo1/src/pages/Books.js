@@ -40,6 +40,7 @@ function Books() {
     }
 
     const sortByWordCountIncreasing = () => {
+        // CGPT lahendus - teha ajutine objekt algstringidest ja eraldi stringideks eraldatud objektidest ning sorteerida sõnade arvu järgi
         // Create a new array to store the book names along with their respective word counts
         const booksWithWordCounts = books.map((oneBook) => {
             const words = oneBook.split(' ');
@@ -67,6 +68,7 @@ function Books() {
     }
 
     const sortByLastButOneCharacterAZ = () => {
+        // tuleatud CGPT sortByWordCountIncreasing lahendusest - sorteerime vaheobjekti eraldatud eelviimaste tähtede alusel
         const lastButOneCharacter = books.map((oneBook) => {
             const character = oneBook[oneBook.length - 2];
             return { name: oneBook, theCharacter: character }
