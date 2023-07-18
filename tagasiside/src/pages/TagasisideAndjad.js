@@ -65,7 +65,9 @@ function TagasisideAndjad() {
             <input ref={inputiLuger} type="text" />
             <button onClick={addEmployee}>Lisa</button>
             {s6num}<br /><br></br>
-            {tootajad.map((tootaja, jrknr) => <div key={jrknr}>{tootaja} <span className='tab'><button onClick={() => kustuta(jrknr)}>Kustuta</button></span></div>)}
+            {tootajad.map((tootaja, jrknr) => <div key={jrknr}>{tootaja} <span className='tab'>
+                <button onClick={() => kustuta(jrknr)}>Kustuta</button></span><span className='tab'>
+                <button onClick={() => kustuta(jrknr)}>Detailid</button></span></div>)}
 
         </div>
     )

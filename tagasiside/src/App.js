@@ -1,6 +1,7 @@
 import { Link, Routes, Route } from "react-router-dom";
 import Tagasiside from "./pages/Tagasiside";
 import TagasisideAndjad from "./pages/TagasisideAndjad";
+import YksikTagasisideAndja from "./pages/YksikTagasisideAndja";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element='Tere' />
         <Route path="/tagasiside" element={<Tagasiside/>} />
         <Route path="/vastaja" element={<TagasisideAndjad/>} />
+        <Route path="/yksikVastaja:index" element={<YksikTagasisideAndja/>} />
       </Routes>
     </div>
   );

@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Avaleht from './pages/Avaleht';
 import LisaJook from './pages/LisaJook';
 import HaldaJooke from './pages/HaldaJooke';
+import Jook from './pages/Jook'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<Avaleht/>}></Route>
         <Route path="/lisa" element={<LisaJook/>}></Route>
         <Route path="/halda" element={<HaldaJooke/>}></Route>
+        <Route path="/jook:number" element={<Jook/>}></Route>
       </Routes>
     </div>
   );
