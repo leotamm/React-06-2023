@@ -3,8 +3,8 @@
 }
 
 .pilt{
-  width: 300px;
-  /* height: 100px; */
+
+  height: 100px;
 }
 .pilt:hover{
     opacity: 0.7;

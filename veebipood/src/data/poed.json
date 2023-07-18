@@ -1,1 +1,37 @@
-["Ülemiste", "Viimsi", "Rocca al Mare", "Magistraali", "Vesse", "Kristiine", "Järveotsa"]
+[
+    {
+        "nimi": "Ülemiste",
+        "aeg": "9-22",
+        "tel": "232434524"
+    },
+    {
+        "nimi": "Viimsi",
+        "aeg": "9-22",
+        "tel": "232434524"
+    },
+    {
+        "nimi": "Rocca al Mare",
+        "aeg": "9-22",
+        "tel": "232434523"
+    },
+    {
+        "nimi": "Magistraali",
+        "aeg": "10-23",
+        "tel": "23243111"
+    },
+    {
+        "nimi": "Vesse",
+        "aeg": "10-23",
+        "tel": "23243222"
+    },
+    {
+        "nimi": "Kristiine",
+        "aeg": "9-22",
+        "tel": "2324345454"
+    },
+    {
+        "nimi": "Järveotsa",
+        "aeg": "10-23",
+        "tel": "232436643"
+    }
+]

@@ -1,11 +1,15 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useParams } from 'react'
 import NimedFailist from "../nimed.json";
+import { Link } from 'react-router-dom';
+
 
 function TagasisideAndjad() {
 
     const [tootajad, uuendaTootajad] = useState(NimedFailist);
     const [s6num, uuendaS6num] = useState();
     const inputiLuger = useRef();
+
+    const { index } = useParams();
 
     const refreshList = () => {
         uuendaTootajad(NimedFailist);
@@ -65,9 +69,13 @@ function TagasisideAndjad() {
             <input ref={inputiLuger} type="text" />
             <button onClick={addEmployee}>Lisa</button>
             {s6num}<br /><br></br>
-            {tootajad.map((tootaja, jrknr) => <div key={jrknr}>{tootaja} <span className='tab'>
-                <button onClick={() => kustuta(jrknr)}>Kustuta</button></span><span className='tab'>
-                <button onClick={() => kustuta(jrknr)}>Detailid</button></span></div>)}
+            {tootajad.map((tootaja, jrknr) => <div key={jrknr}>
+                {tootaja} <span className='tab'>
+                    <button onClick={() => kustuta(jrknr)}>Kustuta</button></span>
+                <Link to={'yks-andja/' + index}>
+                    <button>Vaata detailsemalt</button>
+                </Link>
+            </div>)}
 
         </div>
     )

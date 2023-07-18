@@ -24,7 +24,7 @@ function App() {
         <Route path="/" element='Tere' />
         <Route path="/tagasiside" element={<Tagasiside/>} />
         <Route path="/vastaja" element={<TagasisideAndjad/>} />
-        <Route path="/yksikVastaja:index" element={<YksikTagasisideAndja/>} />
+        <Route path="/yks-andja/:index" element={<YksikTagasisideAndja/>} />
       </Routes>
     </div>
   );

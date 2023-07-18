@@ -1,1 +1,6 @@
-["Nobe", "Tesla", "BMW", "Lada"]
+[
+    {"nimi": "Nobe", "hind": 25000, "aktiivne": true, "pilt": "https://geenius.ee/app/uploads/sites/4/2019/07/d3fa99c53e8163abf0586ed96748b71b.png"},
+    {"nimi": "Tesla", "hind": 85000, "aktiivne": true, "pilt": "https://elektriautod.ee/wp-content/uploads/elektriauto-tesla-3.jpg"},
+    {"nimi": "BMW", "hind": 50000, "aktiivne": false, "pilt": "https://www.bmw.ee/content/dam/bmw/common/all-models/m-series/xm/2023/navigation/bmw_x-series_xm_modelcard_50.png/jcr:content/renditions/cq5dam.resized.img.890.medium.time1681276548689.png"},
+    {"nimi": "Lada", "hind": 40000, "aktiivne": true, "pilt": "https://eastgear.hu/wp-content/uploads/2021/11/Nevtelen-2-3-768x394.png"}
+]
