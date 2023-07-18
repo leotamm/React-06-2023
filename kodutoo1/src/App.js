@@ -7,8 +7,10 @@ import Leht from './pages/Leht';
 import Loader from './pages/Loader';
 import Books from './pages/Books';
 import Numbrid from './pages/Numbrid';
+import Nimekri from './pages/Nimekiri';
 import './App.css';
 import { useRef, useState } from 'react';
+import Nimekiri from './pages/Nimekiri';
 
 function App() {
 
@@ -66,6 +68,9 @@ function App() {
       <Link to='/numbrid'>
         <button>Numbrid</button>
       </Link>
+      <Link to='/nimekiri'>
+        <button>Nimekiri</button>
+      </Link>
 
       <Routes>
         <Route path='/' element={<Avaleht />} />
@@ -76,6 +81,7 @@ function App() {
         <Route path='/loader' element={<Loader />} />
         <Route path='/books' element={<Books />} />
         <Route path='/numbrid' element={<Numbrid />} />
+        <Route path='/nimekiri' element={<Nimekiri />} />
       </Routes>
 
     </div>
