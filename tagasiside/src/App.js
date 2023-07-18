@@ -1,16 +1,28 @@
-import { Routes, Route } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
+import Tagasiside from "./pages/Tagasiside";
+import TagasisideAndjad from "./pages/TagasisideAndjad";
 
 
 function App() {
   return (
     <div className="App">
 
-      <button>Avalehele</button>
-      <button>Tagasiside lehele</button><br />
+
+      <Link to='/'>
+        <button>Avalehele</button>
+      </Link>
+      <Link to='/tagasiside'>
+        <button>Tagasiside lehele</button>
+      </Link>
+      <Link to='/vastaja'>
+        <button>Tagasiside andjad</button><br />
+      </Link>
 
 
       <Routes>
-        <Route path="/" element='Tere'/>
+        <Route path="/" element='Tere' />
+        <Route path="/tagasiside" element={<Tagasiside/>} />
+        <Route path="/vastaja" element={<TagasisideAndjad/>} />
       </Routes>
     </div>
   );
