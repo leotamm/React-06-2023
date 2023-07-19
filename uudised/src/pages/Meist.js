@@ -7,20 +7,26 @@ function Meist() {
 
   const tootajad = nimedFailist;
   const [kontakt, n2itaKontakt] = useState();
+  const [valitud, uuendaValitud] = useState();
+  const v6taYhendust = (tootaja) => {
+    n2itaKontakt(tootaja.Telefon);
+    uuendaValitud(tootaja.Nimi);
+  }
+
 
   return (
     <div className='hele-tekst'>
       <h1>See on meist leht, nähtav localhost:3000/meist aadressil</h1>
       <h2>Töötajad:</h2>
-      <br />  
-      {tootajad.map(tootaja =>
-          <div>
-            <div>{tootaja.Nimi}</div>
-            <div>{tootaja.Ala}</div>
-              <button onClick={() => { n2itaKontakt(tootaja.Telefon) }}>Näita telefoni</button>
-            <br /><br />
-          </div>
-      )}      
+      <br />
+      <div>{tootajad.map(tootaja =>
+        <div>
+          <div className={ valitud === tootaja.Nimi ? 'valitud' : 'hele-tekst'} >{tootaja.Nimi}</div>
+          <div>{tootaja.Ala}</div>
+          <button onClick={() => { v6taYhendust(tootaja) }}>Võta ühendust</button>
+          <br /><br />
+        </div>
+      )} </div>
       {/* <div>Mari Maasikas</div>
       <div>Tegevjuht</div>
       <button onClick={() => annaTelefoniNr("+372 555 5555")}>Võta ühendust</button>
@@ -37,7 +43,7 @@ function Meist() {
       <div>Ladu</div>
       <button onClick={() => annaTelefoniNr("+372 555 8888")}>Võta ühendust</button>
       <br /><br /> */}
-      {kontakt !== "" && <div className='hele-tekst'>Tema kontakt: {kontakt}</div>}
+      {kontakt !== "" && <div>Tema kontakt: {kontakt}</div>}
     </div>
   )
 }
