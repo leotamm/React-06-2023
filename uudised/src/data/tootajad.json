@@ -1,0 +1,27 @@
+[
+    {
+        "Nimi": "Tiit Ruuben",
+        "Ala": "haldusjuht",
+        "Telefon": "+372 555 0001"
+    },
+    {
+        "Nimi": "Kati Anton",
+        "Ala": "personalispetsialist",
+        "Telefon": "+372 555 0002"
+    },
+    {
+        "Nimi": "Linda Leena",
+        "Ala": "tootmisjuht",
+        "Telefon": "+372 555 0003"
+    },
+    {
+        "Nimi": "Svetlana Silja",
+        "Ala": "kvaliteedijuht",
+        "Telefon": "+372 555 0004"
+    },
+    {
+        "Nimi": "Terje Toomas",
+        "Ala": "finantsjuht",
+        "Telefon": "+372 555 0005"
+    }
+]
