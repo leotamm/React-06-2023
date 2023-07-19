@@ -1,9 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Avaleht() {
-  return (
-    <div>
+
+    const tegelased = [
+        { "eesnimi": "Mickey", "perekonnanimi": "Mouse", "aadress": "Disneyland" },
+        { "eesnimi": "Minnie", "perekonnanimi": "Mouse", "aadress": "Disneyland" },
+        { "eesnimi": "Winnie", "perekonnanimi": "Pooh", "aadress": "Hundred Acre Wood" },
+        { "eesnimi": "Roo", "perekonnanimi": "Kangaroo", "aadress": "Hundred Acre Wood" },
+        { "eesnimi": "Scoobie", "perekonnanimi": "Doo", "aadress": "Crystal Cove" }
+    ];
+
+    const [teade, muudaTeadet] = useState();
+
+    const kuvaNimi = (tegelane) => {
+        console.log(tegelane.eesnimi, tegelane.perekonnanimi, tegelane.aadress);
+        muudaTeadet("Klikkisid tegelase " + tegelane.eesnimi + " peal");
+    }
+
+    return (
         <div>
+            {tegelased.map(tegelane =>
+                <div>
+                    <div>{tegelane.eesnimi}
+                        <button onClick={() => { kuvaNimi(tegelane) }}>Kuva nimi</button>
+                    </div>
+                    <div>{tegelane.perekonnanimi}</div>
+                    <div>{tegelane.aadress}</div>
+                </div>
+            )}
+            {teade}
+            {/* <div>
             <div>Mickey</div>
             <div>Mouse</div>
             <div>Disneyland</div>
@@ -27,9 +53,9 @@ function Avaleht() {
             <div>Scoobie</div>
             <div>Doo</div>
             <div>Crystal Cove</div>
+        </div> */}
         </div>
-    </div>
-  )
+    )
 }
 
 export default Avaleht
