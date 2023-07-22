@@ -2,7 +2,7 @@ import React from 'react'
 
 function ContuctUs() {
   return (
-    <div>ContuctUs</div>
+    <div>ContactUs</div>
   )
 }
 

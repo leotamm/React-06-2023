@@ -29,16 +29,11 @@ function Cart() {
       {cart.length > 0 && <Button variant='danger' onClick={emptyCart}>{t('empty-cart')}</Button>}<br /><br />
 
       {cart.map((product, index) =>
-
         <div key={index}>
-
           {product.name} (id: {product.id}) - {product.price}
-
           <Button variant='danger' onClick={() => removeProduct(index)}>Remove</Button>
         </div>
-
       )}
-
     </div>
   )
 }

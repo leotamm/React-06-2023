@@ -68,7 +68,71 @@ const resources = {
       "active" : "Aktiivne",
       "add" : "Lisa",
     }
-  }
+  },
+  de: {
+    translation: {
+      "admin": "Zur Admin-Ansicht",
+      "shop": "Unsere Geschäfte",
+      "contact": "Kontaktiere uns",
+      "login": "Anmeldung",
+      "cart": "Einkaufswagen",
+      "maintain-categories": "Kategorien pflegen",
+      "maintain-shops": "Geschäfte unterhalten",
+      "add-product": "Produkt hinzufügen",
+      "maintain-products": "Produkte pflegen",
+
+      "sort-az" : "Sortieren  A - Z",
+      "sort-za" : "Sortieren  Z - A",
+      "sort-price-increasing" : "Preis niedrig bis hoch",
+      "sort-price-decreasing" : "Preis hoch nach niedrig",
+      "add-to-cart" : "Zum Warenkorb",
+      "just-now": "Soeben",
+      "product-added": "Produkt hinzugefügt",
+      "cart-is-empty" : "Warenkorb leer",
+      "products-in-cart" : "Produkte im Warenkorb",
+      "empty-cart" : "Leeren Sie den Warenkorb",
+
+      "image" : "Bild",
+      "name" : "Name",
+      "price" : "Preis",
+      "description" : "Beschreibung",
+      "category" : "Kategorie",
+      "active" : "Aktiv",
+      "add" : "Hinzufügen",
+    }
+  },
+  fr: {
+    translation: {
+      "admin": "Vue administrateur",
+      "shop": "Nos boutiques",
+      "contact": "Contactez-nous",
+      "login": "Connexion",
+      "cart": "Vers le panier",
+      "maintain-categories": "Maintenir les catégories",
+      "maintain-shops": "Entretenir les boutiques",
+      "add-product": "Ajouter un produit",
+      "maintain-products": "Maintenir les produits",
+
+      "sort-az" : "Trier de A à Z",
+      "sort-za" : "Trier de Z à A",
+      "sort-price-increasing" : "Trier le prix augmente",
+      "sort-price-decreasing" : "Trier le prix décroissant",
+      "add-to-cart" : "Add to cart",
+      "just-now": "Juste maintenant",
+      "product-added": "Produit ajouté",
+      "cart-is-empty" : "Le panier est vide",
+      "products-in-cart" : "Produits dans le panier",
+      "empty-cart" : "Panier vide",
+
+      "image" : "Image",
+      "name" : "Nom",
+      "price" : "Prix",
+      "description" : "Description",
+      "category" : "Catégorie",
+      "active" : "Active",
+      "add" : "Ajouter",
+    }
+  },
 };
 
 i18n

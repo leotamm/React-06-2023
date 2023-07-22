@@ -2,8 +2,6 @@ import React from 'react'
 import productsFromFile from '../../data/products.json'
 import cartFile from '../../data/cart.json'
 import { useState } from 'react';
-// import { Button } from 'react-bootstrap/Button';
-// import { Toast } from 'react-bootstrap/Toast';
 import { Button, Toast } from 'react-bootstrap';
 
 import { useTranslation } from 'react-i18next';

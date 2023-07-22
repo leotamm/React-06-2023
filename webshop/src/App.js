@@ -35,6 +35,16 @@ function App() {
     localStorage.setItem('language', 'en');
   }
 
+  const changeLangDe = () => {
+    i18n.changeLanguage('de');
+    localStorage.setItem('language', 'de');
+  }
+
+  const changeLangFr = () => {
+    i18n.changeLanguage('fr');
+    localStorage.setItem('language', 'fr');
+  }
+
   return (
 
 
@@ -53,6 +63,8 @@ function App() {
             <Nav>
               <img className='lang' src='/estonia.png' alt='' onClick={changeLangEe} />
               <img className='lang' src='/united-kingdom.png' alt='' onClick={changeLangEn} />
+              <img className='lang' src='/germany.png' alt='' onClick={changeLangDe} />
+              <img className='lang' src='/france.png' alt='' onClick={changeLangFr} />
               <Nav.Link as={Link} to='/login'>{t('login')}</Nav.Link>
               <Nav.Link as={Link} to='/cart'>{t('cart')}</Nav.Link>
               <Nav.Link eventKey={2} href="#memes">

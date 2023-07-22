@@ -10,6 +10,7 @@
 
 .lang:hover {
   cursor: pointer;
+  opacity: 70%;
 }
 
 .lang>:active {

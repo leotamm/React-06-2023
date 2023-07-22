@@ -10,13 +10,10 @@ function AdminHome() {
 
   return (
     <div>
-
       <Button as={Link} to='/admin/maintain-categories' variant="primary">{t("maintain-categories")}</Button>{' '}
       <Button as={Link} to='/admin/maintain-shops' variant="secondary">{t("maintain-shops")}</Button>{' '}
       <Button as={Link} to='/admin/add-product' variant="success">{t("add-product")}</Button>{' '}
       <Button as={Link} to='/admin/maintain-product' variant="warning">{t("maintain-products")}</Button>{' '}
-      <button>asdas</button>
-
     </div>
   )
 }
