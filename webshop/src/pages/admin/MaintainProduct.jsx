@@ -8,10 +8,16 @@ function MaintainProduct() {
 
   const [products, updateProducts] = useState(productsFromFile);
 
+  const deleteProduct = (index) => {
+    productsFromFile.splice(index, 1);
+    updateProducts(productsFromFile.slice());
+  }
+
+
   return (
     <div>
-      {products.map(product =>
-        <div>
+      {products.map((product, index) =>
+        <div key={product.id}>
           <img src={product.image} alt='' />
           <div>{product.id}</div>
           <div>{product.name}</div>
@@ -19,7 +25,7 @@ function MaintainProduct() {
           <div>{product.category}</div>
           <div>{product.description}</div>
           <div>{product.active}</div>
-          <Button>Kustuta</Button>
+          <Button onClick={() => deleteProduct(index)}>Kustuta</Button><br /><br />
         </div>
       )}
 

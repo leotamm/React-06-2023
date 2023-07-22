@@ -9,13 +9,32 @@ const resources = {
     translation: {
       "admin": "To admin view",
       "shop": "Our shops",
-      "contact": "Contact with us",
+      "contact": "Contact us",
       "login": "Log in",
-      "cart": "To Cart",
+      "cart": "To cart",
       "maintain-categories": "Maintain categories",
       "maintain-shops": "Maintain shops",
       "add-product": "Add product",
-      "maintain-products": "Maintain products"
+      "maintain-products": "Maintain products",
+
+      "sort-az" : "Sort A - Z",
+      "sort-za" : "Sort Z - A",
+      "sort-price-increasing" : "Sort price increasing",
+      "sort-price-decreasing" : "Sort price decreasing",
+      "add-to-cart" : "Add to cart",
+      "just-now": "Just now",
+      "product-added": "Product added",
+      "cart-is-empty" : "Cart is empty",
+      "products-in-cart" : "Products in cart",
+      "empty-cart" : "Empty cart",
+
+      "image" : "Image",
+      "name" : "Name",
+      "price" : "Price",
+      "description" : "Description",
+      "category" : "Category",
+      "active" : "Active",
+      "add" : "Add",
     }
   },
   ee: {
@@ -28,7 +47,26 @@ const resources = {
       "maintain-categories": "Halda kategooriaid",
       "maintain-shops": "Halda poode",
       "add-product": "Lisa toode",
-      "maintain-products": "Halda tooteid"
+      "maintain-products": "Halda tooteid",
+
+      "sort-az" : "Sorteeri A - Z",
+      "sort-za" : "Sorteeri Z - A",
+      "sort-price-increasing" : "Odavamad eespool",
+      "sort-price-decreasing" : "Kallimad eespool",
+      "add-to-cart" : "Lisa ostukorvi",
+      "just-now": "Just nüüd",
+      "product-added": "Toode lisatud",
+      "cart-is-empty" : "Ostukorv on tühi",
+      "products-in-cart" : "Tooteid ostukorvis",
+      "empty-cart" : "Tühjenda ostukorv",
+
+      "image" : "Pilt",
+      "name" : "Nimi",
+      "price" : "Hind",
+      "description" : "Kirjeldus",
+      "category" : "Kategooria",
+      "active" : "Aktiivne",
+      "add" : "Lisa",
     }
   }
 };

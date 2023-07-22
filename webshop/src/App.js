@@ -13,11 +13,11 @@ import Shops from './pages/global/Shops';
 import SingleProduct from './pages/global/SingleProduct';
 import Login from './pages/auth/Login';
 import SignUp from './pages/auth/SignUp';
+import NotFound from './pages/global/NotFound';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NotFound from './pages/global/NotFound';
 
 import { useTranslation } from 'react-i18next';
 
@@ -51,10 +51,10 @@ function App() {
               <Nav.Link as={Link} to='/contact'>{t('contact')}</Nav.Link>
             </Nav>
             <Nav>
-              <img className='lang' src='/united-kingdom.png' alt='' onClick={changeLangEn} />
               <img className='lang' src='/estonia.png' alt='' onClick={changeLangEe} />
-              <Nav.Link href="#deets">{t('login')}</Nav.Link>
-              <Nav.Link href="#deets">{t('cart')}</Nav.Link>
+              <img className='lang' src='/united-kingdom.png' alt='' onClick={changeLangEn} />
+              <Nav.Link as={Link} to='/login'>{t('login')}</Nav.Link>
+              <Nav.Link as={Link} to='/cart'>{t('cart')}</Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
               </Nav.Link>
             </Nav>
