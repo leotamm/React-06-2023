@@ -23,10 +23,17 @@ function Cart() {
     toast.success(t('product-removed'));
   }
 
+  const cartSum = () => {
+    let sum = 0;
+    cart.forEach(product => sum += product.price);
+    return sum.toFixed(2);
+  }
+ 
   return (
     <div>
       {cart.length === 0 && <div className='bold-heading'>{t('cart-is-empty')}</div>}
       {cart.length > 0 && <div className='bold-heading'>{t('products-in-cart')}: {cart.length}</div>}
+      {cart.length > 0 &&  <div className='bold-heading' >{t('total-sum')}: {cartSum()} €</div> }
       {cart.length > 0 && <Button variant='danger' onClick={emptyCart}>{t('empty-cart')}</Button>}<br /><br />
       {cart.map((product, index) =>
         <div key={index}>

@@ -29,6 +29,7 @@ const resources = {
       "products-in-cart" : "Products in cart",
       "empty-cart" : "Empty cart",
       "product-removed" : "Product removed",
+      "total-sum" : "Total sum",
 
       "image" : "Image",
       "name" : "Name",
@@ -63,6 +64,7 @@ const resources = {
       "products-in-cart" : "Tooteid ostukorvis",
       "empty-cart" : "Tühjenda ostukorv",
       "product-removed" : "Toode eemaldatud",
+      "total-sum" : "Summa kokku",
 
       "image" : "Pilt",
       "name" : "Nimi",
@@ -97,6 +99,7 @@ const resources = {
       "products-in-cart" : "Produkte im Warenkorb",
       "empty-cart" : "Leeren Sie den Warenkorb",
       "product-removed" : "Produkt entfernt",
+      "total-sum" : "Gesamtsumme",
 
       "image" : "Bild",
       "name" : "Name",
@@ -131,6 +134,7 @@ const resources = {
       "products-in-cart" : "Produits dans le panier",
       "empty-cart" : "Panier vide",
       "product-removed" : "Produit supprimé",
+      "total-sum" : "Somme totale",
 
       "image" : "Image",
       "name" : "Nom",
