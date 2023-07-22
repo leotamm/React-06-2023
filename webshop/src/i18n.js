@@ -16,6 +16,7 @@ const resources = {
       "maintain-shops": "Maintain shops",
       "add-product": "Add product",
       "maintain-products": "Maintain products",
+      "products": "Products",
 
       "sort-az" : "Sort A - Z",
       "sort-za" : "Sort Z - A",
@@ -27,6 +28,7 @@ const resources = {
       "cart-is-empty" : "Cart is empty",
       "products-in-cart" : "Products in cart",
       "empty-cart" : "Empty cart",
+      "product-removed" : "Product removed",
 
       "image" : "Image",
       "name" : "Name",
@@ -48,6 +50,7 @@ const resources = {
       "maintain-shops": "Halda poode",
       "add-product": "Lisa toode",
       "maintain-products": "Halda tooteid",
+      "products": "Tooted",
 
       "sort-az" : "Sorteeri A - Z",
       "sort-za" : "Sorteeri Z - A",
@@ -59,6 +62,7 @@ const resources = {
       "cart-is-empty" : "Ostukorv on tühi",
       "products-in-cart" : "Tooteid ostukorvis",
       "empty-cart" : "Tühjenda ostukorv",
+      "product-removed" : "Toode eemaldatud",
 
       "image" : "Pilt",
       "name" : "Nimi",
@@ -80,6 +84,7 @@ const resources = {
       "maintain-shops": "Geschäfte unterhalten",
       "add-product": "Produkt hinzufügen",
       "maintain-products": "Produkte pflegen",
+      "products": "Produkte",
 
       "sort-az" : "Sortieren  A - Z",
       "sort-za" : "Sortieren  Z - A",
@@ -91,6 +96,7 @@ const resources = {
       "cart-is-empty" : "Warenkorb leer",
       "products-in-cart" : "Produkte im Warenkorb",
       "empty-cart" : "Leeren Sie den Warenkorb",
+      "product-removed" : "Produkt entfernt",
 
       "image" : "Bild",
       "name" : "Name",
@@ -112,6 +118,7 @@ const resources = {
       "maintain-shops": "Entretenir les boutiques",
       "add-product": "Ajouter un produit",
       "maintain-products": "Maintenir les produits",
+      "products": "Produits",
 
       "sort-az" : "Trier de A à Z",
       "sort-za" : "Trier de Z à A",
@@ -123,6 +130,7 @@ const resources = {
       "cart-is-empty" : "Le panier est vide",
       "products-in-cart" : "Produits dans le panier",
       "empty-cart" : "Panier vide",
+      "product-removed" : "Produit supprimé",
 
       "image" : "Image",
       "name" : "Nom",

@@ -52,7 +52,7 @@ function App() {
 
       <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">Leo's webshop</Navbar.Brand>
+          <Navbar.Brand href="../">Leo's webshop</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">

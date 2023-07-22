@@ -2,7 +2,8 @@ import React from 'react'
 import productsFromFile from '../../data/products.json'
 import cartFile from '../../data/cart.json'
 import { useState } from 'react';
-import { Button, Toast } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Slide, ToastContainer, toast } from 'react-toastify';
 
 import { useTranslation } from 'react-i18next';
 
@@ -34,11 +35,12 @@ function HomePage() {
 
   const addToChart = (product) => {
     cartFile.push(product);
-    // call the toast - iltem added
+    toast.success(product.name + ' lisatud!');
   }
 
   return (
     <div>
+      <div className='bold-heading'>{t('products')}</div><br />
       <Button onClick={() => sortAZ()}>{t('sort-az')}</Button>
       <Button onClick={() => sortZA()}>{t('sort-za')}</Button><div>  </div>
       <Button onClick={() => sortPriceAscending()}>{t('sort-price-increasing')}</Button>
@@ -53,16 +55,11 @@ function HomePage() {
           <Button onClick={() => addToChart(product)}>{t('add-to-cart')}</Button><br /><br />
         </div>
       )}
-
-      <Toast>
-        <Toast.Header>
-          <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-          <strong className="me-auto">{t('cart')}</strong>
-          <small>{t('just-now')}</small>
-        </Toast.Header>
-        <Toast.Body>{t('product-added')}</Toast.Body>
-      </Toast>
-
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        transition={Slide}
+      />
     </div>
   )
 }

@@ -16,3 +16,8 @@
 .lang>:active {
   padding: 1px;
 }
+
+.bold-heading {
+  font-size: 22px;
+  font-style: italic
+}

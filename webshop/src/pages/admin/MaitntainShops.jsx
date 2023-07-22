@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 function MaitntainShops() {
+
+  const { t, i18n } = useTranslation();
+
   return (
-    <div>MaitntainShops</div>
+    <div>
+      <div className='bold-heading'>{t('maintain-shops')}</div><br />
+    </div>
   )
 }
 

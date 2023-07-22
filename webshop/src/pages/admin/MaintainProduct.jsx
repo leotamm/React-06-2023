@@ -3,10 +3,14 @@ import productsFromFile from '../../data/products.json'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
+import { useTranslation } from 'react-i18next';
+
 
 function MaintainProduct() {
 
   const [products, updateProducts] = useState(productsFromFile);
+
+  const { t, i18n } = useTranslation();
 
   const deleteProduct = (index) => {
     productsFromFile.splice(index, 1);
@@ -16,6 +20,7 @@ function MaintainProduct() {
 
   return (
     <div>
+      <div className='bold-heading'>{t('maintain-products')}</div><br />
       {products.map((product, index) =>
         <div key={product.id}>
           <img src={product.image} alt='' />

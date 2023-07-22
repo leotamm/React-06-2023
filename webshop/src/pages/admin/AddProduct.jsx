@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import productsFromFile from '../../data/products.json';
 import { Button } from 'react-bootstrap';
+import { Slide, ToastContainer, toast } from 'react-toastify';
 
 import { useTranslation } from 'react-i18next';
 
@@ -20,7 +21,7 @@ function AddProduct() {
     if (inputId.current.value < 0 || inputImage.current.value === '' ||
       inputName.current.value === '' || inputPrice.current.value < 0 ||
       inputDescription.current.value === '' || inputCategory.current.value === '') {
-      console.log('Ei saa sisestada');
+      toast.error('Toodet ei saa lisada');
     } else {
       productsFromFile.push(
         {
@@ -33,13 +34,13 @@ function AddProduct() {
           "active": inputActive.current.checked
         }
       )
-      console.log('Toode sisestatud');
+      toast.success(t('product-added'));
     }
   }
 
   return (
     <div>
-      {t('add-product')}<br />
+      <div className='bold-heading'>{t('add-product')}</div><br />
       <label >Id</label>
       <input ref={inputId} type="number" /><br />
       <label >{t('image')}</label>
@@ -55,6 +56,11 @@ function AddProduct() {
       <label >{t('active')}</label>
       <input ref={inputActive} type="checkbox" /><br />
       <Button onClick={() => addProduct()} variant='success'>{t('add')}</Button>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={4000}
+        transition={Slide}
+      />
     </div>
   )
 }
