@@ -30,7 +30,10 @@ const resources = {
       "empty-cart" : "Empty cart",
       "product-removed" : "Product removed",
       "total-sum" : "Total sum",
+      "product-details" : "Product details",
+      "product-not-found" : "Product not found",
 
+      "index" : "Index",
       "image" : "Image",
       "name" : "Name",
       "price" : "Price",
@@ -65,7 +68,10 @@ const resources = {
       "empty-cart" : "Tühjenda ostukorv",
       "product-removed" : "Toode eemaldatud",
       "total-sum" : "Summa kokku",
+      "product-details" : "Toote detailid",
+      "product-not-found" : "Toodet ei leitud",
 
+      "index" : "Indeks",
       "image" : "Pilt",
       "name" : "Nimi",
       "price" : "Hind",
@@ -100,7 +106,10 @@ const resources = {
       "empty-cart" : "Leeren Sie den Warenkorb",
       "product-removed" : "Produkt entfernt",
       "total-sum" : "Gesamtsumme",
+      "product-details" : "Produktdetails",
+      "product-not-found" : "Produkt nicht gefunden",
 
+      "index" : "Index",
       "image" : "Bild",
       "name" : "Name",
       "price" : "Preis",
@@ -135,7 +144,10 @@ const resources = {
       "empty-cart" : "Panier vide",
       "product-removed" : "Produit supprimé",
       "total-sum" : "Somme totale",
+      "product-details" : "Détails du produit",
+      "product-not-found" : "Produit non trouvé",
 
+      "index" : "Indice",
       "image" : "Image",
       "name" : "Nom",
       "price" : "Prix",

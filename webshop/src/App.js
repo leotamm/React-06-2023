@@ -89,6 +89,7 @@ function App() {
         <Route path='/admin/maintain-shops' element={<MaitntainShops />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/product/:index' element={<SingleProduct />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
 

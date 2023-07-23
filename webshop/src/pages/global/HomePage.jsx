@@ -4,6 +4,7 @@ import cartFile from '../../data/cart.json'
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Slide, ToastContainer, toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
 
@@ -52,7 +53,11 @@ function HomePage() {
           <img src={product.image} alt='' />
           <div>{product.name}</div>
           <div>{product.price}</div>
-          <Button onClick={() => addToChart(product)}>{t('add-to-cart')}</Button><br /><br />
+          <Button onClick={() => addToChart(product)}>{t('add-to-cart')}</Button>
+          <Link to={'/product/' + index}>
+            <Button>{t('product-details')}</Button>
+          </Link>
+          <br /><br />
         </div>
       )}
       <ToastContainer
