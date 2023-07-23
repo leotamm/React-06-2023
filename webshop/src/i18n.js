@@ -41,6 +41,7 @@ const resources = {
       "category" : "Category",
       "active" : "Active",
       "add" : "Add",
+      "remove" : "Remove",
     }
   },
   ee: {
@@ -79,6 +80,7 @@ const resources = {
       "category" : "Kategooria",
       "active" : "Aktiivne",
       "add" : "Lisa",
+      "remove" : "Eemalda",
     }
   },
   de: {
@@ -117,6 +119,7 @@ const resources = {
       "category" : "Kategorie",
       "active" : "Aktiv",
       "add" : "Hinzufügen",
+      "remove" : "Remove",
     }
   },
   fr: {
@@ -155,6 +158,7 @@ const resources = {
       "category" : "Catégorie",
       "active" : "Active",
       "add" : "Ajouter",
+      "remove" : "Retirer",
     }
   },
 };

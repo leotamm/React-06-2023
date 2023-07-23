@@ -38,7 +38,7 @@ function Cart() {
       {cart.map((product, index) =>
         <div key={index}>
           {product.name} (id: {product.id}) - {product.price}
-          <Button variant='danger' onClick={() => removeProduct(index)}>Remove</Button>
+          <Button variant='danger' onClick={() => removeProduct(index)}>{t('remove')}</Button>
         </div>
       )}
       <ToastContainer
