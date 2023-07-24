@@ -7,7 +7,7 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
-      "admin": "To admin view",
+      "admin": "Admin view",
       "shop": "Our shops",
       "contact": "Contact us",
       "login": "Log in",
@@ -24,6 +24,7 @@ const resources = {
       "sort-price-decreasing" : "Sort price decreasing",
       "add-to-cart" : "Add to cart",
       "just-now": "Just now",
+      "adding-failed": "Adding failed",
       "product-added": "Product added",
       "cart-is-empty" : "Cart is empty",
       "products-in-cart" : "Products in cart",
@@ -63,6 +64,7 @@ const resources = {
       "sort-price-decreasing" : "Kallimad eespool",
       "add-to-cart" : "Lisa ostukorvi",
       "just-now": "Just nüüd",
+      "adding-failed": "Lisamine ebaõnnestus",
       "product-added": "Toode lisatud",
       "cart-is-empty" : "Ostukorv on tühi",
       "products-in-cart" : "Tooteid ostukorvis",
@@ -85,7 +87,7 @@ const resources = {
   },
   de: {
     translation: {
-      "admin": "Zur Admin-Ansicht",
+      "admin": "Admin-Ansicht",
       "shop": "Unsere Geschäfte",
       "contact": "Kontaktiere uns",
       "login": "Anmeldung",
@@ -102,6 +104,7 @@ const resources = {
       "sort-price-decreasing" : "Preis hoch nach niedrig",
       "add-to-cart" : "Zum Warenkorb",
       "just-now": "Soeben",
+      "adding-failed": "Hinzufügen ist fehlgeschlagen",
       "product-added": "Produkt hinzugefügt",
       "cart-is-empty" : "Warenkorb leer",
       "products-in-cart" : "Produkte im Warenkorb",
@@ -119,7 +122,7 @@ const resources = {
       "category" : "Kategorie",
       "active" : "Aktiv",
       "add" : "Hinzufügen",
-      "remove" : "Remove",
+      "remove" : "Entfernen",
     }
   },
   fr: {
@@ -141,6 +144,7 @@ const resources = {
       "sort-price-decreasing" : "Trier le prix décroissant",
       "add-to-cart" : "Add to cart",
       "just-now": "Juste maintenant",
+      "adding-failed": "Échec de l'ajout",
       "product-added": "Produit ajouté",
       "cart-is-empty" : "Le panier est vide",
       "products-in-cart" : "Produits dans le panier",

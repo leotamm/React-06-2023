@@ -21,7 +21,7 @@ function AddProduct() {
     if (inputId.current.value < 0 || inputImage.current.value === '' ||
       inputName.current.value === '' || inputPrice.current.value < 0 ||
       inputDescription.current.value === '' || inputCategory.current.value === '') {
-      toast.error('Toodet ei saa lisada');
+      toast.error(t('adding-failed'));
     } else {
       productsFromFile.push(
         {

@@ -2,22 +2,32 @@
   text-align: center;
 }
 
-.lang {
-  width: 30px;
-  height: 30px;
+.navbar-lang {
+  width: 25px;
+  height: 25px;
   margin: 3px;
 }
 
-.lang:hover {
+.navbar-lang:hover {
   cursor: pointer;
   opacity: 70%;
 }
 
-.lang>:active {
+.navbar-lang>:active {
   padding: 1px;
 }
 
 .bold-heading {
   font-size: 22px;
-  font-style: italic
+  font-style: italic;
+}
+
+.navbar-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.navbar-icon:hover {
+  cursor: pointer;
+  opacity: 70%;
 }
