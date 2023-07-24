@@ -41,6 +41,7 @@ function Cart() {
           <Button variant='danger' onClick={() => removeProduct(index)}>{t('remove')}</Button>
         </div>
       )}
+      <Button disabled variant='primary'>Check-out</Button>
       <ToastContainer
         position="bottom-center"
         autoClose={3000}

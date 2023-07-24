@@ -36,7 +36,7 @@ function HomePage() {
 
   const addToChart = (product) => {
     cartFile.push(product);
-    toast.success(product.name + ' lisatud!');
+    toast.success(product.name + ' ' + t('added'));
   }
 
   return (

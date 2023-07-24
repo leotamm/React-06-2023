@@ -11,7 +11,7 @@ const resources = {
       "shop": "Our shops",
       "contact": "Contact us",
       "login": "Log in",
-      "cart": "To cart",
+      "cart": "Cart",
       "maintain-categories": "Maintain categories",
       "maintain-shops": "Maintain shops",
       "add-product": "Add product",
@@ -42,6 +42,7 @@ const resources = {
       "category" : "Category",
       "active" : "Active",
       "add" : "Add",
+      "added" : "added",
       "remove" : "Remove",
     }
   },
@@ -51,7 +52,7 @@ const resources = {
       "shop": "Meie poed",
       "contact": "Võta ühendust",
       "login": "Logi sisse",
-      "cart": "Ostukorvi",
+      "cart": "Ostukorv",
       "maintain-categories": "Halda kategooriaid",
       "maintain-shops": "Halda poode",
       "add-product": "Lisa toode",
@@ -82,6 +83,7 @@ const resources = {
       "category" : "Kategooria",
       "active" : "Aktiivne",
       "add" : "Lisa",
+      "added" : "lisatud",
       "remove" : "Eemalda",
     }
   },
@@ -122,6 +124,7 @@ const resources = {
       "category" : "Kategorie",
       "active" : "Aktiv",
       "add" : "Hinzufügen",
+      "added" : "hinzugefügt",
       "remove" : "Entfernen",
     }
   },
@@ -131,7 +134,7 @@ const resources = {
       "shop": "Nos boutiques",
       "contact": "Contactez-nous",
       "login": "Connexion",
-      "cart": "Vers le panier",
+      "cart": "Le panier",
       "maintain-categories": "Maintenir les catégories",
       "maintain-shops": "Entretenir les boutiques",
       "add-product": "Ajouter un produit",
@@ -162,6 +165,7 @@ const resources = {
       "category" : "Catégorie",
       "active" : "Active",
       "add" : "Ajouter",
+      "added" : " ajouté",
       "remove" : "Retirer",
     }
   },
