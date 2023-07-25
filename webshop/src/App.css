@@ -9,6 +9,13 @@
   margin-top: 10px;
 }
 
+.navbar-lang-elevated {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  margin-top: -10px;
+}
+
 .navbar-lang:hover {
   cursor: pointer;
   opacity: 70%;
@@ -16,6 +23,13 @@
 
 .navbar-lang>:active {
   padding: 1px;
+}
+
+.navbar-dropdown-lang {
+  width: 25px;
+  height: 25px;
+  margin: 3px;
+  margin-top: 0px;
 }
 
 .bold-heading {
@@ -31,4 +45,16 @@
 .navbar-icon:hover {
   cursor: pointer;
   opacity: 70%;
+}
+
+.btn-light, .btn-light:hover, .btn-light:active, .btn-light:visited {
+  background-color: #a9a9a9 !important;
+  border-color: #ffffff !important;
+}
+
+.btn-light:hover {
+  color: #ffffFf;
+  background-color: #696969 !important;
+  border-color: #ffffff !important;
+  font-weight:bolder;
 }

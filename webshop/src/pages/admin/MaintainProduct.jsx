@@ -30,7 +30,7 @@ function MaintainProduct() {
           <div>{product.category}</div>
           <div>{product.description}</div>
           <div>{product.active}</div>
-          <Button onClick={() => deleteProduct(index)}>Kustuta</Button><br /><br />
+          <Button variant='light' onClick={() => deleteProduct(index)}>Kustuta</Button><br /><br />
         </div>
       )}
 

@@ -42,10 +42,10 @@ function HomePage() {
   return (
     <div>
       <div className='bold-heading'>{t('products')}</div><br />
-      <Button onClick={() => sortAZ()}>{t('sort-az')}</Button>
-      <Button onClick={() => sortZA()}>{t('sort-za')}</Button><div>  </div>
-      <Button onClick={() => sortPriceAscending()}>{t('sort-price-increasing')}</Button>
-      <Button onClick={() => sortPriceDecending()}>{t('sort-price-decreasing')}</Button>
+      <Button variant="light" size="sm" onClick={() => sortAZ()}>{t('sort-az')}</Button>
+      <Button variant="light" size="sm" onClick={() => sortZA()}>{t('sort-za')}</Button><div>  </div>
+      <Button variant="light" size="sm" onClick={() => sortPriceAscending()}>{t('sort-price-increasing')}</Button>
+      <Button variant="light" size="sm" onClick={() => sortPriceDecending()}>{t('sort-price-decreasing')}</Button>
       <br /><br />
 
       {products.map((product, index) =>
@@ -53,9 +53,9 @@ function HomePage() {
           <img src={product.image} alt='' />
           <div>{product.name}</div>
           <div>{product.price}</div>
-          <Button onClick={() => addToChart(product)}>{t('add-to-cart')}</Button>
+          <Button variant="light" onClick={() => addToChart(product)}>{t('add-to-cart')}</Button>
           <Link to={'/product/' + index}>
-            <Button>{t('product-details')}</Button>
+            <Button variant="light">{t('product-details')}</Button>
           </Link>
           <br /><br />
         </div>

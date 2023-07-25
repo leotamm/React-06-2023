@@ -55,7 +55,7 @@ function AddProduct() {
       <input ref={inputCategory} type="text" /><br />
       <label >{t('active')}</label>
       <input ref={inputActive} type="checkbox" /><br />
-      <Button onClick={() => addProduct()} variant='success'>{t('add')}</Button>
+      <Button variant='light' onClick={() => addProduct()} >{t('add')}</Button>
       <ToastContainer
         position="bottom-center"
         autoClose={4000}

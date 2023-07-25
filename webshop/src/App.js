@@ -33,11 +33,10 @@ function App() {
   }
 
   return (
-
     <div className="App">
       <Navbar sticky='top' collapseOnSelect expand="lg" className="bg-body-tertiary">
         <Container>
-          <img className='navbar-lang' src='/up-chevron.ico' alt='Leo webshop logo' />
+          <img className='navbar-lang-elevated' src='/up-chevron.ico' alt='Leo webshop logo' />
           <Navbar.Brand href="../">Leo's webshop</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -48,33 +47,27 @@ function App() {
             </Nav>
             <Nav className="me-auto">
               <NavDropdown title='EE/EN/DE/FR' id="basic-nav-dropdown">
-                {localStorage.getItem('language') !== 'ee' && <NavDropdown.Item><img className='navbar-lang' src='/estonia.png' alt='' onClick={() => changeLang('ee')} />EE</NavDropdown.Item>}
-                {localStorage.getItem('language') !== 'en' && <NavDropdown.Item><img className='navbar-lang' src='/united-kingdom.png' alt='' onClick={() => changeLang('en')} />EN</NavDropdown.Item>}
-                {localStorage.getItem('language') !== 'de' && <NavDropdown.Item><img className='navbar-lang' src='/germany.png' alt='' onClick={() => changeLang('de')} />DE</NavDropdown.Item>}
-                {localStorage.getItem('language') !== 'fr' && <NavDropdown.Item> <img className='navbar-lang' src='/france.png' alt='' onClick={() => changeLang('fr')} />FR</NavDropdown.Item>}
+                {localStorage.getItem('language') !== 'ee' && <NavDropdown.Item onClick={() => changeLang('ee')}>EE - eestikeelne</NavDropdown.Item>}
+                {localStorage.getItem('language') !== 'en' && <NavDropdown.Item onClick={() => changeLang('en')}>EN - in English</NavDropdown.Item>}
+                {localStorage.getItem('language') !== 'de' && <NavDropdown.Item onClick={() => changeLang('de')}>DE - auf Deutch</NavDropdown.Item>}
+                {localStorage.getItem('language') !== 'fr' && <NavDropdown.Item onClick={() => changeLang('fr')}>FR - en français</NavDropdown.Item>}
               </NavDropdown>
             </Nav>
             <Nav >
-
-              <img className='navbar-lang' src='/estonia.png' alt='' onClick={() => changeLang('ee')} />
-              <img className='navbar-lang' src='/united-kingdom.png' alt='' onClick={() => changeLang('en')} />
-              <img className='navbar-lang' src='/germany.png' alt='' onClick={() => changeLang('de')} />
-              <img className='navbar-lang' src='/france.png' alt='' onClick={() => changeLang('fr')} />
+              <img className='navbar-lang' src='/estonia.png' alt='Page in Estonian' onClick={() => changeLang('ee')} />
+              <img className='navbar-lang' src='/united-kingdom.png' alt='Page in English' onClick={() => changeLang('en')} />
+              <img className='navbar-lang' src='/germany.png' alt='Page in German' onClick={() => changeLang('de')} />
+              <img className='navbar-lang' src='/france.png' alt='Page in French' onClick={() => changeLang('fr')} />
               <Nav.Link as={Link} to='/cart'>{t('cart')}
-                <img className='navbar-icon' src='/add-cart.png' alt='Cart icon'></img>
+                <img className='navbar-icon' src='/add-cart.png' alt='Go to shopping cart'></img>
               </Nav.Link>
               <Nav.Link as={Link} to='/login'>{t('login')}
-                <img className='navbar-icon' src='/door-open.png' alt='Cart icon'></img>
-              </Nav.Link>
-
-              <Nav.Link eventKey={2} href="#memes">
+                <img className='navbar-icon' src='/door-open.png' alt='Go to login page'></img>
               </Nav.Link>
             </Nav>
-
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/contact' element={<ContuctUs />} />
@@ -92,7 +85,6 @@ function App() {
         <Route path='/product/:index' element={<SingleProduct />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-
     </div>
   );
 }
