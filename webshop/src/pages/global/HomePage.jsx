@@ -10,31 +10,31 @@ import { useTranslation } from 'react-i18next';
 
 function HomePage() {
 
-  const [products, updateProducts] = useState(productsFromFile);
+  const [products, setProducts] = useState(productsFromFile);
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const sortAZ = () => {
-    const result = products.sort((a, b) => a.name.localeCompare(b.name));
-    updateProducts(result.slice());
+    products.sort((a, b) => a.name.localeCompare(b.name));
+    setProducts(products.slice());
   }
 
   const sortZA = () => {
-    const result = products.sort((a, b) => b.name.localeCompare(a.name));
-    updateProducts(result.slice());
+    products.sort((a, b) => b.name.localeCompare(a.name));
+    setProducts(products.slice());
   }
 
   const sortPriceAscending = () => {
     products.sort((a, b) => a.price - b.price);
-    updateProducts(products.slice());
+    setProducts(products.slice());
   }
 
   const sortPriceDecending = () => {
     products.sort((a, b) => b.price - a.price);
-    updateProducts(products.slice());
+    setProducts(products.slice());
   }
 
-  const addToChart = (product) => {
+  const addToCart = (product) => {
     cartFile.push(product);
     toast.success(product.name + ' ' + t('added'));
   }
@@ -53,7 +53,7 @@ function HomePage() {
           <img src={product.image} alt='' />
           <div>{product.name}</div>
           <div>{product.price}</div>
-          <Button variant="light" onClick={() => addToChart(product)}>{t('add-to-cart')}</Button>
+          <Button variant="light" onClick={() => addToCart(product)}>{t('add-to-cart')}</Button>
           <Link to={'/product/' + index}>
             <Button variant="light">{t('product-details')}</Button>
           </Link>

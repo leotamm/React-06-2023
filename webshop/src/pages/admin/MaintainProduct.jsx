@@ -2,21 +2,21 @@ import React from 'react'
 import productsFromFile from '../../data/products.json'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
 
 
 function MaintainProduct() {
 
-  const [products, updateProducts] = useState(productsFromFile);
+  const [products, setProducts] = useState(productsFromFile);
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const deleteProduct = (index) => {
     productsFromFile.splice(index, 1);
-    updateProducts(productsFromFile.slice());
+    setProducts(productsFromFile.slice());
   }
-
 
   return (
     <div>
@@ -30,10 +30,10 @@ function MaintainProduct() {
           <div>{product.category}</div>
           <div>{product.description}</div>
           <div>{product.active}</div>
-          <Button variant='light' onClick={() => deleteProduct(index)}>Kustuta</Button><br /><br />
+          <Button variant='light' onClick={() => deleteProduct(index)}>Kustuta</Button>
+          <Button as={Link} to={'/admin/edit-product/' + product.id} variant='light'>Muuda</Button>
         </div>
       )}
-
     </div>
   )
 }

@@ -8,7 +8,7 @@ function SingleProduct() {
   const { index } = useParams();
   const indexFound = productsFromFile[index];
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div>

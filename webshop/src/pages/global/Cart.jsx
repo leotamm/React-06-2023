@@ -8,18 +8,18 @@ import { useTranslation } from 'react-i18next';
 
 function Cart() {
 
-  const [cart, updateCart] = useState(cartFromFile);
+  const [cart, setCart] = useState(cartFromFile);
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const emptyCart = () => {
     cart.splice(0);
-    updateCart(cart.slice());
+    setCart(cart.slice());
   }
 
   const removeProduct = (index) => {
     cart.splice(index, 1);
-    updateCart(cart.slice());
+    setCart(cart.slice());
     toast.success(t('product-removed'));
   }
 

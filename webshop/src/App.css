@@ -47,14 +47,14 @@
   opacity: 70%;
 }
 
-.btn-light, .btn-light:hover, .btn-light:active, .btn-light:visited {
+.btn-light, .btn-light:active, .btn-light:visited {
   background-color: #a9a9a9 !important;
-  border-color: #ffffff !important;
+  border-color: #fcfcfc !important;
 }
 
 .btn-light:hover {
-  color: #ffffFf;
+  color: #fcfcfc;
   background-color: #696969 !important;
-  border-color: #ffffff !important;
+  border-color: #fcfcfc !important;
   font-weight:bolder;
 }

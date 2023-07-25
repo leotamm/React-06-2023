@@ -15,7 +15,7 @@ function AddProduct() {
   const inputCategory = useRef();
   const inputActive = useRef();
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const addProduct = () => {
     if (inputId.current.value < 0 || inputImage.current.value === '' ||
