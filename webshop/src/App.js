@@ -9,7 +9,7 @@ import MaitntainShops from './pages/admin/MaitntainShops';
 import HomePage from './pages/global/HomePage';
 import MaintainProduct from './pages/admin/MaintainProduct';
 import Cart from './pages/global/Cart';
-import ContuctUs from './pages/global/ContuctUs'
+import { ContactUs } from './pages/global/ContactUs'
 import Shops from './pages/global/Shops';
 import SingleProduct from './pages/global/SingleProduct';
 import Login from './pages/auth/Login';
@@ -70,7 +70,7 @@ function App() {
       </Navbar>
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/contact' element={<ContuctUs />} />
+        <Route path='/contact' element={<ContactUs />} />
         <Route path='/shop' element={<Shops />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/product' element={<SingleProduct />} />

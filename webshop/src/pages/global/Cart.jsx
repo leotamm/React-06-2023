@@ -32,8 +32,10 @@ function Cart() {
   return (
     <div>
       {cart.length === 0 && <div className='bold-heading'>{t('cart-is-empty')}</div>}
-      {cart.length > 0 && <div className='bold-heading'>{t('products-in-cart')}: {cart.length}</div>}
-      {cart.length > 0 && <div className='bold-heading' >{t('total-sum')}: {cartSum()} €</div>}
+      {cart.length > 0 && <div>
+        <div className='bold-heading'>{t('products-in-cart')}: {cart.length}</div>
+        <div className='bold-heading' >{t('total-sum')}: {cartSum()} €</div>
+      </div>}
       {cart.length > 0 && <Button variant='light' onClick={emptyCart}>{t('empty-cart')}</Button>}<br /><br />
       {cart.map((product, index) =>
         <div key={index}>

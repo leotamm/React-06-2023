@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import productsFromFile from '../../data/products.json'
 import { Button } from 'react-bootstrap';
 
@@ -16,10 +16,20 @@ function EditProduct() {
   const descriptionRef = useRef();
   const actionRef = useRef();
 
-  const edit = () => {
-    const index = productsFromFile.findIndex();
-    productsFromFile[index] = {};
+  const navigate = useNavigate();
 
+  const edit = () => {
+    const index = productsFromFile.findIndex(product => product.id === Number(productId));
+    productsFromFile[index] = {
+      "id": Number(idRef.current.value),
+      "image": imageRef.current.value,
+      "name": nameRef.current.value,
+      "price": Number(priceRef.current.value),
+      "description": descriptionRef.current.value,
+      "category": categoryRef.current.value,
+      "active": actionRef.current.checked,
+    };
+    navigate('/admin/maintain-product');
   }
 
   if (found === undefined) {
