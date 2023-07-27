@@ -1,15 +1,17 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useState } from 'react';
+import Map from '../../components/Map';
 
 function Shops() {
+  const [coordinaates, setCoordinates] = useState({lngLat: [59.4378, 24.7574], zoom: 11});
 
-  const { t } = useTranslation();
-
-  return (
-    <div>
-      <div className='bold-heading'>{t('shop')}</div><br />
-    </div>
-  )
+  return (<div>
+    <button onClick={() => setCoordinates({lngLat: [58.8856, 25.5591], zoom: 7})}>Kõik poed</button>
+    <button onClick={() => setCoordinates({lngLat: [59.4378, 24.7574], zoom: 11})}>Kõik Tallinna poed</button>
+    <button onClick={() => setCoordinates({lngLat: [59.4231, 24.7991], zoom: 13})}>Ülemiste</button>
+    <button onClick={() => setCoordinates({lngLat: [59.4277, 24.7193], zoom: 13})}>Kristiine</button>
+    <button onClick={() => setCoordinates({lngLat: [58.3777, 26.7301], zoom: 13})}>Tasku</button>
+    <Map mapCoordinaates={coordinaates}  />
+  </div>)
 }
 
-export default Shops
+export default Shops;
