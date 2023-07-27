@@ -56,5 +56,10 @@
   color: #fcfcfc;
   background-color: #696969 !important;
   border-color: #fcfcfc !important;
-  font-weight:bolder;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1em
 }

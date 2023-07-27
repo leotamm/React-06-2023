@@ -33,6 +33,7 @@ const resources = {
       "total-sum" : "Total sum",
       "product-details" : "Product details",
       "product-not-found" : "Product not found",
+      "back-to-products" : "Back to products",
 
       "index" : "Index",
       "image" : "Image",
@@ -74,6 +75,7 @@ const resources = {
       "total-sum" : "Summa kokku",
       "product-details" : "Toote detailid",
       "product-not-found" : "Toodet ei leitud",
+      "back-to-products" : "Tagasi toodetesse",
 
       "index" : "Indeks",
       "image" : "Pilt",
@@ -115,6 +117,7 @@ const resources = {
       "total-sum" : "Gesamtsumme",
       "product-details" : "Produktdetails",
       "product-not-found" : "Produkt nicht gefunden",
+      "back-to-products" : "Zurück zu Produkten",
 
       "index" : "Index",
       "image" : "Bild",
@@ -156,6 +159,7 @@ const resources = {
       "total-sum" : "Somme totale",
       "product-details" : "Détails du produit",
       "product-not-found" : "Produit non trouvé",
+      "back-to-products" : "Retour aux produits",
 
       "index" : "Indice",
       "image" : "Image",

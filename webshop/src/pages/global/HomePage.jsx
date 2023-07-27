@@ -47,19 +47,21 @@ function HomePage() {
       <Button variant="light" size="sm" onClick={() => sortPriceAscending()}>{t('sort-price-increasing')}</Button>
       <Button variant="light" size="sm" onClick={() => sortPriceDecending()}>{t('sort-price-decreasing')}</Button>
       <br /><br />
+      <div className='grid-container'>
+        {products.map((product, index) =>
+          <div key={index}>
+            <img src={product.image} alt='' />
+            <div>{product.name}</div>
+            <div>{product.price}</div>
+            <Button variant="light" onClick={() => addToCart(product)}>{t('add-to-cart')}</Button>
+            <Link to={'/product/' + index}>
+              <Button variant="light">{t('product-details')}</Button>
+            </Link>
+          </div>
+        )}
+      </div>
 
-      {products.map((product, index) =>
-        <div key={index}>
-          <img src={product.image} alt='' />
-          <div>{product.name}</div>
-          <div>{product.price}</div>
-          <Button variant="light" onClick={() => addToCart(product)}>{t('add-to-cart')}</Button>
-          <Link to={'/product/' + index}>
-            <Button variant="light">{t('product-details')}</Button>
-          </Link>
-          <br /><br />
-        </div>
-      )}
+
       <ToastContainer
         position="bottom-center"
         autoClose={3000}

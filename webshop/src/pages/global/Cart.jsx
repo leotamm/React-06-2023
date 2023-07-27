@@ -5,12 +5,15 @@ import cartFromFile from '../../data/cart.json'
 import { Slide, ToastContainer, toast } from 'react-toastify';
 
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
 
   const [cart, setCart] = useState(cartFromFile);
 
   const { t } = useTranslation();
+
+  const navigate = useNavigate();
 
   const emptyCart = () => {
     cart.splice(0);
@@ -29,14 +32,19 @@ function Cart() {
     return sum.toFixed(2);
   }
 
+  const backToProducts = () => {
+    navigate('/');
+  }
+
+
   return (
     <div>
       {cart.length === 0 && <div className='bold-heading'>{t('cart-is-empty')}</div>}
       {cart.length > 0 && <div>
         <div className='bold-heading'>{t('products-in-cart')}: {cart.length}</div>
         <div className='bold-heading' >{t('total-sum')}: {cartSum()} €</div>
+      {cart.length > 0 && <Button variant='light' onClick={backToProducts}>{t('back-to-products')}</Button>} <br /> <br />
       </div>}
-      {cart.length > 0 && <Button variant='light' onClick={emptyCart}>{t('empty-cart')}</Button>}<br /><br />
       {cart.map((product, index) =>
         <div key={index}>
           {product.name} (id: {product.id}) - {product.price} € { }
@@ -44,6 +52,7 @@ function Cart() {
         </div>
       )}
       <br></br>
+      {cart.length > 0 && <Button variant='light' onClick={emptyCart}>{t('empty-cart')}</Button>}
       {cart.length > 0 && <Button disabled variant='light'>Check-out</Button>}
       <ToastContainer
         position="bottom-center"
