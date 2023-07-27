@@ -19,7 +19,7 @@ import NotFound from './pages/global/NotFound';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { NavDropdown } from 'react-bootstrap';
+// import { NavDropdown } from 'react-bootstrap';
 
 import { useTranslation } from 'react-i18next';
 
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar sticky='top' collapseOnSelect expand="lg" className="bg-body-tertiary">
+      <Navbar sticky='top' collapseOnSelect expand className="bg-body-tertiary">
         <Container>
           <img className='navbar-lang-elevated' src='/up-chevron.ico' alt='Leo webshop logo' />
           <Navbar.Brand href="../">Leo's webshop</Navbar.Brand>
@@ -45,14 +45,14 @@ function App() {
               <Nav.Link as={Link} to='/shop'>{t('shop')}</Nav.Link>
               <Nav.Link as={Link} to='/contact'>{t('contact')}</Nav.Link>
             </Nav>
-            <Nav className="me-auto">
+            {/* <Nav className="me-auto">
               <NavDropdown title='EE/EN/DE/FR' id="basic-nav-dropdown">
                 {localStorage.getItem('language') !== 'ee' && <NavDropdown.Item onClick={() => changeLang('ee')}>EE - eestikeelne</NavDropdown.Item>}
                 {localStorage.getItem('language') !== 'en' && <NavDropdown.Item onClick={() => changeLang('en')}>EN - in English</NavDropdown.Item>}
                 {localStorage.getItem('language') !== 'de' && <NavDropdown.Item onClick={() => changeLang('de')}>DE - auf Deutch</NavDropdown.Item>}
                 {localStorage.getItem('language') !== 'fr' && <NavDropdown.Item onClick={() => changeLang('fr')}>FR - en français</NavDropdown.Item>}
               </NavDropdown>
-            </Nav>
+            </Nav> */}
             <Nav >
               <img className='navbar-lang' src='/estonia.png' alt='Page in Estonian' onClick={() => changeLang('ee')} />
               <img className='navbar-lang' src='/united-kingdom.png' alt='Page in English' onClick={() => changeLang('en')} />

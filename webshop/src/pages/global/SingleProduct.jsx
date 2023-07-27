@@ -2,6 +2,8 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import productsFromFile from '../../data/products.json'
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function SingleProduct() {
 
@@ -10,8 +12,15 @@ function SingleProduct() {
 
   const { t } = useTranslation();
 
+  const navigate = useNavigate();
+
+  const backToProducts = () => {
+    navigate('/');
+  }
+
   return (
     <div>
+      <Button variant='light' onClick={backToProducts}>{t('back-to-products')}</Button>
       {indexFound !== undefined &&
         <div>
           <div>{t('index')}: {index}</div>

@@ -43,7 +43,7 @@ function Cart() {
       {cart.length > 0 && <div>
         <div className='bold-heading'>{t('products-in-cart')}: {cart.length}</div>
         <div className='bold-heading' >{t('total-sum')}: {cartSum()} €</div>
-      {cart.length > 0 && <Button variant='light' onClick={backToProducts}>{t('back-to-products')}</Button>} <br /> <br />
+        {cart.length > 0 && <Button variant='light' onClick={backToProducts}>{t('back-to-products')}</Button>} <br /> <br />
       </div>}
       {cart.map((product, index) =>
         <div key={index}>
