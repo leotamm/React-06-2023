@@ -1,9 +1,14 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
+
+import { useTranslation } from 'react-i18next';
 
 export const ContactUs = () => {
+  
   const form = useRef();
+
+  const { t } = useTranslation();
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -29,13 +34,14 @@ export const ContactUs = () => {
 
     <Form ref={form} onSubmit={sendEmail}>
       <Form.Group className="mb-3">
-        <Form.Label>Name</Form.Label>
+        <Form.Label>{t('name')}</Form.Label>
         <Form.Control type="text" id='user_name' />
         <Form.Label>Email</Form.Label>
         <Form.Control type="email" id='user_email' />
-        <Form.Label>Message</Form.Label>
+        <Form.Label>{t('message')}</Form.Label>
         <Form.Control type="textarea" rows={3} id='message' />
-        <input type="submit" value="Send" />
+        <Button variant="light" type="submit" >{t('send')}</Button>
+        {/* <input type="submit"   value={t('send')} /> */}
       </Form.Group>
     </Form>
 

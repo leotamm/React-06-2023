@@ -45,6 +45,8 @@ const resources = {
       "add" : "Add",
       "added" : "added",
       "remove" : "Remove",
+      "message" : "Message",
+      "send" : "Send",
     }
   },
   ee: {
@@ -87,6 +89,8 @@ const resources = {
       "add" : "Lisa",
       "added" : "lisatud",
       "remove" : "Eemalda",
+      "message" : "Sõnum",
+      "send" : "Saada",
     }
   },
   de: {
@@ -129,6 +133,8 @@ const resources = {
       "add" : "Hinzufügen",
       "added" : "hinzugefügt",
       "remove" : "Entfernen",
+      "message" : "Nachricht",
+      "send" : "Schicken",
     }
   },
   fr: {
@@ -171,6 +177,8 @@ const resources = {
       "add" : "Ajouter",
       "added" : " ajouté",
       "remove" : "Retirer",
+      "message" : "Message",
+      "send" : "Envoyer",
     }
   },
 };
