@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import productsFromFile from '../../data/products.json'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 function MaintainProduct() {
 
   const [products, setProducts] = useState(productsFromFile);
-
+  const searchedRef = useRef();
   const { t } = useTranslation();
 
   const deleteProduct = (index) => {
@@ -18,9 +18,18 @@ function MaintainProduct() {
     setProducts(productsFromFile.slice());
   }
 
+  const searchFromProducts = () => {
+    const result = productsFromFile.filter(
+      product => product.name.toLowerCase().includes(searchedRef.current.value.toLowerCase()));
+    setProducts(result.slice());
+      // HILJEM ID JÄRGI
+  }
+
   return (
     <div>
-      <div className='bold-heading'>{t('maintain-products')}</div><br />
+      <div className='bold-heading'>{t('maintain-products')}</div>
+      <div className='bold-heading'>Kokku: {products.length}</div><br />
+      <input ref={searchedRef} onChange={searchFromProducts} type='text' /> <br /><br />
       {products.map((product, index) =>
         <div key={product.id}>
           <img src={product.image} alt='' />

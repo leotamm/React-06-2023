@@ -18,6 +18,12 @@ const resources = {
       "maintain-products": "Maintain products",
       "products": "Products",
 
+      "robot-vacuum": "Robot vacuum",
+      "stick-vacuum": "Stick vacuum",
+      "memory-bank": "Memory bank",
+      "usb-drive": "Usb drive",
+      "camping": "Camping",
+
       "sort-az" : "Sort A - Z",
       "sort-za" : "Sort Z - A",
       "sort-price-increasing" : "Sort price increasing",
@@ -34,6 +40,7 @@ const resources = {
       "product-details" : "Product details",
       "product-not-found" : "Product not found",
       "back-to-products" : "Back to products",
+      "product-category" : "Product category",
 
       "index" : "Index",
       "image" : "Image",
@@ -62,6 +69,12 @@ const resources = {
       "maintain-products": "Halda tooteid",
       "products": "Tooted",
 
+      "robot-vacuum": "Robottolmuimeja",
+      "stick-vacuum": "Varstolmuimeja",
+      "memory-bank": "Mälupank",
+      "usb-drive": "Usb-draiv",
+      "camping": "Matkamine",
+
       "sort-az" : "Sorteeri A - Z",
       "sort-za" : "Sorteeri Z - A",
       "sort-price-increasing" : "Odavamad eespool",
@@ -78,6 +91,7 @@ const resources = {
       "product-details" : "Toote detailid",
       "product-not-found" : "Toodet ei leitud",
       "back-to-products" : "Tagasi toodetesse",
+      "product-category" : "Tootekategooria",
 
       "index" : "Indeks",
       "image" : "Pilt",
@@ -106,6 +120,12 @@ const resources = {
       "maintain-products": "Produkte pflegen",
       "products": "Produkte",
 
+      "robot-vacuum": "Roboterstaubsauger",
+      "stick-vacuum": "Stabstaubsauger",
+      "memory-bank": "Speicherbank",
+      "usb-drive": "USB Laufwerk",
+      "camping": "Camping",
+
       "sort-az" : "Sortieren  A - Z",
       "sort-za" : "Sortieren  Z - A",
       "sort-price-increasing" : "Preis niedrig bis hoch",
@@ -122,6 +142,7 @@ const resources = {
       "product-details" : "Produktdetails",
       "product-not-found" : "Produkt nicht gefunden",
       "back-to-products" : "Zurück zu Produkten",
+      "product-category" : "Produktkategorie",
 
       "index" : "Index",
       "image" : "Bild",
@@ -150,6 +171,12 @@ const resources = {
       "maintain-products": "Maintenir les produits",
       "products": "Produits",
 
+      "robot-vacuum": "Robot aspirateur",
+      "stick-vacuum": "Aspirateur balai",
+      "memory-bank": "Banque de mémoire",
+      "usb-drive": "Clé USB",
+      "camping": "Camping",
+
       "sort-az" : "Trier de A à Z",
       "sort-za" : "Trier de Z à A",
       "sort-price-increasing" : "Trier le prix augmente",
@@ -166,6 +193,7 @@ const resources = {
       "product-details" : "Détails du produit",
       "product-not-found" : "Produit non trouvé",
       "back-to-products" : "Retour aux produits",
+      "product-category" : "Catégorie de produit",
 
       "index" : "Indice",
       "image" : "Image",

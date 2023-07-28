@@ -37,6 +37,7 @@ function AddProduct() {
       toast.success(t('product-added'));
     }
   }
+  
 
   return (
     <div>

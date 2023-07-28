@@ -1,6 +1,5 @@
 import React from 'react'
 import productsFromFile from '../../data/products.json'
-import cartFile from '../../data/cart.json'
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Slide, ToastContainer, toast } from 'react-toastify';
@@ -35,17 +34,32 @@ function HomePage() {
   }
 
   const addToCart = (product) => {
-    cartFile.push(product);
+    // cartFile.push(product);
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
     toast.success(product.name + ' ' + t('added'));
+  }
+
+  const fiterByCategory = (categoryClicked) => {
+    const result = productsFromFile.filter(product => product.category === categoryClicked)
+    setProducts(result);
   }
 
   return (
     <div>
-      <div className='bold-heading'>{t('products')}</div><br />
+      <div className='bold-heading'>{t('products')}</div>
+      <div className='bold-heading'>Kokku: {products.length}</div><br />
       <Button variant="light" size="sm" onClick={() => sortAZ()}>{t('sort-az')}</Button>
       <Button variant="light" size="sm" onClick={() => sortZA()}>{t('sort-za')}</Button><div>  </div>
       <Button variant="light" size="sm" onClick={() => sortPriceAscending()}>{t('sort-price-increasing')}</Button>
-      <Button variant="light" size="sm" onClick={() => sortPriceDecending()}>{t('sort-price-decreasing')}</Button>
+      <Button variant="light" size="sm" onClick={() => sortPriceDecending()}>{t('sort-price-decreasing')}</Button><br />
+      {t('product-category')}:
+      <Button variant="light" size="sm" onClick={()=> fiterByCategory('robot vacuum')}>{t('robot-vacuum')}</Button>
+      <Button variant="light" size="sm" onClick={()=> fiterByCategory('stick vacuum')}>{t('stick-vacuum')}</Button>
+      <Button variant="light" size="sm" onClick={()=> fiterByCategory('memory bank')}>{t('memory-bank')}</Button>
+      <Button variant="light" size="sm" onClick={()=> fiterByCategory('usb drive')}>{t('usb-drive')}</Button>
+      <Button variant="light" size="sm" onClick={()=> fiterByCategory('camping')}>{t('camping')}</Button>
       <br /><br />
       <div className='grid-container'>
         {products.map((product, index) =>
