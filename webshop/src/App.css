@@ -48,13 +48,13 @@
 }
 
 .btn-light, .btn-light:active, .btn-light:visited {
-  background-color: #a9a9a9 !important;
+  background-color: #d8d6d6 !important;
   border-color: #fcfcfc !important;
 }
 
 .btn-light:hover {
   color: #fcfcfc;
-  background-color: #696969 !important;
+  background-color: #979797 !important;
   border-color: #fcfcfc !important;
 }
 

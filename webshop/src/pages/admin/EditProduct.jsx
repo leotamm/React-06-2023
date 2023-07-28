@@ -44,27 +44,28 @@ function EditProduct() {
     if (found === undefined) {
       return <div>Toodet ei leitud</div>
     }
-
-    return (
-      <div>
-        {idUnique === false && <div>Sisestatud ID ei ole unikaalne</div>}
-        <label>ID</label>
-        <input onChange={checkIdUniqueness} defaultValue={found.id} ref={idRef} type='number' /> <br />
-        <label>Name</label>
-        <input defaultValue={found.name} ref={nameRef} type='text' /> <br />
-        <label>Price</label>
-        <input defaultValue={found.price} ref={priceRef} type='number' /> <br />
-        <label>Image</label>
-        <input defaultValue={found.image} ref={imageRef} type='text' /> <br />
-        <label>Category</label>
-        <input defaultValue={found.category} ref={categoryRef} type='text' /> <br />
-        <label>Description</label>
-        <input defaultValue={found.description} ref={descriptionRef} type='text' /> <br />
-        <label>Active</label>
-        <input defaultChecked={found.active} ref={actionRef} type='checkbox' /> <br />
-        <Button disabled={idUnique === false} onClick={edit}>Muuda</Button>
-      </div>
-    )
   }
+
+  return (
+    <div>
+      {idUnique === false && <div>Sisestatud ID ei ole unikaalne</div>}
+      <label>ID</label>
+      <input onChange={checkIdUniqueness} defaultValue={found.id} ref={idRef} type='number' /> <br />
+      <label>Name</label>
+      <input defaultValue={found.name} ref={nameRef} type='text' /> <br />
+      <label>Price</label>
+      <input defaultValue={found.price} ref={priceRef} type='number' /> <br />
+      <label>Image</label>
+      <input defaultValue={found.image} ref={imageRef} type='text' /> <br />
+      <label>Category</label>
+      <input defaultValue={found.category} ref={categoryRef} type='text' /> <br />
+      <label>Description</label>
+      <input defaultValue={found.description} ref={descriptionRef} type='text' /> <br />
+      <label>Active</label>
+      <input defaultChecked={found.active} ref={actionRef} type='checkbox' /> <br />
+      <Button disabled={idUnique === false} onClick={edit}>Muuda</Button>
+    </div>
+  )
 }
+
 export default EditProduct;
