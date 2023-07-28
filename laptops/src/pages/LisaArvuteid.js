@@ -3,38 +3,35 @@ import { useRef, useState } from 'react';
 
 function LisaArvuteid() {
 
-    const [teade, uusTeade] = useState("Lisa arvuti!");
-    const [n2itanuppu, uuendaN2itanuppu] = useState(true);
+    const [message, setMessage] = useState("Lisa arvuti!");
+    const markRef = useRef();
+    const modelRef = useRef();
+    const costRef = useRef();
 
-    const margiLuger = useRef();
-    const mudeliLuger = useRef();
-    const maksumuseLuger = useRef();
-
-    const lisaArvuti = () => {
-        if (margiLuger.current.value === "" ||
-            mudeliLuger.current.value === "" ||
-            maksumuseLuger.current.value === "") {
-            uusTeade("Puudulik info! Arvutit ei sisestatud.");
-        } else {
-            uusTeade("Arvuti lisatud: " + margiLuger.current.value + ", " +
-                mudeliLuger.current.value + ", " + maksumuseLuger.current.value);
-            uuendaN2itanuppu(false);
+    const addProduct = () => {
+        const newComputer = {
+            "mark": markRef.current.value,
+            "mudel": modelRef.current.value,
+            "maksumus": costRef.current.value,
         }
+        const computers = JSON.parse(localStorage.getItem('laptops') || '[]');
+        computers.push(newComputer);
+        localStorage.setItem('laptops', JSON.stringify(computers));
+        setMessage("Arvuti lisatud!");
     }
 
     return (
         <div>
-            <div>Sõnum: {teade}</div>
+            <div>Sõnum: {message}</div>
             <label>Mark</label><br />
-            <input ref={margiLuger} type="text" /><br />
+            <input ref={markRef} type="text" /><br />
             <label>Mudel</label><br />
-            <input ref={mudeliLuger} type="text" /><br />
+            <input ref={modelRef} type="text" /><br />
             <label>Maksumus</label><br />
-            <input ref={maksumuseLuger} type="text" /><br />
-            {n2itanuppu === true && <button onClick={lisaArvuti}>Sisesta</button>}
+            <input ref={costRef} type="text" /><br />
+            { message === "Lisa arvuti!" && <button onClick={addProduct}>Sisesta</button>}
         </div>
     )
-
 }
 
 export default LisaArvuteid
