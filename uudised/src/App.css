@@ -39,10 +39,11 @@
 
 .menu-button {
   background-color:black;
+  border-color: black;
   color: whitesmoke;
   padding: 15px 32px;
   width: 17 0px;
-  border-radius: 15px;
+  border-radius: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -60,6 +61,7 @@
 
 .hele-tekst {
   color: lightblue;
+  padding: 10px;
 }
 
 .valitud {
