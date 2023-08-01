@@ -33,12 +33,18 @@ function HomePage() {
     setProducts(products.slice());
   }
 
-  const addToCart = (product) => {
+  const addToCart = (productClicked) => {
     // cartFile.push(product);
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    cart.push(product);
+    const index = cart.findIndex(cartProduct => cartProduct.product.id === productClicked.id);
+    if (index >= 0) {
+      cart[index].quantity++;
+    } else {
+      cart.push({ "quantity": 1, "product": productClicked });
+    }
+
     localStorage.setItem('cart', JSON.stringify(cart));
-    toast.success(product.name + ' ' + t('added'));
+    toast.success(productClicked.name + ' ' + t('added'));
   }
 
   const fiterByCategory = (categoryClicked) => {
@@ -55,18 +61,18 @@ function HomePage() {
       <Button variant="light" size="sm" onClick={() => sortPriceAscending()}>{t('sort-price-increasing')}</Button>
       <Button variant="light" size="sm" onClick={() => sortPriceDecending()}>{t('sort-price-decreasing')}</Button><br />
       {t('product-category')}:
-      <Button variant="light" size="sm" onClick={()=> fiterByCategory('robot vacuum')}>{t('robot-vacuum')}</Button>
-      <Button variant="light" size="sm" onClick={()=> fiterByCategory('stick vacuum')}>{t('stick-vacuum')}</Button>
-      <Button variant="light" size="sm" onClick={()=> fiterByCategory('memory bank')}>{t('memory-bank')}</Button>
-      <Button variant="light" size="sm" onClick={()=> fiterByCategory('usb drive')}>{t('usb-drive')}</Button>
-      <Button variant="light" size="sm" onClick={()=> fiterByCategory('camping')}>{t('camping')}</Button>
+      <Button variant="light" size="sm" onClick={() => fiterByCategory('robot vacuum')}>{t('robot-vacuum')}</Button>
+      <Button variant="light" size="sm" onClick={() => fiterByCategory('stick vacuum')}>{t('stick-vacuum')}</Button>
+      <Button variant="light" size="sm" onClick={() => fiterByCategory('memory bank')}>{t('memory-bank')}</Button>
+      <Button variant="light" size="sm" onClick={() => fiterByCategory('usb drive')}>{t('usb-drive')}</Button>
+      <Button variant="light" size="sm" onClick={() => fiterByCategory('camping')}>{t('camping')}</Button>
       <br /><br />
       <div className='grid-container'>
         {products.map((product, index) =>
           <div key={index}>
             <img src={product.image} alt='' />
             <div>{product.name}</div>
-            <div>{product.price}</div>
+            <div>{product.price.toFixed(2)}</div>
             <Button variant="light" onClick={() => addToCart(product)}>{t('add-to-cart')}</Button>
             <Link to={'/product/' + index}>
               <Button variant="light">{t('product-details')}</Button>
