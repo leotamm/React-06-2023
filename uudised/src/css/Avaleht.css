@@ -1,0 +1,11 @@
+.user-id-style {
+    font-style: italic;
+}
+
+.post-id-style {
+    text-decoration: underline;
+}
+
+.post-title-style {
+    font-weight: bold;
+}
