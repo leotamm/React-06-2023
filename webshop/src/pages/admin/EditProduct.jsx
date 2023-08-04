@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import productsFromFile from '../../data/products.json'
+import React, { useRef, useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import productsFromFile from '../../data/products.json';
 import { Button } from 'react-bootstrap';
+import config from '../../data/config.json';
 
 function EditProduct() {
 
@@ -18,6 +19,14 @@ function EditProduct() {
   const [idUnique, setIdUnique] = useState(true);
 
   const navigate = useNavigate();
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch(config.categoryUrl)
+      .then(res => res.json())
+      .then(data => setCategories(data || []))
+  }, []);
 
   const edit = () => {
     const index = productsFromFile.findIndex(product => product.id === Number(productId));
@@ -44,6 +53,10 @@ function EditProduct() {
     if (found === undefined) {
       return <div>Toodet ei leitud</div>
     }
+
+    if(categories.length === 0) {
+      return <div>Loading...</div>
+    }
   }
 
   return (
@@ -58,7 +71,10 @@ function EditProduct() {
       <label>Image</label>
       <input defaultValue={found.image} ref={imageRef} type='text' /> <br />
       <label>Category</label>
-      <input defaultValue={found.category} ref={categoryRef} type='text' /> <br />
+      {/* <input defaultValue={found.category} ref={categoryRef} type='text' /> <br /> */}
+      <select ref={categoryRef} defaultValue={found.category} name="" id="">
+        {categories.map(category => <option key={category.name} value={category.name}>{category.name}</option>)}
+      </select><br />
       <label>Description</label>
       <input defaultValue={found.description} ref={descriptionRef} type='text' /> <br />
       <label>Active</label>

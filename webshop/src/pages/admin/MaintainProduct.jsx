@@ -1,25 +1,35 @@
-import React, { useRef } from 'react'
-import productsFromFile from '../../data/products.json'
-import { useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+// import productsFromFile from '../../data/products.json'
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-
 import { useTranslation } from 'react-i18next';
-
+import config from '../../data/config.json';
 
 function MaintainProduct() {
 
-  const [products, setProducts] = useState(productsFromFile);
+  const [products, setProducts] = useState([]);     // väljakuvatav seis
+  const [dbProducts, setDbProducts] = useState([]); //
+
+  // const [products, setProducts] = useState(productsFromFile);
   const searchedRef = useRef();
   const { t } = useTranslation();
 
+  useEffect(() => {
+    fetch(config.productsUrl)
+      .then(res => res.json())
+      .then(data => {
+        setProducts(data || []);    // seda hakkan hiljem muutma
+        setDbProducts(data || []);  // seda  hiljem ei muuda
+      })
+  }, []);
+
   const deleteProduct = (index) => {
-    productsFromFile.splice(index, 1);
-    setProducts(productsFromFile.slice());
+    dbProducts.splice(index, 1);
+    setProducts(dbProducts.slice());
   }
 
   const searchFromProducts = () => {
-    const result = productsFromFile.filter(
+    const result = dbProducts.filter(
       product => product.name.toLowerCase().includes(searchedRef.current.value.toLowerCase()));
     setProducts(result.slice());
       // HILJEM ID JÄRGI

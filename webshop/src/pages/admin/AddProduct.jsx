@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import productsFromFile from '../../data/products.json';
 import { Button } from 'react-bootstrap';
 import { Slide, ToastContainer, toast } from 'react-toastify';
+import config from '../../data/config.json'
 
 import { useTranslation } from 'react-i18next';
 
@@ -16,6 +17,13 @@ function AddProduct() {
   const inputActive = useRef();
 
   const { t } = useTranslation();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch(config.categoryUrl)
+      .then(res => res.json())
+      .then(data => setCategories(data || []))
+  }, []);
 
   const addProduct = () => {
     if (inputId.current.value < 0 || inputImage.current.value === '' ||
@@ -37,7 +45,7 @@ function AddProduct() {
       toast.success(t('product-added'));
     }
   }
-  
+
 
   return (
     <div>
@@ -53,7 +61,10 @@ function AddProduct() {
       <label >{t('description')}</label>
       <input ref={inputDescription} type="text" /><br />
       <label >{t('category')}</label>
-      <input ref={inputCategory} type="text" /><br />
+      {/* <input ref={inputCategory} type="text" /><br /> */}
+      <select ref={inputCategory} name="" id="">
+        {categories.map(category => <option key={category.name} value={category.name}>{category.name}</option>)}
+      </select><br />
       <label >{t('active')}</label>
       <input ref={inputActive} type="checkbox" /><br />
       <Button variant='light' onClick={() => addProduct()} >{t('add')}</Button>

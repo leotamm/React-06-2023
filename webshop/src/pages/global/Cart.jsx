@@ -77,16 +77,19 @@ function Cart() {
             <span>{cartProduct.quantity} pcs</span>
             <img className='button' src="plus.png" onClick={() => increaseQuantity(index)} alt="Add one button" />
           </div>
-
+  
           <div>{(cartProduct.product.price * cartProduct.quantity).toFixed(2)}</div>
           <img className='button' src="delete.png" onClick={() => removeProduct(index)} alt="Delete button" />
           {/* <button>Remove</button>
           <Button variant='light' size="sm" onClick={() => removeProduct(index)}>{t('remove')}</Button> */}
         </div>
       )}
-      <select>{parcelMacines.filter(pm => pm.A0_NAME === 'EE').map(pm => <option>{pm.NAME}</option>)}</select>
-
+      Vali Omniva automaat:{' '}
+      <select>{parcelMacines.filter(pm => pm.A0_NAME === 'EE').map((pm, index) => <option key={index}>{pm.NAME}</option>)}</select>
       <br></br>
+      Vali Smartposti automaat: {' '}
+      
+      <br /><br />
       {cart.length > 0 && <Button variant='light' onClick={emptyCart}>{t('empty-cart')}</Button>}
       {cart.length > 0 && <Button disabled variant='light'>Check-out</Button>}
       <ToastContainer

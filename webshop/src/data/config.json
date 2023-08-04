@@ -1,0 +1,5 @@
+{
+    "categoryUrl": "https://leo-react-webshop-default-rtdb.europe-west1.firebasedatabase.app/categories.json",
+    "shopsUrl": "https://leo-react-webshop-default-rtdb.europe-west1.firebasedatabase.app/shops.json",
+    "productsUrl": "https://leo-react-webshop-default-rtdb.europe-west1.firebasedatabase.app/products.json"
+}

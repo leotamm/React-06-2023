@@ -1,17 +1,35 @@
 import React from 'react'
-import productsFromFile from '../../data/products.json'
-import { useState } from 'react';
+// import productsFromFile from '../../data/products.json'
+import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import config from '../../data/config.json'
 
 import { useTranslation } from 'react-i18next';
 
 function HomePage() {
 
-  const [products, setProducts] = useState(productsFromFile);
+  const [products, setProducts] = useState([]);     // väljakuvatav seis
+  const [dbProducts, setDbProducts] = useState([]); // andmebaasi seis
+  const [categories, setCategories] = useState([]);
 
   const { t } = useTranslation();
+
+  useEffect(() => {
+    fetch(config.categoryUrl)
+      .then(res => res.json())
+      .then(data => setCategories(data || []))
+  }, []);
+
+  useEffect(() => {
+    fetch(config.productsUrl)
+      .then(res => res.json())
+      .then(data => {
+        setProducts(data || []);    // seda hakkan hiljem muutma
+        setDbProducts(data || []);  // seda  hiljem ei muuda
+      })
+  }, []);
 
   const sortAZ = () => {
     products.sort((a, b) => a.name.localeCompare(b.name));
@@ -48,7 +66,7 @@ function HomePage() {
   }
 
   const fiterByCategory = (categoryClicked) => {
-    const result = productsFromFile.filter(product => product.category === categoryClicked)
+    const result = dbProducts.filter(product => product.category === categoryClicked)
     setProducts(result);
   }
 
@@ -61,11 +79,16 @@ function HomePage() {
       <Button variant="light" size="sm" onClick={() => sortPriceAscending()}>{t('sort-price-increasing')}</Button>
       <Button variant="light" size="sm" onClick={() => sortPriceDecending()}>{t('sort-price-decreasing')}</Button><br />
       {t('product-category')}:
-      <Button variant="light" size="sm" onClick={() => fiterByCategory('robot vacuum')}>{t('robot-vacuum')}</Button>
+      {/* <Button variant="light" size="sm" onClick={() => fiterByCategory('robot vacuum')}>{t('robot-vacuum')}</Button>
       <Button variant="light" size="sm" onClick={() => fiterByCategory('stick vacuum')}>{t('stick-vacuum')}</Button>
       <Button variant="light" size="sm" onClick={() => fiterByCategory('memory bank')}>{t('memory-bank')}</Button>
       <Button variant="light" size="sm" onClick={() => fiterByCategory('usb drive')}>{t('usb-drive')}</Button>
-      <Button variant="light" size="sm" onClick={() => fiterByCategory('camping')}>{t('camping')}</Button>
+      <Button variant="light" size="sm" onClick={() => fiterByCategory('camping')}>{t('camping')}</Button> */}
+      {categories.map(category =>
+        <Button variant="light" size="sm" onClick={() => fiterByCategory(category.name)}>
+          {category.name}
+        </Button>)}
+
       <br /><br />
       <div className='grid-container'>
         {products.map((product, index) =>
