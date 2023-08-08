@@ -36,3 +36,42 @@
     transform: rotate(360deg);
   }
 }
+
+.product {
+  display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    margin: 0 10%;
+    padding: 10px 0;
+}
+
+.image {
+  width: 30px;
+  height: 30px;
+}
+
+.name {
+  width: 200px;
+  text-align: left;
+}
+
+.price {
+  width: 150px;
+  text-align: right;
+}
+
+.stock {
+  width: 100px;
+  text-align: right;
+}
+
+
+.quantity {
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+  height: 35px;
+  padding: 4px;
+  border-radius: 15px;
+}
