@@ -44,7 +44,7 @@ function MaintainCategories() {
       <label>Kategooria nimi</label><br />
       <input onKeyUp={addCategory} ref={categoryRef} type="text" /><br />
       {/* <input ref={categoryRef} type="text" /><br /> */}
-      <button onClick={addCategory}>Lisa</button>br
+      <button onClick={addCategory}>Lisa</button><br /><br />
       <div>
         {categories.map((category, index) =>
           <div key={index}>

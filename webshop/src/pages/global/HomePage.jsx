@@ -84,10 +84,11 @@ function HomePage() {
       <Button variant="light" size="sm" onClick={() => fiterByCategory('memory bank')}>{t('memory-bank')}</Button>
       <Button variant="light" size="sm" onClick={() => fiterByCategory('usb drive')}>{t('usb-drive')}</Button>
       <Button variant="light" size="sm" onClick={() => fiterByCategory('camping')}>{t('camping')}</Button> */}
-      {categories.map(category =>
-        <Button variant="light" size="sm" onClick={() => fiterByCategory(category.name)}>
-          {category.name}
-        </Button>)}
+      {categories.map((category, index) =>
+          <Button key={index} variant="light" size="sm" onClick={() => fiterByCategory(category.name)}>
+            {category.name}
+          </Button>
+      )}
 
       <br /><br />
       <div className='grid-container'>
@@ -103,7 +104,6 @@ function HomePage() {
           </div>
         )}
       </div>
-
 
       <ToastContainer
         position="bottom-center"
