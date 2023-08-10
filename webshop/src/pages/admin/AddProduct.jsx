@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import productsFromFile from '../../data/products.json';
+// import productsFromFile from '../../data/products.json';
 import { Button } from 'react-bootstrap';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import config from '../../data/config.json'
@@ -18,11 +18,18 @@ function AddProduct() {
 
   const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     fetch(config.categoryUrl)
       .then(res => res.json())
       .then(data => setCategories(data || []))
+    fetch(config.productsUrl)
+      .then(res => res.json())
+      .then(data => {
+        setProducts(data || []);
+      })
+
   }, []);
 
   const addProduct = () => {
@@ -31,7 +38,7 @@ function AddProduct() {
       inputDescription.current.value === '' || inputCategory.current.value === '') {
       toast.error(t('adding-failed'));
     } else {
-      productsFromFile.push(
+      products.push(
         {
           "id": Number(inputId.current.value),
           "image": inputImage.current.value,
@@ -41,8 +48,10 @@ function AddProduct() {
           "category": inputCategory.current.value,
           "active": inputActive.current.checked
         }
-      )
-      toast.success(t('product-added'));
+      );
+      fetch(config.productsUrl, { method: "PUT", body: JSON.stringify(products) })
+        .then(toast.success(t('product-added'))
+        );
     }
   }
 

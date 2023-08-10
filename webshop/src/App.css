@@ -64,6 +64,11 @@
   gap: 1em
 }
 
+.loader {
+  display: "block";
+  margin: "0 auto";
+}
+
 .map {
   height:300px;
   margin: 3%;

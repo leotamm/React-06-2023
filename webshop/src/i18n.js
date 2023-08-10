@@ -37,10 +37,12 @@ const resources = {
       "empty-cart" : "Empty cart",
       "product-removed" : "Product removed",
       "total-sum" : "Total sum",
+      "total" : "Total",
       "product-details" : "Product details",
       "product-not-found" : "Product not found",
       "back-to-products" : "Back to products",
       "product-category" : "Product category",
+      "category-name" : "Category name",
 
       "index" : "Index",
       "image" : "Image",
@@ -54,6 +56,8 @@ const resources = {
       "remove" : "Remove",
       "message" : "Message",
       "send" : "Send",
+      "choose-a-parcel-machine" : "Choose a parcel machine",
+      "pay" : "Pay",
     }
   },
   ee: {
@@ -88,10 +92,12 @@ const resources = {
       "empty-cart" : "Tühjenda ostukorv",
       "product-removed" : "Toode eemaldatud",
       "total-sum" : "Summa kokku",
+      "total" : "Kokku",
       "product-details" : "Toote detailid",
       "product-not-found" : "Toodet ei leitud",
       "back-to-products" : "Tagasi toodetesse",
       "product-category" : "Tootekategooria",
+      "category-name" : "Kategooria nimi",
 
       "index" : "Indeks",
       "image" : "Pilt",
@@ -105,6 +111,8 @@ const resources = {
       "remove" : "Eemalda",
       "message" : "Sõnum",
       "send" : "Saada",
+      "choose-a-parcel-machine" : "Vali pakiautomaat",
+      "pay" : "Maksa",
     }
   },
   de: {
@@ -139,10 +147,12 @@ const resources = {
       "empty-cart" : "Leeren Sie den Warenkorb",
       "product-removed" : "Produkt entfernt",
       "total-sum" : "Gesamtsumme",
+      "total" : "Gesamt",
       "product-details" : "Produktdetails",
       "product-not-found" : "Produkt nicht gefunden",
       "back-to-products" : "Zurück zu Produkten",
       "product-category" : "Produktkategorie",
+      "category-name" : "Kategoriename",
 
       "index" : "Index",
       "image" : "Bild",
@@ -156,6 +166,8 @@ const resources = {
       "remove" : "Entfernen",
       "message" : "Nachricht",
       "send" : "Schicken",
+      "choose-a-parcel-machine" : "Wählen Sie einen Paketautomaten",
+      "pay" : "Zahlen",
     }
   },
   fr: {
@@ -190,10 +202,12 @@ const resources = {
       "empty-cart" : "Panier vide",
       "product-removed" : "Produit supprimé",
       "total-sum" : "Somme totale",
+      "total" : "Totale",
       "product-details" : "Détails du produit",
       "product-not-found" : "Produit non trouvé",
       "back-to-products" : "Retour aux produits",
       "product-category" : "Catégorie de produit",
+      "category-name" : "Nom de catégorie",
 
       "index" : "Indice",
       "image" : "Image",
@@ -207,6 +221,8 @@ const resources = {
       "remove" : "Retirer",
       "message" : "Message",
       "send" : "Envoyer",
+      "choose-a-parcel-machine" : "Choisissez un distributeur de colis",
+      "pay" : "Payer",
     }
   },
 };

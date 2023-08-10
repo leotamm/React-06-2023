@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import config from '../../data/config.json'
 
@@ -41,15 +42,15 @@ function MaintainCategories() {
   return (
     <div>
       <div className='bold-heading'>{t('maintain-categories')}</div><br />
-      <label>Kategooria nimi</label><br />
+      <label>{t('category-name')}</label><br />
       <input onKeyUp={addCategory} ref={categoryRef} type="text" /><br />
       {/* <input ref={categoryRef} type="text" /><br /> */}
-      <button onClick={addCategory}>Lisa</button><br /><br />
+      <Button variant="light" onClick={addCategory}>{t('add')}</Button><br /><br />
       <div>
         {categories.map((category, index) =>
           <div key={index}>
             {category.name}
-            <button onClick={() => deleteCategory(index)}>X</button>
+            <Button variant="light" onClick={() => deleteCategory(index)}>X</Button>
           </div>)}
       </div>
     </div>

@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 
 function Avaleht() {
 
-    const [joogid, uuendaJoogid] = useState(joogidFailist);
+    const [joogid] = useState(joogidFailist);
 
     return (
         <div>Joogid:
             {joogid.map((jook, index) =>
-                <div>
+                <div key={index}>
                     <Link to={'/jook' + index}>
                         <span>{jook}</span>
                     </Link>

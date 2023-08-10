@@ -1,21 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import productsFromFile from '../../data/products.json'
+// import productsFromFile from '../../data/products.json'
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
+import config from '../../data/config.json';
 
 function SingleProduct() {
 
   const { index } = useParams();
-  const indexFound = productsFromFile[index];
-
   const { t } = useTranslation();
-
+  const [products, setProducts] = useState([]);
+  const [isLoading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const indexFound = products[index];
 
   const backToProducts = () => {
     navigate('/');
+  }
+
+  useEffect(() => {
+    fetch(config.productsUrl)
+      .then(res => res.json())
+      .then(data => {
+        setProducts(data || []);
+        setLoading(false)
+      })
+  }, []);
+
+  if (isLoading) {
+    return < Spinner variant="success" />
   }
 
   return (

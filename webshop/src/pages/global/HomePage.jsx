@@ -1,55 +1,49 @@
-import React from 'react'
+import React from 'react';
 // import productsFromFile from '../../data/products.json'
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import config from '../../data/config.json'
+import config from '../../data/config.json';
+import { ClipLoader } from 'react-spinners';
 
 import { useTranslation } from 'react-i18next';
+import SortButtons from '../../components/SortButtons';
 
 function HomePage() {
 
   const [products, setProducts] = useState([]);     // väljakuvatav seis
   const [dbProducts, setDbProducts] = useState([]); // andmebaasi seis
   const [categories, setCategories] = useState([]);
-
+  const [isLoading, setLoading] = useState(true);
   const { t } = useTranslation();
+
+  // const overrideCSS = () => {
+  //    CSSProperties = {
+  //     display: "block",
+  //     margin: "0 auto",
+  //     borderColor: "red",
+  //   }
+  // };
 
   useEffect(() => {
     fetch(config.categoryUrl)
       .then(res => res.json())
       .then(data => setCategories(data || []))
-  }, []);
 
-  useEffect(() => {
     fetch(config.productsUrl)
       .then(res => res.json())
       .then(data => {
         setProducts(data || []);    // seda hakkan hiljem muutma
         setDbProducts(data || []);  // seda  hiljem ei muuda
+        setLoading(false)
       })
   }, []);
 
-  const sortAZ = () => {
-    products.sort((a, b) => a.name.localeCompare(b.name));
-    setProducts(products.slice());
-  }
+  // if (isLoading) {
+  //   return < Spinner variant="info" />
+  // }
 
-  const sortZA = () => {
-    products.sort((a, b) => b.name.localeCompare(a.name));
-    setProducts(products.slice());
-  }
-
-  const sortPriceAscending = () => {
-    products.sort((a, b) => a.price - b.price);
-    setProducts(products.slice());
-  }
-
-  const sortPriceDecending = () => {
-    products.sort((a, b) => b.price - a.price);
-    setProducts(products.slice());
-  }
 
   const addToCart = (productClicked) => {
     // cartFile.push(product);
@@ -72,12 +66,21 @@ function HomePage() {
 
   return (
     <div>
+      {isLoading && <ClipLoader
+        color={979797}
+        loading={isLoading}
+        cssOverride={null}
+        size={35}
+        speedMultiplier={1}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />}
       <div className='bold-heading'>{t('products')}</div>
-      <div className='bold-heading'>Kokku: {products.length}</div><br />
-      <Button variant="light" size="sm" onClick={() => sortAZ()}>{t('sort-az')}</Button>
-      <Button variant="light" size="sm" onClick={() => sortZA()}>{t('sort-za')}</Button><div>  </div>
-      <Button variant="light" size="sm" onClick={() => sortPriceAscending()}>{t('sort-price-increasing')}</Button>
-      <Button variant="light" size="sm" onClick={() => sortPriceDecending()}>{t('sort-price-decreasing')}</Button><br />
+      <div className='bold-heading'>{t('total')}: {products.length}</div><br />
+      <SortButtons
+        products={products}
+        setProducts={setProducts}
+      />
       {t('product-category')}:
       {/* <Button variant="light" size="sm" onClick={() => fiterByCategory('robot vacuum')}>{t('robot-vacuum')}</Button>
       <Button variant="light" size="sm" onClick={() => fiterByCategory('stick vacuum')}>{t('stick-vacuum')}</Button>
@@ -85,9 +88,9 @@ function HomePage() {
       <Button variant="light" size="sm" onClick={() => fiterByCategory('usb drive')}>{t('usb-drive')}</Button>
       <Button variant="light" size="sm" onClick={() => fiterByCategory('camping')}>{t('camping')}</Button> */}
       {categories.map((category, index) =>
-          <Button key={index} variant="light" size="sm" onClick={() => fiterByCategory(category.name)}>
-            {category.name}
-          </Button>
+        <Button key={index} variant="light" size="sm" onClick={() => fiterByCategory(category.name)}>
+          {category.name}
+        </Button>
       )}
 
       <br /><br />
