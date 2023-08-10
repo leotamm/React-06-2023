@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Slide, ToastContainer, toast } from 'react-toastify';
@@ -60,18 +60,21 @@ function Cart() {
           <img className='image' src={cartProduct.product.image} alt="" />
           <div className='name'>{cartProduct.product.name}</div>
           <div className='price'>{cartProduct.product.price.toFixed(2)} €</div>
+
           <div className='quantity'>
             <img className='button' src="minus.png" onClick={() => decreaseQuantity(index)} alt="Remove one button" />
             <span>{cartProduct.quantity} pcs</span>
             <img className='button' src="plus.png" onClick={() => increaseQuantity(index)} alt="Add one button" />
           </div>
+
           <div>{(cartProduct.product.price * cartProduct.quantity).toFixed(2)} € </div>
           <img className='button' src="bin.png" onClick={() => removeProduct(index)} alt="Delete button" />
+          {/* <button>Remove</button>
+          <Button variant='light' size="sm" onClick={() => removeProduct(index)}>{t('remove')}</Button> */}
         </div>
       )}
       <br />
       {t('choose-a-parcel-machine')}:{' '}
-
       <ParcelMachines />
       <Payment sum={cartSum()} />
 
