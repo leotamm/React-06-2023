@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import config from '../../data/config.json';
 import { ClipLoader } from 'react-spinners';
+import '../../css/MaintainProducts.css'
 
 function MaintainProduct() {
 
@@ -59,14 +60,13 @@ function MaintainProduct() {
       <div className='bold-heading'>Kokku: {products.length}</div><br />
       <input ref={searchedRef} onChange={searchFromProducts} type='text' /> <br /><br />
       {products.map((product) =>
-        <div key={product.id}>
+        <div className={product.active === true ? 'active' : 'inactive'} key={product.id}>
           <img src={product.image} alt='' />
           <div>{product.id}</div>
           <div>{product.name}</div>
           <div>{product.price}</div>
           <div>{product.category}</div>
           <div>{product.description}</div>
-          <div>{product.active}</div>
           <Button variant='light' onClick={() => deleteProduct(product.id)}>Kustuta</Button>
           <Button as={Link} to={'/admin/edit-product/' + product.id} variant='light'>Muuda</Button>
         </div>

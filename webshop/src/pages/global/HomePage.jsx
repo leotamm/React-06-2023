@@ -2,13 +2,14 @@ import React from 'react';
 // import productsFromFile from '../../data/products.json'
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
-import { Slide, ToastContainer, toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { Slide, ToastContainer } from 'react-toastify';
 import config from '../../data/config.json';
 import { ClipLoader } from 'react-spinners';
 
 import { useTranslation } from 'react-i18next';
-import SortButtons from '../../components/SortButtons';
+import SortButtons from '../../components/home/SortButtons';
+import Product from '../../components/home/Product';
+
 
 function HomePage() {
 
@@ -34,6 +35,7 @@ function HomePage() {
     fetch(config.productsUrl)
       .then(res => res.json())
       .then(data => {
+        data = data.filter(product => product.active === true);
         setProducts(data || []);    // seda hakkan hiljem muutma
         setDbProducts(data || []);  // seda  hiljem ei muuda
         setLoading(false)
@@ -45,19 +47,7 @@ function HomePage() {
   // }
 
 
-  const addToCart = (productClicked) => {
-    // cartFile.push(product);
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const index = cart.findIndex(cartProduct => cartProduct.product.id === productClicked.id);
-    if (index >= 0) {
-      cart[index].quantity++;
-    } else {
-      cart.push({ "quantity": 1, "product": productClicked });
-    }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-    toast.success(productClicked.name + ' ' + t('added'));
-  }
 
   const fiterByCategory = (categoryClicked) => {
     const result = dbProducts.filter(product => product.category === categoryClicked)
@@ -96,15 +86,7 @@ function HomePage() {
       <br /><br />
       <div className='grid-container'>
         {products.map((product, index) =>
-          <div key={index}>
-            <img src={product.image} alt='' />
-            <div>{product.name}</div>
-            <div>{product.price.toFixed(2)}</div>
-            <Button variant="light" onClick={() => addToCart(product)}>{t('add-to-cart')}</Button>
-            <Link to={'/product/' + index}>
-              <Button variant="light">{t('product-details')}</Button>
-            </Link>
-          </div>
+          <Product product={product} key={index}/>
         )}
       </div>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Slide, ToastContainer, toast } from 'react-toastify';
@@ -6,30 +6,29 @@ import { Slide, ToastContainer, toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import '../../css/Cart.css';
-import ParcelMachines from '../../components/ParcelMachines';
-import Payment from '../../components/Payment';
+import Payment from '../../components/cart/Payment';
+import ParcelMachines from '../../components/cart/ParcelMachines';
+import { CartSumContext } from '../../store/CartSumContect';
 
 function Cart() {
 
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || '[]');
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { setCartSum } = useContext(CartSumContext);
 
   const removeProduct = (index) => {
     cart.splice(index, 1);
     setCart(cart.slice());
     toast.success(t('product-removed'));
     localStorage.setItem('cart', JSON.stringify(cart));
+    setCartSum(cartSum);
   }
 
   const cartSum = () => {
     let sum = 0;
     cart.forEach(cartProduct => sum += cartProduct.product.price * cartProduct.quantity);
     return sum.toFixed(2);
-  }
-
-  const backToProducts = () => {
-    navigate('/');
   }
 
   const decreaseQuantity = (index) => {
@@ -39,12 +38,18 @@ function Cart() {
     }
     setCart(cart.slice());
     localStorage.setItem('cart', JSON.stringify(cart));
+    setCartSum(cartSum);
   }
 
   const increaseQuantity = (index) => {
     cart[index].quantity += 1;
     setCart(cart.slice());
     localStorage.setItem('cart', JSON.stringify(cart));
+    setCartSum(cartSum);
+  }
+
+  const backToProducts = () => {
+    navigate('/');
   }
 
   return (

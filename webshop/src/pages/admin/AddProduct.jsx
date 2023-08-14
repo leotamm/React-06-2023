@@ -33,26 +33,53 @@ function AddProduct() {
   }, []);
 
   const addProduct = () => {
-    if (inputId.current.value < 0 || inputImage.current.value === '' ||
-      inputName.current.value === '' || inputPrice.current.value < 0 ||
-      inputDescription.current.value === '' || inputCategory.current.value === '') {
-      toast.error(t('adding-failed'));
-    } else {
-      products.push(
-        {
-          "id": Number(inputId.current.value),
-          "image": inputImage.current.value,
-          "name": inputName.current.value,
-          "price": Number(inputPrice.current.value),
-          "description": inputDescription.current.value,
-          "category": inputCategory.current.value,
-          "active": inputActive.current.checked
-        }
-      );
-      fetch(config.productsUrl, { method: "PUT", body: JSON.stringify(products) })
-        .then(toast.success(t('product-added'))
-        );
+    if (inputId.current.value < 0) {
+      toast.error(t('adding-failed') + 'id viga');
+      return;
     }
+
+    if (inputImage.current.value.includes(' ')) {
+      toast.error(t('adding-failed') + 'pildi viga');
+      return;
+    }
+
+    if (inputName.current.value === '' || inputPrice.current.value < 0 ||
+      inputDescription.current.value === '' || inputCategory.current.value === '') {
+      toast.error(t('adding-failed') + 'nime viga');
+      return;
+    }
+
+    if (inputPrice.current.value < 0 ||
+      inputDescription.current.value === '' || inputCategory.current.value === '') {
+      toast.error(t('adding-failed') + 'hinna viga');
+      return;
+    }
+
+    if (inputDescription.current.value === '' || inputCategory.current.value === '') {
+      toast.error(t('adding-failed') + 'kirjelduse viga');
+      return;
+    }
+
+    if (inputCategory.current.value === '') {
+      toast.error(t('adding-failed') + 'kategooria viga');
+      return;
+    }
+
+    products.push(
+      {
+        "id": Number(inputId.current.value),
+        "image": inputImage.current.value,
+        "name": inputName.current.value,
+        "price": Number(inputPrice.current.value),
+        "description": inputDescription.current.value,
+        "category": inputCategory.current.value,
+        "active": inputActive.current.checked
+      }
+    );
+    fetch(config.productsUrl, { method: "PUT", body: JSON.stringify(products) })
+      .then(toast.success(t('product-added'))
+      );
+
   }
 
 

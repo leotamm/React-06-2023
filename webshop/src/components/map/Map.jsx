@@ -4,7 +4,7 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import ChangeView from './ChangeView';
 import { useState, useEffect } from 'react';
-import config from '../data/config.json';
+import config from '../../data/config.json';
 
 let DefaultIcon = L.icon({
   iconUrl: icon,

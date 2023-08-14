@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Map from '../../components/Map';
+import Map from '../../components/map/Map';
 import { Button } from 'react-bootstrap';
 import config from '../../data/config.json'
 
@@ -22,11 +22,6 @@ function Shops() {
         {shop.name}
       </Button>
     )}
-
-    {/* <Button variant="light" size="sm" onClick={() => setCoordinates({ lngLat: [59.4231, 24.7991], zoom: 13 })}>Ülemiste</Button>
-    <Button variant="light" size="sm" onClick={() => setCoordinates({ lngLat: [59.4277, 24.7193], zoom: 13 })}>Kristiine</Button>
-    <Button variant="light" size="sm" onClick={() => setCoordinates({ lngLat: [58.3777, 26.7301], zoom: 13 })}>Tasku</Button>
-    <Button variant="light" size="sm" onClick={() => setCoordinates({ lngLat: [58.3874, 24.5045], zoom: 13 })}>Port Artur</Button> */}
     <Map mapCoordinaates={coordinaates} />
   </div>)
 }
