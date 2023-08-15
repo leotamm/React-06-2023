@@ -11,5 +11,22 @@ a {
   margin-top: 50px;
 }
 
+/*DONE: Set the font weight of the first table column to bold*/
 
-/*TODO: Set the font weight of the first table column to bold*/
+.avatar-image {
+  height: 50px;
+  width: 50px;
+}
+
+.regular-text {
+  font-weight: 400;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.red-alert {
+  color: red;
+  font-weight: 400;
+}

@@ -19,6 +19,8 @@ function Products() {
     { name: 'Chocolate chip cookie', price: 3.25, quantity: 3, store: 'Mustamäe store' }
   ]);
 
+  products.sort((a, b) => a.price - b.price);
+
   const addProduct = () => {
     const newProduct = {
       name: nameRef.current.value,
@@ -33,33 +35,35 @@ function Products() {
   return (<div>
     <div className="container">
       <h2 className="mb-4">Products</h2>
-      <Table className="table table-hover table-bordered">
+      <Table className="table table-hover table-bordered table-sortable">
         <thead>
-        <tr>
-          <th scope="col">Product</th>
-          <th scope="col">Price (€)</th>
-          <th scope="col">Quantity (pcs)</th>
-          <th scope="col">Store</th>
-        </tr>
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Price (€)</th>
+            <th scope="col">Quantity (pcs)</th>
+            <th scope="col">Store</th>
+            <th scope="col">Actions</th>
+          </tr>
         </thead>
         <tbody>
-        {/* TODO: Order the products by price */}
-        {products.map(product => 
-            <tr key={product.name + product.price}>
-              <td>{product.name}</td>
-              <td>{product.price}</td>
+          {/* DONE: Order the products by price */}
+          {products.map((product, index) =>
+            <tr key={index}>
+              <td className="bold-text">{product.name}</td>
+              <td className="regular-text">{product.price}</td>
               {/*  TODO: Display the quantity in red if it is lower than 3 */}
-              <td>{product.quantity}</td> 
-              <td>{product.store}</td>
+              {/*  ANOMALY: The red-alert css works, but doesn't render "color: red" at index.css Line 30*/}
+              <td className={product.quantity < 3 ? "red-alert" : "regular-text"}>{product.quantity}</td>
+              <td className="regular-text">{product.store}</td>
             </tr>
           )}
-        <tr className="input-row">
-          <td><input type="text" ref={nameRef} placeholder="Product" className="form-control" /></td>
-          <td><input type="text" ref={priceRef} placeholder="Price" className="form-control" /></td>
-          <td><input type="text" ref={quantityRef} placeholder="Quantity" className="form-control" /></td>
-          <td><input type="text" ref={storeRef} placeholder="Store" className="form-control" /></td>
-          <td><Button variant="success" type="submit" onClick={() => addProduct()} >Add</Button></td>
-        </tr>
+          <tr className="input-row">
+            <td><input type="text" ref={nameRef} placeholder="Product" className="form-control" /></td>
+            <td><input type="text" ref={priceRef} placeholder="Price" className="form-control" /></td>
+            <td><input type="text" ref={quantityRef} placeholder="Quantity" className="form-control" /></td>
+            <td><input type="text" ref={storeRef} placeholder="Store" className="form-control" /></td>
+            <td><Button variant="success" type="submit" onClick={() => addProduct()} >Add</Button></td>
+          </tr>
         </tbody>
       </Table>
     </div>

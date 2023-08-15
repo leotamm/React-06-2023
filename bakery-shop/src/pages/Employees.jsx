@@ -16,13 +16,12 @@ function Employees() {
   useEffect(() => {
     fetch('https://reqres.in/api/users')
       .then(res => res.json())
-      .then(data => setEmployees(data || []))
+      .then(json => setEmployees(json.data || []))
   }, []);
-  // const employeeData = employees.data || [];
 
   const addEmployee = () => {
     // DONE: Add validations
-    // TODO: Add an employee to the table
+    // DONE: Add an employee to the table
     if (isEmpty(idRef.current.value) || !isNumeric(idRef.current.value)) {
       setMessage('ID täitmata või see pole number');
       idRef.current.value = '';
@@ -46,8 +45,7 @@ function Employees() {
       avatarRef.current.value = '';
       return;
     } else {
-      // lisa töötaja
-      employees.data.push(
+      employees.push(
         {
           "id": Number(idRef.current.value),
           "email": emailRef.current.value,
@@ -56,8 +54,7 @@ function Employees() {
           "avatar": avatarRef.current.value
         }
       );
-      // uuenda tabeli seis, anna teade, tühjenda väljad
-      employees.slice();
+      setEmployees(employees.slice());
       setMessage('Korras, töötaja on lisatud')
       idRef.current.value = '';
       emailRef.current.value = '';
@@ -65,11 +62,13 @@ function Employees() {
       lastNameRef.current.value = '';
       avatarRef.current.value = '';
     }
-
   }
 
   const deleteEmployee = (index) => {
-    // TODO: Delete an employee from the table
+    // DONE: Delete an employee from the table
+    employees.splice(index, 1);
+    setEmployees(employees.slice());
+    setMessage('Korras, töötaja on eemaldatud')
   }
 
   return (<div>
@@ -82,21 +81,21 @@ function Employees() {
             <th scope="col">First name</th>
             <th scope="col">Last name</th>
             <th scope="col">Email</th>
-            <th scope="col">Avatar</th>
             {/* <!-- DONE: Add a column for an avatar --> */}
+            <th scope="col">Avatar</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
 
-          {employees.data.map((employee, index) =>
+          {employees.map((employee, index) =>
             <tr key={index}>
-              <th><div>{employee.id}</div></th>
-              <th><div>{employee.first_name}</div></th>
-              <th><div>{employee.last_name}</div></th>
-              <th><div>{employee.email}</div></th>
-              <th><div><img src={employee.avatar} alt="" /></div></th>
-              <td><Button type="button" variant="danger">Delete</Button></td>
+              <th className="bold-text">{employee.id}</th>
+              <th className="regular-text">{employee.first_name}</th>
+              <th className="regular-text">{employee.last_name}</th>
+              <th className="regular-text">{employee.email}</th>
+              <th><img className="avatar-image" src={employee.avatar} alt="" /></th>
+              <td><Button onClick={() => deleteEmployee(index)} type="button" variant="danger">Delete</Button></td>
             </tr>
           )}
 
