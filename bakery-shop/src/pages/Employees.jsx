@@ -55,7 +55,7 @@ function Employees() {
         }
       );
       setEmployees(employees.slice());
-      setMessage('Korras, töötaja on lisatud')
+      setMessage('Korras, uus töötaja on lisatud')
       idRef.current.value = '';
       emailRef.current.value = '';
       firstNameRef.current.value = '';

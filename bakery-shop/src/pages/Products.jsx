@@ -1,11 +1,13 @@
 import { useRef, useState } from "react";
 import { Button, Table } from "react-bootstrap";
+import { isNumeric, isAlpha, isEmpty } from 'validator';
 
 function Products() {
   const nameRef = useRef();
   const priceRef = useRef();
   const quantityRef = useRef();
   const storeRef = useRef();
+  const [message, setMessage] = useState("");
   const [products, setProducts] = useState([
     { name: 'Cupcake', price: 1.99, quantity: 7, store: 'Downtown store' },
     { name: 'Cheesecake', price: 2, quantity: 2, store: 'Ülemiste store' },
@@ -22,14 +24,40 @@ function Products() {
   products.sort((a, b) => a.price - b.price);
 
   const addProduct = () => {
-    const newProduct = {
-      name: nameRef.current.value,
-      price: priceRef.current.value,
-      quantity: quantityRef.current.value,
-      store: storeRef.current.value,
+    // BUG - siin samuti !isAlpha laseb numbrid läbi!
+    if (isEmpty(nameRef.current.value || !isAlpha(nameRef.current.value))) {
+      setMessage('Nimi täitmata või see ei koosne tähtedest');
+      nameRef.current.value = '';
+      return;
+    } else if (isEmpty(priceRef.current.value) || !isNumeric(priceRef.current.value)) {
+      setMessage('Hind täitmata või see pole numbri kujul');
+      priceRef.current.value = '';
+      return;
+    } else if (isEmpty(quantityRef.current.value) || !isNumeric(quantityRef.current.value)) {
+      setMessage('Kogus täitmata või see pole numbri kujul');
+      quantityRef.current.value = '';
+      return;
+    } else {
+      const newProduct = {
+        name: nameRef.current.value,
+        price: Number(priceRef.current.value),
+        quantity: Number(quantityRef.current.value),
+        store: storeRef.current.value,
+      }
+      products.push(newProduct);
+      setProducts(products.slice());
+      setMessage('Korras, uus toode on lisatud');
+      nameRef.current.value = '';
+      priceRef.current.value = '';
+      quantityRef.current.value = '';
+      storeRef.current.value = ''
     }
-    products.push(newProduct);
+  }
+
+  const deleteProduct = (index) => {
+    products.splice(index, 1);
     setProducts(products.slice());
+    setMessage('Korras, toode on eemaldatud')
   }
 
   return (<div>
@@ -50,22 +78,32 @@ function Products() {
           {products.map((product, index) =>
             <tr key={index}>
               <td className="bold-text">{product.name}</td>
-              <td className="regular-text">{product.price}</td>
+              <td className="regular-text">{product.price.toFixed(2)}</td>
               {/*  TODO: Display the quantity in red if it is lower than 3 */}
               {/*  ANOMALY: The red-alert css works, but doesn't render "color: red" at index.css Line 30*/}
               <td className={product.quantity < 3 ? "red-alert" : "regular-text"}>{product.quantity}</td>
               <td className="regular-text">{product.store}</td>
+              <td><Button onClick={() => deleteProduct(index)} type="button" variant="danger">Delete</Button></td>
             </tr>
           )}
           <tr className="input-row">
             <td><input type="text" ref={nameRef} placeholder="Product" className="form-control" /></td>
             <td><input type="text" ref={priceRef} placeholder="Price" className="form-control" /></td>
             <td><input type="text" ref={quantityRef} placeholder="Quantity" className="form-control" /></td>
-            <td><input type="text" ref={storeRef} placeholder="Store" className="form-control" /></td>
+            <td>
+              <select ref={storeRef} name="" id="" className="form-control">
+                <option value="Lasnamäe store">Lasnamäe store</option>
+                <option value="Downtown store">Downtown store</option>
+                <option value="Ülemiste store">Ülemiste store</option>
+                <option value="Nõmme store">Nõmme store</option>
+              </select>
+            </td>
+            {/* <td><input type="text" ref={storeRef} placeholder="Store" className="form-control" /></td> */}
             <td><Button variant="success" type="submit" onClick={() => addProduct()} >Add</Button></td>
           </tr>
         </tbody>
       </Table>
+      {message}
     </div>
   </div>)
 }
