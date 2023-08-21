@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import AddProduct from './pages/admin/AddProduct';
 import AdminHome from './pages/admin/AdminHome';
@@ -16,12 +16,16 @@ import Login from './pages/auth/Login';
 import SignUp from './pages/auth/SignUp';
 import NotFound from './pages/global/NotFound';
 import NavigationBar from './components/NavigationBar';
+import { useContext } from 'react';
+import { AuthContext } from './store/AuthContext';
 
 function App() {
 
+  const { loggedIn } = useContext(AuthContext);
+
   return (
     <div className="App">
-      <NavigationBar/>
+      <NavigationBar />
 
       <Routes>
         <Route path='/' element={<HomePage />} />
@@ -29,12 +33,17 @@ function App() {
         <Route path='/shop' element={<Shops />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/product' element={<SingleProduct />} />
-        <Route path='/admin' element={<AdminHome />} />
-        <Route path='/admin/add-product' element={<AddProduct />} />
-        <Route path='/admin/edit-product/:productId' element={<EditProduct />} />
-        <Route path='/admin/maintain-product' element={<MaintainProduct />} />
-        <Route path='/admin/maintain-categories' element={<MaintainCategories />} />
-        <Route path='/admin/maintain-shops' element={<MaitntainShops />} />
+        {loggedIn && <>
+          <Route path='/admin' element={<AdminHome />} />
+          <Route path='/admin/add-product' element={<AddProduct />} />
+          <Route path='/admin/edit-product/:productId' element={<EditProduct />} />
+          <Route path='/admin/maintain-product' element={<MaintainProduct />} />
+          <Route path='/admin/maintain-categories' element={<MaintainCategories />} />
+          <Route path='/admin/maintain-shops' element={<MaitntainShops />} />
+        </>}
+        {
+          loggedIn === false && <Route path='admin/*' element={<Navigate to='/login' />} />
+        }
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/product/:index' element={<SingleProduct />} />

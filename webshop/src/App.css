@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.small-sum-text{
+  font-size:small;
+}
+
 .navbar-lang {
   width: 25px;
   height: 25px;
@@ -10,8 +14,8 @@
 }
 
 .navbar-lang-elevated {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin: 5px;
   margin-top: -10px;
 }
@@ -47,7 +51,9 @@
   opacity: 70%;
 }
 
-.btn-light, .btn-light:active, .btn-light:visited {
+.btn-light,
+.btn-light:active,
+.btn-light:visited {
   background-color: #d8d6d6 !important;
   border-color: #fcfcfc !important;
 }
@@ -70,11 +76,20 @@
 }
 
 .map {
-  height:300px;
+  height: 300px;
   margin: 3%;
   border-radius: 10px;
 }
 
 .open-hours {
   height: 16px;
+}
+
+.new-user:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.nope {
+  color: red
 }

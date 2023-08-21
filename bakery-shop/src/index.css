@@ -26,7 +26,11 @@ a {
   font-weight: bold;
 }
 
-.red-alert {
-  color: red;
+td:first-child {
+  font-weight: bold;
+}
+
+.red_alert {
+  color: red !important;
   font-weight: 400;
 }

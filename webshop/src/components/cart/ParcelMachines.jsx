@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+
 function ParcelMachines() {
 
   const [omnivaParcelMacines, setOmnivaParcelMacines] = useState([]);

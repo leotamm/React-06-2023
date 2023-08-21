@@ -77,12 +77,12 @@ function Products() {
           {/* DONE: Order the products by price */}
           {products.map((product, index) =>
             <tr key={index}>
-              <td className="bold-text">{product.name}</td>
-              <td className="regular-text">{product.price.toFixed(2)}</td>
+              <td>{product.name}</td>
+              <td>{product.price.toFixed(2)}</td>
               {/*  TODO: Display the quantity in red if it is lower than 3 */}
               {/*  ANOMALY: The red-alert css works, but doesn't render "color: red" at index.css Line 30*/}
-              <td className={product.quantity < 3 ? "red-alert" : "regular-text"}>{product.quantity}</td>
-              <td className="regular-text">{product.store}</td>
+              <td className={product.quantity < 3 ? "red_alert" : "regular-text"}>{product.quantity}</td>
+              <td>{product.store}</td>
               <td><Button onClick={() => deleteProduct(index)} type="button" variant="danger">Delete</Button></td>
             </tr>
           )}

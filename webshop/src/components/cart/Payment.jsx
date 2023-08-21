@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button } from 'react-bootstrap';
+import { Button as BButton} from 'react-bootstrap';
+import { Button as MButton } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 function Payment(props) {
@@ -29,7 +30,7 @@ function Payment(props) {
     return (
         <div>
             <br />
-            <Button onClick={pay} variant='light'>{t('pay')}</Button>
+            <MButton variant="contained" onClick={pay} >{t('pay')}</MButton>
         </div>
     )
 }

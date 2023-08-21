@@ -42,23 +42,26 @@ function MaintainCategories() {
 
   return (
     <div>
-      
+
       <div className='bold-heading'>{t('maintain-categories')}</div><br />
-      <div className='add-categories'>
-      <label>{t('category-name')}</label><br />
-      <input onKeyUp={addCategory} ref={categoryRef} type="text" /><br />
       
-      {/* <input ref={categoryRef} type="text" /><br /> */}
-      <Button variant="light" onClick={addCategory}>{t('add')}</Button><br /><br />
-      </div>
       <div>
         {categories.map((category, index) =>
           <div key={index} className='categories'>
             <div className='name'>{category.name}</div>
-            {/* <Button classname='button' variant="light" onClick={() => deleteCategory(index)}>X</Button> */}
-            <img className='button' src="delete.png" onClick={() => deleteCategory(index)} alt="Delete button" />
+            <Button classname='button' variant="light" onClick={() => deleteCategory(index)}>Delete</Button>
+            {/* <img className='button' src="delete.png" onClick={() => deleteCategory(index)} alt="Delete button" /> */}
           </div>)}
       </div>
+
+      <div className='add-categories'>
+        <label>{t('category-name')}</label><br />
+        <input onKeyUp={addCategory} ref={categoryRef} type="text" /><br />
+
+        {/* <input ref={categoryRef} type="text" /><br /> */}
+        <Button variant="light" onClick={addCategory}>{t('add')}</Button><br /><br />
+      </div>
+      
     </div>
   )
 }

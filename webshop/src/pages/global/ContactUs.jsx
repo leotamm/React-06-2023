@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { Button, Form } from 'react-bootstrap';
+import { Button as MButton} from '@mui/material';
 
 import { useTranslation } from 'react-i18next';
 
@@ -40,10 +41,9 @@ export const ContactUs = () => {
         <Form.Control type="email" id='user_email' />
         <Form.Label>{t('message')}</Form.Label>
         <Form.Control type="textarea" rows={3} id='message' />
-        <Button variant="light" type="submit" >{t('send')}</Button>
+        <MButton variant="contained" type="submit" >{t('send')}</MButton>
         {/* <input type="submit"   value={t('send')} /> */}
       </Form.Group>
     </Form>
-
   );
 };
