@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'BoosterNextFY', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -8,29 +8,6 @@ body {
 }
 
 code {
-  font-family: 'BoosterNextFY', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-/* .page {
-  background-image: url(./images/bg-deco-left.svg), url(./images/bg-deco-right.svg);
-  background-repeat: no-repeat;
-  background-position: var(--twn-menuWidth) bottom, 100% 0;
-  background-size: 150px, 250px;
-  background-attachment: fixed;
-  display: block;
-  margin-left: var(--twn-menuWidth);
-  height: 100vh;
-  overflow: auto;
-  padding: 5rem 2.5rem
-}
-
-@media screen and (max-width: 960px) {
-  .page {
-    margin-left: 0;
-    background-position: 0 bottom, 100% 0;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    padding-top: 7.5rem
-  }
-} */
