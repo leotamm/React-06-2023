@@ -1,38 +1,199 @@
-.App {
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;900&display=swap);
+
+
+@font-face {
+  font-family: BoosterNextFY;
+  src: url('../src/fonts/BoosterNextFY-Bold.woff2') format("woff2"), url('../src/fonts/BoosterNextFY-Bold.woff') format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap
+}
+
+
+@font-face {
+  font-family: BoosterNextFY;
+  src: url('../src/fonts/BoosterNextFY-Light.woff2') format("woff2"), url('../src/fonts/BoosterNextFY-Light.woff') format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap
+}
+
+@font-face {
+  font-family: BoosterNextFY;
+  src: url('../src/fonts/BoosterNextFY-Black.woff2') format("woff2"), url('../src/fonts/BoosterNextFY-Black.woff') format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap
+}
+
+
+@font-face {
+  font-family: BoosterNextFY;
+  src: url('../src/fonts/BoosterNextFY-Thin.woff2') format("woff2"), url('../src/fonts/BoosterNextFY-Thin.woff') format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap
+}
+
+
+@font-face {
+  font-family: BoosterNextFY;
+  src: url('../src/fonts/BoosterNextFY-Regular.woff2') format("woff2"), url('../src/fonts/BoosterNextFY-Regular.woff') format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap
+}
+
+@font-face {
+  font-family: BoosterNextFY;
+  src: url('../src/fonts/BoosterNextFY-Medium.woff2') format("woff2"), url('../src/fonts/BoosterNextFY-Medium.woff') format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--twn-font)
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child {
+    margin-top: 0
+}
+
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+h5:last-child {
+    margin-bottom: 0
+}
+
+h1 {
+  font-size: 2.8125rem;
+  font-weight: 700;
+}
+
+h1,
+h2 {
   text-align: center;
+  text-transform: uppercase
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2 {
+  font-size: 2rem;
+  margin: 3.75rem 0 0
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+p {
+  margin: 2.5rem 0
+}
+
+p a {
+  color: var(--twn-highlightColor)
+}
+
+
+@media screen and (max-width: 960px) {
+  h1 {
+      font-size: 2.25rem
+  }
+
+  h2 {
+      font-size: 1.5rem
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body,
+html {
+    background: var(--twn-backgroundColor);
+    margin: 0;
+    color: var(--twn-alternateTextColor);
+    font-family: var(--twn-textFont)
+}
+
+body {
+    font-size: var(--twn-rootFontSize)
+}
+
+* {
+    box-sizing: border-box
+}
+
+.custom-button {
+  background-color: #ff66cc;
+  border: none;
+  border-radius: 30px;
   color: white;
+  padding: 15px 32px;
+
+  font-size: 16px;
+  font-weight: bolder;
 }
 
-.App-link {
-  color: #61dafb;
+.inline {
+    max-width: var(--twnMaxWidth);
+    min-height: 100%;
+    margin: 0 auto
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inline,
+.page {
+    position: relative
+}
+
+
+.page {
+  background-image: url('../src/images/bg-deco-left.svg'), url('../src/images/bg-deco-right.svg');
+  background-repeat: no-repeat;
+  background-position: var(--twn-menuWidth) bottom, 100% 0;
+  background-size: 150px, 250px;
+  background-attachment: fixed;
+  display: block;
+  margin-left: var(--twn-menuWidth);
+  height: 100vh;
+  overflow: auto;
+  padding: 5rem 2.5rem
+}
+
+.text-center {
+  text-align: center
+}
+
+.top-bar {
+  background-color: #ffffff ;
+}
+
+.main-content {
+  padding: 120px, 24px, 80px
+}
+
+.doggy-pic {
+  width: 60vw;
+}
+
+:root {
+  --twn-font: BoosterNextFY;
+  --twn-textFont: "Open Sans";
+  --twn-rootFontSize: 16px;
+  --twn-highlightColor: #14cc76;
+  --twn-textColor: #3a3d57;
+  --twn-alternateTextColor: #fff;
+  --twn-secondaryColor: #ff57a2;
+  --twn-backgroundColor: #3a3d57;
+  --twn-linkHoverColor: #03875c;
+  --twn-blockColor: #efefef;
+  --twn-menuWidth: 220px;
+  --twnMaxWidth: 1000px
+}
+
+.text-highlight {
+  color: var(--twn-highlightColor)
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 function HomePage() {
     return (
-        <div>
+        <div className='page'>
             <h1>Trinidad Wiseman</h1>
             <p>SPA proovitöö</p>
         </div>

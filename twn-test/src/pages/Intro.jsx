@@ -2,7 +2,7 @@ import React from 'react'
 
 function Intro() {
   return (
-    <div>
+    <div className='page'>
       <h2>Funktsionaalsed nõuded</h2>
       <p>Artikli vaade on lihtne: tee päring ja kuva saadud vastus.</p>
       <p>Tabeli vaate puhul soovime näha, kuidas sa Array-dega ringi käia oskad:<br />

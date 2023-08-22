@@ -2,7 +2,7 @@ import React from 'react'
 
 function Life() {
   return (
-    <div>
+    <div className='page'>
       <h1>Conways game of life</h1>
       <form>
         <div>
