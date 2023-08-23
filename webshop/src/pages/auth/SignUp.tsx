@@ -6,15 +6,18 @@ import { useNavigate } from 'react-router-dom';
 function Signup() {
 
   const { setLoggedIn } = useContext(AuthContext)
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordRepeatRef = useRef();
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const passwordRepeatRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
   const url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDPVWnc4f_t0M5kHJckxaOR4cFYgqJwx4Y";
   const { t } = useTranslation();
 
   const signup = () => {
+    if (!(emailRef.current && passwordRef.current && passwordRepeatRef.current)) {
+      return;
+    }
     if (passwordRef.current.value === passwordRepeatRef.current.value) {
       const payload = {
         email: emailRef.current.value,
@@ -48,9 +51,9 @@ function Signup() {
       <div className='bold-heading'>{t('sign-up')}</div><br />
       <div className='nope'>{t(message)}</div>
       <label>{t('email')}</label><br />
-      <input ref={emailRef} type="text" /><br />
+      <input ref={emailRef} type="password" /><br />
       <label>{t('password')}</label><br />
-      <input ref={passwordRef} type="text" /><br />
+      <input ref={passwordRef} type="password" /><br />
       <label>{t('repeat-password')}</label><br />
       <input ref={passwordRepeatRef} type="text" /><br /><br />
       <button onClick={signup}>{t('register')}</button>

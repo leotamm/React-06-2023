@@ -6,14 +6,18 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
 
   const { setLoggedIn } = useContext(AuthContext)
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
   const url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDPVWnc4f_t0M5kHJckxaOR4cFYgqJwx4Y";
   const { t } = useTranslation();
 
   const login = () => {
+
+    if (!(emailRef.current && passwordRef.current)) {
+      return;
+    }
     const payload = {
       email: emailRef.current.value,
       password: passwordRef.current.value,

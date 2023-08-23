@@ -1,0 +1,22 @@
+div {
+  text-align: center;
+}
+
+table {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 60px;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+  border: 1px solid gray;
+  text-align: center;
+}
+
+td:hover {
+  background-color: rgb(195, 197, 197);
+  cursor: pointer;
+}

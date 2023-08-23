@@ -3,13 +3,14 @@ import { Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import config from '../../data/config.json';
 import '../../css/Categories.css';
+import { Category } from '../../models/Category';
 
 function MaintainCategories() {
 
   const { t } = useTranslation();
 
-  const [categories, setCategories] = useState([]);
-  const categoryRef = useRef();
+  const [categories, setCategories] = useState<Category[]>([]);
+  const categoryRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     fetch(config.categoryUrl)
@@ -17,9 +18,13 @@ function MaintainCategories() {
       .then(data => setCategories(data || []))
   }, []);
 
-  const addCategory = (event) => {
+  // any tuleb tegelikult asendada
+  const addCategory = (event: any) => {
     console.log(event);
     if ((event.code !== "Enter" && event.type !== "click")) {
+      return;
+    }
+    if (!categoryRef.current) {
       return;
     }
     categories.push({ "name": categoryRef.current.value });
@@ -31,7 +36,7 @@ function MaintainCategories() {
     categoryRef.current.value = '';
   }
 
-  const deleteCategory = (index) => {
+  const deleteCategory = (index: number) => {
     categories.splice(index, 1);
     setCategories(categories.slice());
     fetch(config.categoryUrl, {
@@ -49,7 +54,7 @@ function MaintainCategories() {
         {categories.map((category, index) =>
           <div key={index} className='categories'>
             <div className='name'>{category.name}</div>
-            <Button classname='button' variant="light" onClick={() => deleteCategory(index)}>Delete</Button>
+            <Button className='button' variant="light" onClick={() => deleteCategory(index)}>Delete</Button>
             {/* <img className='button' src="delete.png" onClick={() => deleteCategory(index)} alt="Delete button" /> */}
           </div>)}
       </div>

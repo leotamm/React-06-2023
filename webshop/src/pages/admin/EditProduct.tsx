@@ -2,21 +2,23 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import config from '../../data/config.json';
+import { Category } from '../../models/Category';
+import { Product } from '../../models/Product';
 
 function EditProduct() {
 
-  const idRef = useRef();
-  const nameRef = useRef();
-  const priceRef = useRef();
-  const imageRef = useRef();
-  const categoryRef = useRef();
-  const descriptionRef = useRef();
-  const actionRef = useRef();
+  const idRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const priceRef = useRef<HTMLInputElement>(null);
+  const imageRef = useRef<HTMLInputElement>(null);
+  const categoryRef = useRef<HTMLSelectElement>(null);
+  const descriptionRef = useRef<HTMLInputElement>(null);
+  const actionRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const [idUnique, setIdUnique] = useState(true);
-  const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setLoading] = useState<boolean>(true);
   const { productId } = useParams();
   
   const found = products.find(product => product.id === Number(productId));
@@ -35,6 +37,11 @@ function EditProduct() {
   }, []);
 
   const edit = () => {
+    if (!(
+      idRef.current && nameRef.current && priceRef.current && imageRef.current
+      && categoryRef.current && descriptionRef.current && actionRef.current)) {
+      return;
+    }
     const index = products.findIndex(product => product.id === Number(productId));
     products[index] = {
       "id": Number(idRef.current.value),
@@ -50,11 +57,15 @@ function EditProduct() {
   }
 
   const checkIdUniqueness = () => {
-    if (idRef.current.value === productId) {
+    const idInput = idRef.current;
+    if (!idInput) {
+      return;
+    }
+    if (idInput.value === productId) {
       setIdUnique(true);
       return;
     }
-    const result = products.filter(product => product.id === Number(idRef.current.value));
+    const result = products.filter(product => product.id === Number(idInput.value));
     if (result.length === 0) {
       setIdUnique(true);
     } else {

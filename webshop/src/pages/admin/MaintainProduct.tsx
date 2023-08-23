@@ -6,15 +6,17 @@ import { useTranslation } from 'react-i18next';
 import config from '../../data/config.json';
 import { ClipLoader } from 'react-spinners';
 import '../../css/MaintainProducts.css'
+import styles from '../../css/HomePage.module.css';
+import { Product } from '../../models/Product';
 
 function MaintainProduct() {
 
-  const [products, setProducts] = useState([]);     // väljakuvatav seis
-  const [dbProducts, setDbProducts] = useState([]); //
+  const [products, setProducts] = useState<Product[]>([]);     // väljakuvatav seis
+  const [dbProducts, setDbProducts] = useState<Product[]>([]); //
   const [isLoading, setLoading] = useState(true);
 
   // const [products, setProducts] = useState(productsFromFile);
-  const searchedRef = useRef();
+  const searchedRef = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -27,7 +29,7 @@ function MaintainProduct() {
       })
   }, []);
 
-  const deleteProduct = (productId) => {
+  const deleteProduct = (productId: number) => {
     const index = dbProducts.findIndex(product => product.id === productId);
     dbProducts.splice(index, 1);
     // setProducts(dbProducts.slice());
@@ -36,10 +38,14 @@ function MaintainProduct() {
   }
 
   const searchFromProducts = () => {
+    const searchedInput = searchedRef.current;
+    if (!searchedInput) {
+      return;
+    }
     const result = dbProducts.filter(product =>
-      product.name.toLowerCase().includes(searchedRef.current.value.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchedRef.current.value.toLowerCase()) ||
-      product.id.toString().includes(searchedRef.current.value)
+      product.name.toLowerCase().includes(searchedInput.value.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchedInput.value.toLowerCase()) ||
+      product.id.toString().includes(searchedInput.value)
     );
     setProducts(result.slice());
     // HILJEM ID JÄRGI
@@ -48,9 +54,8 @@ function MaintainProduct() {
   return (
     <div>
       {isLoading && <ClipLoader
-        color={979797}
+        color={'979797'}
         loading={isLoading}
-        cssOverride={null}
         size={35}
         speedMultiplier={1}
         aria-label="Loading Spinner"
@@ -72,7 +77,7 @@ function MaintainProduct() {
 
         <tbody>
           {products.map((product) =>
-            <tr className={product.active === true ? 'active' : 'inactive'} key={product.id}>
+            <tr className={product.active === true ? styles.active : 'inactive'} key={product.id}>
               <td><img src={product.image} alt='' /></td>
               <td>{product.id}</td>
               <td>{product.name}</td>
@@ -81,7 +86,7 @@ function MaintainProduct() {
               <td>{product.description}</td>
               <td>
                 <Button variant='light' onClick={() => deleteProduct(product.id)}>Kustuta</Button>
-                <Button as={Link} to={'/admin/edit-product/' + product.id} variant='light'>Muuda</Button>
+                <Button as={Link as any} to={'/admin/edit-product/' + product.id} variant='light'>Muuda</Button>
               </td>
             </tr>
           )}

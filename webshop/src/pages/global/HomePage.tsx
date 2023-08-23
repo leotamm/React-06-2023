@@ -1,4 +1,3 @@
-import React from 'react';
 // import productsFromFile from '../../data/products.json'
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
@@ -8,14 +7,20 @@ import { ClipLoader } from 'react-spinners';
 
 import { useTranslation } from 'react-i18next';
 import SortButtons from '../../components/home/SortButtons';
+import FilterButtons from '../../components/home/FilterButtons';
 import Product from '../../components/home/Product';
+
+import styles from '../../css/HomePage.module.css';
+import CarouselGallery from '../../components/home/CarouselGallery';
+import { Category } from '../../models/Category';
+import { Product as ProductModel } from '../../models/Product';
 
 
 function HomePage() {
 
-  const [products, setProducts] = useState([]);     // väljakuvatav seis
-  const [dbProducts, setDbProducts] = useState([]); // andmebaasi seis
-  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState<ProductModel[]>([]);     // väljakuvatav seis
+  const [dbProducts, setDbProducts] = useState<ProductModel[]>([]); // andmebaasi seis
+  const [categories, setCategories] = useState<Category[]>([]);
   const [isLoading, setLoading] = useState(true);
   const { t } = useTranslation();
 
@@ -30,11 +35,11 @@ function HomePage() {
   useEffect(() => {
     fetch(config.categoryUrl)
       .then(res => res.json())
-      .then(data => setCategories(data || []))
+      .then((data : Category[]) =>setCategories(data || []))
 
     fetch(config.productsUrl)
       .then(res => res.json())
-      .then(data => {
+      .then((data: ProductModel[]) => {
         data = data.filter(product => product.active === true);
         setProducts(data || []);    // seda hakkan hiljem muutma
         setDbProducts(data || []);  // seda  hiljem ei muuda
@@ -48,18 +53,11 @@ function HomePage() {
 
 
 
-
-  const fiterByCategory = (categoryClicked) => {
-    const result = dbProducts.filter(product => product.category === categoryClicked)
-    setProducts(result);
-  }
-
   return (
     <div>
       {isLoading && <ClipLoader
-        color={979797}
+        color={('979797')}
         loading={isLoading}
-        cssOverride={null}
         size={35}
         speedMultiplier={1}
         aria-label="Loading Spinner"
@@ -67,26 +65,31 @@ function HomePage() {
       />}
       <div className='bold-heading'>{t('products')}</div>
       <div className='bold-heading'>{t('total')}: {products.length}</div><br />
+      
+      <CarouselGallery/>
+      
       <SortButtons
         products={products}
         setProducts={setProducts}
       />
-      {t('product-category')}:
-      {/* <Button variant="light" size="sm" onClick={() => fiterByCategory('robot vacuum')}>{t('robot-vacuum')}</Button>
-      <Button variant="light" size="sm" onClick={() => fiterByCategory('stick vacuum')}>{t('stick-vacuum')}</Button>
-      <Button variant="light" size="sm" onClick={() => fiterByCategory('memory bank')}>{t('memory-bank')}</Button>
-      <Button variant="light" size="sm" onClick={() => fiterByCategory('usb drive')}>{t('usb-drive')}</Button>
-      <Button variant="light" size="sm" onClick={() => fiterByCategory('camping')}>{t('camping')}</Button> */}
-      {categories.map((category, index) =>
+
+{t('product-category')}:
+      <FilterButtons
+        dbProducts={dbProducts}
+        setProducts={setProducts}
+        categories={categories}
+      />
+
+      {/* {categories.map((category, index) =>
         <Button key={index} variant="light" size="sm" onClick={() => fiterByCategory(category.name)}>
           {category.name}
         </Button>
-      )}
+      )} */}
 
       <br /><br />
-      <div className='grid-container'>
+      <div className={styles.grid_container}>
         {products.map((product, index) =>
-          <Product product={product} key={index}/>
+          <Product product={product} key={index} />
         )}
       </div>
 

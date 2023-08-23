@@ -5,15 +5,16 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Button, Spinner } from 'react-bootstrap';
 import config from '../../data/config.json';
+import { Product } from '../../models/Product';
 
 function SingleProduct() {
 
   const { index } = useParams();
   const { t } = useTranslation();
-  const [products, setProducts] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
-  const indexFound = products[index];
+  const indexFound = products.find(product => product.id === Number(index));
 
   const backToProducts = () => {
     navigate('/');

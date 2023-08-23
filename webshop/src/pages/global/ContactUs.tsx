@@ -1,25 +1,27 @@
-import React, { useRef } from 'react';
+import { useRef, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import { Button, Form } from 'react-bootstrap';
-import { Button as MButton} from '@mui/material';
+import { Button as MButton } from '@mui/material';
 
 import { useTranslation } from 'react-i18next';
 
 export const ContactUs = () => {
-  
-  const form = useRef();
+
+  const form = useRef<HTMLFormElement>(null);
 
   const { t } = useTranslation();
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: FormEvent) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_bojc0c9', 'template_enmbzg5', form.current, 'MYQp_2Bvax6lzJMsU')
-      .then((result) => {
-        console.log(result.text);
-      }, (error) => {
-        console.log(error.text);
-      });
+    if (form.current) {
+      emailjs.sendForm('service_bojc0c9', 'template_enmbzg5', form.current, 'MYQp_2Bvax6lzJMsU')
+        .then((result) => {
+          console.log(result.text);
+        }, (error) => {
+          console.log(error.text);
+        });
+    }
   };
 
   return (
@@ -33,6 +35,8 @@ export const ContactUs = () => {
     //   <input type="submit" value="Send" /><br />
     // </form>
 
+
+    // tavaline form võib töötada paremini kui bootstrap
     <Form ref={form} onSubmit={sendEmail}>
       <Form.Group className="mb-3">
         <Form.Label>{t('name')}</Form.Label>
@@ -40,7 +44,7 @@ export const ContactUs = () => {
         <Form.Label>Email</Form.Label>
         <Form.Control type="email" id='user_email' />
         <Form.Label>{t('message')}</Form.Label>
-        <Form.Control type="textarea" rows={3} id='message' />
+        <Form.Control type="textarea" id='message' />
         <MButton variant="contained" type="submit" >{t('send')}</MButton>
         {/* <input type="submit"   value={t('send')} /> */}
       </Form.Group>
