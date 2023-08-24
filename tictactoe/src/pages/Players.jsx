@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function Players() {
 
@@ -24,15 +25,15 @@ function Players() {
 
     return (
         <div>
-            <h1>Players view</h1>
+            <p>-- players view --</p>
             <h2>{message}</h2>
             
             <br /><br />
-            <label>Player one name</label><br />
+            <label>Player one</label><br />
             <input ref={player1NameRef} type='text'></input><br />
-            <label>Player two name</label><br />
+            <label>Player two</label><br />
             <input ref={player2NameRef} type='text'></input><br /><br />
-            <button onClick={getPlayer1Name}>START</button>
+            <Button variant='primary' onClick={getPlayer1Name}>START</Button>
         </div>
     )
 }

@@ -2,21 +2,66 @@ div {
   text-align: center;
 }
 
+input {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
 table {
   display: flex;
   justify-content: center;
   margin-top: 40px;
-  font-size: 60px;
+  margin-bottom: 40px;
+  font-size: 70px;
 }
 
 td {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border: 1px solid gray;
   text-align: center;
 }
 
 td:hover {
-  background-color: rgb(195, 197, 197);
+  background-color: rgb(227, 230, 230);
   cursor: pointer;
+}
+
+.score_table {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 40, auto;
+  
+  border: 1px solid rgb(227, 230, 230);
+  font-size: 20px;
+}
+
+.game_cell {
+  width: 240px;
+
+}
+.winner_cell {
+  width: 120px;
+}
+
+p {
+  font-style: italic;
+}
+
+h2 {
+  color: rgb(37, 116, 206);
+  font-weight: bold;
+}
+
+.redX {
+  color: red;
+}
+
+.blueO {
+  color: blue;
+}
+
+Button {
+  width: 120px;
 }
