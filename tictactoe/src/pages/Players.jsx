@@ -6,13 +6,10 @@ import { GameHistoryContext } from '../GameHistoryContext';
 function Players() {
 
     const [message, setMessage] = useState('Let\'s register two players!');
-
     const player1NameRef = useRef('');
     const player2NameRef = useRef('');
     const navigate = useNavigate();
-
     const { whoStarts } = useContext(GameHistoryContext);
-
 
     const getPlayerNames = () => {
         if (player1NameRef.current.value === '' ||
@@ -31,9 +28,7 @@ function Players() {
     return (
         <div>
             <h1>TIC - TAC - TOE</h1>
-            <h2>{message}</h2>
-            
-            <br /><br />
+            <h2>{message}</h2><br /><br />
             <label>Player one</label><br />
             <input ref={player1NameRef} type='text'></input><br />
             <label>Player two</label><br />

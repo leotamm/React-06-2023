@@ -20,7 +20,6 @@ td {
   height: 120px;
   border: 1px solid gray;
   text-align: center;
-
 }
 
 .td_scoreboard_game {
@@ -60,8 +59,8 @@ td:hover {
 
 .game_cell {
   width: 240px;
-
 }
+
 .winner_cell {
   width: 120px;
 }
