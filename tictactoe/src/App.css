@@ -20,19 +20,40 @@ td {
   height: 120px;
   border: 1px solid gray;
   text-align: center;
+
+}
+
+.td_scoreboard_game {
+  width: 240px;
+  height: 20px;
+  font-size: 16px;
+  text-align: left;
+  padding-left: 5px;
+  color: white;
+  background-color: gray;
+
+}
+.td_scoreboard_result {
+  width: 120px;
+  height: 20px;
+  font-size: 16px;
+  text-align: left;
+  padding-left: 5px;
+  color: white;
+  background-color: gray;
 }
 
 td:hover {
   background-color: rgb(227, 230, 230);
   cursor: pointer;
+  transition-duration: 0.25s;
 }
 
 .score_table {
   display: grid;
   justify-content: center;
   align-items: center;
-  margin: 40, auto;
-  
+  margin: 10px, auto;
   border: 1px solid rgb(227, 230, 230);
   font-size: 20px;
 }
@@ -45,8 +66,21 @@ td:hover {
   width: 120px;
 }
 
-p {
-  font-style: italic;
+h1 {
+  color: rgb(255,0,0);
+  font-weight: bold;
+  margin: 15px 0;
+  animation-name: switch-colors;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes switch-colors {
+  0% {color: rgb(255,0,0)}
+  25% {color: rgb(0,255,0)}
+  50% {color: rgb(0,255,255)}
+  75% {color: rgb(255,0,255)}
+  100% {color: rgb(255,0,0)}
 }
 
 h2 {

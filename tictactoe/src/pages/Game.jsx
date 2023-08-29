@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isEmpty } from 'validator';
-import fanfares from '../assets/tada-fanfare.mp3';
+import drawSound from '../assets/draw_piano.mp3';
+import winSound from '../assets/win_piano.mp3';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { GameHistoryContext } from '../GameHistoryContext';
@@ -9,38 +10,35 @@ import { GameHistoryContext } from '../GameHistoryContext';
 function Game() {
 
     const [message, setMessage] = useState('');
-    const [turn, setTurn] = useState(localStorage.getItem('tttPlayer1'));
     const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']);
     const [isGameStarted, setGameStated] = useState(false);
     const [isGameOver, setGameOver] = useState(false);
     const nav = useNavigate();
-    const { gameHistory } = useContext(GameHistoryContext);
-
-    const whoStarts = () => {
-        if (!gameHistory.length) {
-            setTurn(localStorage.getItem('tttPlayer1'));
-        } else {
-            const lastGame = gameHistory[gameHistory.length - 1];
-            const lastWinner = lastGame.winner;
-            setTurn(lastWinner);
-        }
-    }
+    const { gameHistory, turn, setTurn, whoStarts } = useContext(GameHistoryContext);
 
     const handleClick = (cellNo) => {
-
         setGameStated(true);
         if (!isEmpty(board[cellNo]) || isGameOver) {
             return;
         }
-
         let squares = board;
-
         if (turn === localStorage.getItem('tttPlayer1')) {
             squares[cellNo] = 'x';
             setTurn(localStorage.getItem('tttPlayer2'))
         } else {
             squares[cellNo] = 'o';
             setTurn(localStorage.getItem('tttPlayer1'))
+        }
+        if (checkDrawConditions(squares)) {
+            setMessage('It\'s a draw!');
+            setGameOver(true);
+            playSound('draw');
+            gameHistory.push({
+                'player1': localStorage.getItem('tttPlayer1'),
+                'player2': localStorage.getItem('tttPlayer2'),
+                'winner': 'Draw'
+            });
+            return;
         }
         if (checkWinCondition(squares)) {
             let winner = '';
@@ -49,21 +47,29 @@ function Game() {
             } else {
                 winner = localStorage.getItem('tttPlayer2');
             }
-
             setMessage(winner + ' wins!');
             setGameOver(true);
-            playSound();
-
+            playSound('win');
             gameHistory.push({
                 'player1': localStorage.getItem('tttPlayer1'),
                 'player2': localStorage.getItem('tttPlayer2'),
                 'winner': winner
             });
-            console.log(gameHistory);
             return;
         };
         setBoard(squares);
+    }
 
+    const checkDrawConditions = (squares) => {
+        let filledCellCount = 0;
+        for (let i = 0; i < squares.length; i++) {
+            if (squares[i].length > 0) {
+                filledCellCount++;
+            }
+        }
+        if (filledCellCount === 9) {
+            return true;
+        }
     }
 
     const checkWinCondition = (squares) => {
@@ -96,8 +102,13 @@ function Game() {
         }
     }
 
-    const playSound = () => {
-        new Audio(fanfares).play();
+    const playSound = (action) => {
+        if (action === 'draw') {
+            new Audio(drawSound).play()
+        }
+        if (action === 'win') {
+            new Audio(winSound).play()
+        }
     }
 
     const restartGame = () => {
@@ -110,10 +121,9 @@ function Game() {
         nav(page);
     }
 
-
     return (
         <div>
-            <p>-- game view --</p>
+            <h1>TIC - TAC - TOE</h1>
             {!isGameOver && <div>
                 {!isGameStarted && <h2>{turn} starts!</h2>}
                 {isGameStarted && <h2>{turn} plays!</h2>}
