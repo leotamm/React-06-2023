@@ -5,13 +5,13 @@ import Intro from './pages/Intro';
 import Article from './pages/Article';
 import List from './pages/List';
 import Life from './pages/Life';
-import TopBar from './components/TopBar';
+import NavBar from './components/NavBar';
 
 
 function App() {
   return (
     <div className="App">
-      <TopBar/>
+      <NavBar/>
       <div className='main-content'>
       <Routes>
         <Route path='/' element={<HomePage />} />

@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import '../css/TopBar.css'
-import { Container, Navbar } from 'react-bootstrap'
+import '../css/NavBar.css'
+import { Container, Navbar, Nav } from 'react-bootstrap'
 import Hamburger from 'hamburger-react'
 
-function TopBar() {
+function NavBar() {
 
     const [isOpen, setOpen] = useState(false);
 
     return (
         <Navbar className='top-bar'>
-            <Container>
+            <Container fluid>
                 <Hamburger toggled={isOpen} toggle={setOpen} color="#3a3d57" size={25}/>
                 <img className='inline' src='../images/logo.svg' alt='TWN logo' />
             </Container>
@@ -17,4 +17,4 @@ function TopBar() {
         )
 }
 
-export default TopBar
+export default NavBar

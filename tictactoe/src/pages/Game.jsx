@@ -152,7 +152,7 @@ function Game() {
                 <div>
                     <ButtonGroup aria-label="Basic example">
                         <Button variant="secondary" onClick={() => changePage('/')}>New players</Button>
-                        <Button variant="primary" onClick={restartGame}>Play again</Button>
+                        <Button variant="primary" onClick={() => restartGame()}>Play again</Button>
                         <Button variant="secondary" onClick={() => changePage('/scores')}>Score board</Button>
                     </ButtonGroup>
                 </div>

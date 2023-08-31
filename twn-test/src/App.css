@@ -93,7 +93,7 @@ h2 {
 }
 
 p {
-  margin: 2.5rem 0
+  margin: 2.5rem 0;
 }
 
 p a {
@@ -169,6 +169,7 @@ body {
 
 .top-bar {
   background-color: #ffffff ;
+  height: 75px;
 }
 
 .main-content {

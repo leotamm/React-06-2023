@@ -9,19 +9,23 @@ export function GameHistoryContextProvider({ children }) {
     function whoStarts() {
         if (!gameHistory.length) {
             setTurn(localStorage.getItem('tttPlayer1'));
+            return;
         } else {
             for (let i = gameHistory.length; i >= 0; i--) {
                 const lastGame = gameHistory[i - 1];
                 const lastWinner = lastGame.winner;
                 if (lastWinner === localStorage.getItem('tttPlayer1')) {
                     setTurn(lastWinner);
-                    break;
+                    return;
                 } else if (lastWinner === localStorage.getItem('tttPlayer2')) {
                     setTurn(lastWinner);
-                    break;
+                    return;
+                } else {
+                    setTurn(localStorage.getItem('tttPlayer1'));
+                    return;
                 }
             }
-        }
+        };
     }
 
     return (

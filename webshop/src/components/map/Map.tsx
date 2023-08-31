@@ -5,6 +5,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import ChangeView from './ChangeView';
 import { useState, useEffect } from 'react';
 import config from '../../data/config.json';
+import { Shop } from '../../models/Shop';
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -17,7 +18,9 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 function Map(props) {
 
-  const [shops, setShops] = useState([]);
+  const [shops, setShops] = useState<Shop[]>([]);
+
+  // useState<Product[]>([])
 
   useEffect(() => {
     fetch(config.shopsUrl)

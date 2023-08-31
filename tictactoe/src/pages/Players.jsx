@@ -21,6 +21,7 @@ function Players() {
         }
         localStorage.setItem('tttPlayer1', player1NameRef.current.value);
         localStorage.setItem('tttPlayer2', player2NameRef.current.value);
+        console.log('Uued mängijad ' + localStorage.getItem('tttPlayer1') + ' ja ' + localStorage.getItem('tttPlayer2'));
         whoStarts();
         navigate('/game');
     }
