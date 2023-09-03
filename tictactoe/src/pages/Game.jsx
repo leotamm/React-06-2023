@@ -29,17 +29,6 @@ function Game() {
             squares[cellNo] = 'o';
             setTurn(localStorage.getItem('tttPlayer1'))
         }
-        if (checkDrawConditions(squares)) {
-            setMessage('It\'s a draw!');
-            setGameOver(true);
-            playSound('draw');
-            gameHistory.push({
-                'player1': localStorage.getItem('tttPlayer1'),
-                'player2': localStorage.getItem('tttPlayer2'),
-                'winner': 'Draw'
-            });
-            return;
-        }
         if (checkWinCondition(squares)) {
             let winner = '';
             if (turn === localStorage.getItem('tttPlayer1')) {
@@ -57,6 +46,17 @@ function Game() {
             });
             return;
         };
+        if (checkDrawConditions(squares)) {
+            setMessage('It\'s a draw!');
+            setGameOver(true);
+            playSound('draw');
+            gameHistory.push({
+                'player1': localStorage.getItem('tttPlayer1'),
+                'player2': localStorage.getItem('tttPlayer2'),
+                'winner': 'Draw'
+            });
+            return;
+        }
         setBoard(squares);
     }
 
@@ -117,10 +117,6 @@ function Game() {
         whoStarts();
     }
 
-    const changePage = (page) => {
-        nav(page);
-    }
-
     return (
         <div>
             <h1>TIC - TAC - TOE</h1>
@@ -151,9 +147,9 @@ function Game() {
             {isGameOver &&
                 <div>
                     <ButtonGroup aria-label="Basic example">
-                        <Button variant="secondary" onClick={() => changePage('/')}>New players</Button>
+                        <Button variant="secondary" onClick={() => nav('/')}>New players</Button>
                         <Button variant="primary" onClick={() => restartGame()}>Play again</Button>
-                        <Button variant="secondary" onClick={() => changePage('/scores')}>Score board</Button>
+                        <Button variant="secondary" onClick={() => nav('/scores')}>Score board</Button>
                     </ButtonGroup>
                 </div>
             }
