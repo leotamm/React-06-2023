@@ -4,7 +4,7 @@ function HomePage() {
     return (
         <div className='page'>
             <h1>Trinidad Wiseman</h1>
-            <p>SPA proovitöö</p>
+            <h2>SPA proovitöö</h2>
         </div>
     )
 }

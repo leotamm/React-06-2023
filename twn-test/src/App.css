@@ -103,11 +103,19 @@ p a {
 
 @media screen and (max-width: 960px) {
   h1 {
-      font-size: 2.25rem
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--twn-highlightColor)
   }
 
   h2 {
-      font-size: 1.5rem
+      font-size: 2.25rem;
+      font-weight: 600
+  }
+
+  p {
+    font-size: 1.4rem;
+      font-weight: 400;
   }
 }
 
@@ -127,9 +135,28 @@ body {
     box-sizing: border-box
 }
 
+button{
+  color: var(--twn-textColor);
+  background-color: var(--twn-highlightColor);
+  border-bottom: #03875c 7px solid;
+  border-right: none ;
+  padding: 15px 50px;
+  margin: 15px;
+  font-family: var(--twn-font);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.button-pair{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 100px;
+}
+
 .custom-button {
   background-color: #ff66cc;
-  border: none;
+
+  border-bottom: #03875c;
   border-radius: 30px;
   color: white;
   padding: 15px 32px;
@@ -154,7 +181,7 @@ body {
   background-image: url('../src/images/bg-deco-left.svg'), url('../src/images/bg-deco-right.svg');
   background-repeat: no-repeat;
   background-position: var(--twn-menuWidth) bottom, 100% 0;
-  background-size: 150px, 250px;
+  background-size: 250px, 400px;
   background-attachment: fixed;
   display: block;
   margin-left: var(--twn-menuWidth);
@@ -165,6 +192,33 @@ body {
 
 .text-center {
   text-align: center
+}
+
+.bar-items {
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--twn-textColor);
+  text-align: right;
+  margin: 10 0;
+}
+
+.bar-items:hover{
+  color: var(--twn-highlightColor)
+}
+
+.bar_image {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20;
+  height: 20;
+  margin-left: 10;
+  padding: 3
+}
+
+.bar_image:hover {
+  width: 30;
+  height: 30;
 }
 
 .top-bar {
