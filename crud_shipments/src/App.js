@@ -2,11 +2,13 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import storedData from '../src/data/shipments.json';
 import { Table, Button } from 'react-bootstrap';
+import Popup from './components/Popup';
 
 function App() {
 
   const [error, setError] = useState(null);
   const [shipments, setShipments] = useState([]);
+  const [buttonPopup, setButtonPopup] = useState(false);
 
   useEffect(() => {
     fetch('https://my.api.mockaroo.com/shipments.json?key=5e0b62d0')
@@ -30,6 +32,9 @@ function App() {
     alert('deleted');
   }
 
+  const emptyFunction = (index) => {
+    alert("Received index " + index);
+  }
 
   if (error) {
     return <div>Error: {error.message}</div>
@@ -58,13 +63,17 @@ function App() {
                 <td key={status}>{item.status}</td>
                 <td key={consignee}>{item.consignee}</td>
                 <td>
-                  <Button variant="info" >?</Button>
+                  <Button variant="info" onClick={() => [setButtonPopup(!buttonPopup), emptyFunction(index)]}>?</Button>
                   <Button variant="danger" onClick={() => deleteItem(item.orderNo)}>x</Button>
+                  <Popup trigger={buttonPopup} setTrigger={setButtonPopup} order={item.itemOrderNo}>
+                    <h3>Delivery details</h3>
+                  </Popup>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+
       </div>
     )
   }
