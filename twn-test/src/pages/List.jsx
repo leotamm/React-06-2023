@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import savedData from '../assets/table_data.json'
+import SortButtons from '../components/SortButtons'
 
 function List() {
 
@@ -31,88 +32,17 @@ function List() {
     return String(newDate).slice(0, index);
   }
 
-  const toggleSortMethod = () => {
-    if (sortToggle === 2) {
-      setSortToggle(0)
-    }
-    if (sortToggle < 2) {
-      setSortToggle(sortToggle + 1)
-    }
-  }
-
-  const sortByFirstName = () => {
-    toggleSortMethod();
-    if (sortToggle === 0) {  // sort list ascending
-      list.sort((a, b) => a.firstname.localeCompare(b.firstname));
-      setList(list.slice());
-    }
-    if (sortToggle === 1) {  // sort list descending
-      list.sort((a, b) => b.firstname.localeCompare(a.firstname));
-      setList(list.slice());
-    }
-    if (sortToggle === 2) {  // sort list default
-      setList(savedData.list.slice());
-    }
-  }
-
-  const sortBySurname = () => {
-    toggleSortMethod();
-    if (sortToggle === 0) {  // sort list ascending
-      list.sort((a, b) => a.surname.localeCompare(b.surname));
-      setList(list.slice());
-    }
-    if (sortToggle === 1) {  // sort list descending
-      list.sort((a, b) => b.surname.localeCompare(a.surname));
-      setList(list.slice());
-    }
-    if (sortToggle === 2) {  // sort list default
-      setList(savedData.list.slice());
-    }
-  }
-
-  const sortBySex = () => {
-    toggleSortMethod();
-    if (sortToggle === 0) {  // sort list ascending
-      list.sort((a, b) => a.sex.localeCompare(b.sex));
-      setList(list.slice());
-    }
-    if (sortToggle === 1) {  // sort list descending
-      list.sort((a, b) => b.sex.localeCompare(a.sex));
-      setList(list.slice());
-    }
-    if (sortToggle === 2) {  // sort list default
-      setList(savedData.list.slice());
-    }
-  }
-
-  const sortByDate = () => {
-    toggleSortMethod();
-    if (sortToggle === 0) {  // sort list ascending
-      list.sort((a, b) => a.date - b.date);
-      setList(list.slice());
-    }
-    if (sortToggle === 1) {  // sort list descending
-      list.sort((a, b) => b.date - a.date);
-      setList(list.slice());
-    }
-    if (sortToggle === 2) {  // sort list default
-      setList(savedData.list.slice());
-    }
-  }
-
-
   return (
     <div className='page'>
       <h1>Nimekiri</h1>
       <table>
         <thead>
-          <tr>
-            <th onClick={() => sortByFirstName()}>Eesnimi</th>
-            <th onClick={() => sortBySurname()}>Perekonnanimi</th>
-            <th onClick={() => sortBySex()}>Sugu</th>
-            <th onClick={() => sortByDate()}>Sünnikuupäev</th>
-            <th>Telefon</th>
-          </tr>
+          <SortButtons
+            list={list}
+            setList={setList}
+            sortToggle={sortToggle}
+            setSortToggle={setSortToggle}
+          />
         </thead>
         <tbody>
           {list.map((person, index) =>
