@@ -241,7 +241,7 @@ table {
   font-size: larger;
 }
 thead {
-  background-color: rgb(50, 50, 50);
+  background-color: rgb(55, 55, 55);
   height: 38px;
   border-bottom: 1px solid #fff;
 }
@@ -250,8 +250,13 @@ thead th {
   padding: 10px;
 }
 
+thead th:hover {
+  cursor: pointer;
+}
+
 tbody {
   font-weight: lighter;
+  padding: 10px;;
 }
 
 tbody tr {
