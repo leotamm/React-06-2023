@@ -234,6 +234,20 @@ button{
   width: 60vw;
 }
 
+table {
+  width: 100%;
+  margin: 20px 0;
+  font-size: larger;
+}
+thead {
+  background-color: rgb(50, 50, 50);
+  height: 50px;
+}
+
+tbody {
+  font-weight: lighter
+}
+
 :root {
   --twn-font: BoosterNextFY;
   --twn-textFont: "Open Sans";

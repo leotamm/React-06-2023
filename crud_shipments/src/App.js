@@ -32,9 +32,11 @@ function App() {
     alert('deleted');
   }
 
-  const emptyFunction = (index) => {
-    alert("Received index " + index);
+  const itemDetails = () => {
+    setButtonPopup(!buttonPopup);
   }
+
+ 
 
   if (error) {
     return <div>Error: {error.message}</div>
@@ -63,16 +65,16 @@ function App() {
                 <td key={status}>{item.status}</td>
                 <td key={consignee}>{item.consignee}</td>
                 <td>
-                  <Button variant="info" onClick={() => [setButtonPopup(!buttonPopup), emptyFunction(index)]}>?</Button>
+                  <Button variant="info" onClick={() => itemDetails(index)}>?</Button>
                   <Button variant="danger" onClick={() => deleteItem(item.orderNo)}>x</Button>
-                  <Popup trigger={buttonPopup} setTrigger={setButtonPopup} order={item.itemOrderNo}>
-                    <h3>Delivery details</h3>
-                  </Popup>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+                  <Popup trigger={buttonPopup} setTrigger={setButtonPopup} order={itemOrderNo}>
+                    <h3>Delivery details</h3>
+                  </Popup>
 
       </div>
     )

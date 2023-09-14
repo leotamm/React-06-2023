@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import savedData from '../assets/table_data.json'
 
 function List() {
 
@@ -9,6 +10,10 @@ function List() {
       .then(res => res.json())
       .then(data => setList(data.list))
   }, []);
+
+  if (list.length === 0) {
+    setList(savedData.list);
+  }
 
   const convertSexToEstonian = (sex) => {
     if (sex === 'f') {
@@ -28,46 +33,39 @@ function List() {
   return (
     <div className='page'>
       <h1>Nimekiri</h1>
-      {list.map((person, index) =>
-        <div key={index}>
-          {person.firstname}{' '}
-          {person.surname}{' '}
-          {convertSexToEstonian(person.sex)}{' '}
-          {convertUnixTimestampToDate(person.date)}{' '}
-          {person.phone}{' '}
-        </div>
 
-      )}
-      {/* <table>
+      <table>
         <thead>
           <tr>
             <th>
-              <button>Eesnimi</button>
+              Eesnimi
             </th>
             <th>
-              <button>Perekonnanimi</button>
+              Perekonnanimi
             </th>
             <th>
-              <button>Sugu</button>
+              Sugu
             </th>
             <th>
-              <button>Sünnikuupäev</button>
+              Sünnikuupäev
             </th>
             <th>
-              <button>Telefon</button>
+              Telefon
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>Peeter</th>
-            <th>Peterson</th>
-            <th>Mees</th>
-            <th>23.03.1933</th>
-            <th>+372 54004941</th>
-          </tr>
+          {list.map((person, index) =>
+            <tr key={index}>
+              <th>{person.firstname}</th>
+              <th>{person.surname}</th>
+              <th>{convertSexToEstonian(person.sex)}</th>
+              <th>{convertUnixTimestampToDate(person.date)}</th>
+              <th>{person.phone}</th>
+            </tr>
+          )}
         </tbody>
-      </table> */}
+      </table>
     </div>
   )
 }
