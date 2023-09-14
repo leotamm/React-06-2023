@@ -30,28 +30,28 @@ function List() {
     return String(newDate).slice(0, index);
   }
 
+  const sortMethods = ['DEF', 'ASC', 'DES'];
+  let sortIndex = 0;
+  
+  const toggleSortMethod = () => {
+    sortIndex++;
+    if(sortIndex === 3) {
+      sortIndex = 0;
+    }
+    return sortMethods[sortIndex];
+  }
+
   return (
     <div className='page'>
       <h1>Nimekiri</h1>
-
       <table>
         <thead>
           <tr>
-            <th>
-              Eesnimi
-            </th>
-            <th>
-              Perekonnanimi
-            </th>
-            <th>
-              Sugu
-            </th>
-            <th>
-              Sünnikuupäev
-            </th>
-            <th>
-              Telefon
-            </th>
+            <th>Eesnimi</th>
+            <th>Perekonnanimi</th>
+            <th>Sugu</th>
+            <th>Sünnikuupäev</th>
+            <th>Telefon</th>
           </tr>
         </thead>
         <tbody>
