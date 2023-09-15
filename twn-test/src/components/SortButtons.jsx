@@ -1,4 +1,3 @@
-import React from 'react'
 import savedData from '../assets/table_data.json'
 
 function SortButtons(props) {

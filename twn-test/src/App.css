@@ -256,7 +256,7 @@ thead th:hover {
 
 tbody {
   font-weight: lighter;
-  padding: 10px;;
+  padding: 10px;
 }
 
 tbody tr {
@@ -266,9 +266,16 @@ tbody tr {
   font-weight: 900;
 }
 
+tbody tr:hover {
+  cursor: pointer;
+  color:rgb(25, 25, 25);
+  transition: 0.15s;
+}
+
 .light-row {
   opacity: 10%;
 }
+
 
 :root {
   --twn-font: BoosterNextFY;

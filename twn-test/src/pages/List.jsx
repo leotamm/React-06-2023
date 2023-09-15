@@ -6,6 +6,7 @@ function List() {
 
   const [list, setList] = useState([]);
   const [sortToggle, setSortToggle] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   useEffect(() => {
     fetch('https://midaiganes.irw.ee/api/list?limit=500')
@@ -32,6 +33,11 @@ function List() {
     return String(newDate).slice(0, index);
   }
 
+  const toggleRow = (index) => {
+    setSelectedIndex(selectedIndex === index ? -1 : index);
+  }
+
+
   return (
     <div className='page'>
       <h1>Nimekiri</h1>
@@ -45,15 +51,24 @@ function List() {
           />
         </thead>
         <tbody>
-          {list.map((person, index) =>
-            <tr key={index}>
-              <th>{person.firstname}</th>
-              <th>{person.surname}</th>
-              <th>{convertSexToEstonian(person.sex)}</th>
-              <th>{convertUnixTimestampToDate(person.date)}</th>
-              <th>{person.phone}</th>
-            </tr>
-          )}
+          {list.map((person, index) => (
+            <React.Fragment key={index}>
+              <tr className='table-row' onClick={() => toggleRow(index)}>
+                <td>{person.firstname}</td>
+                <td>{person.surname}</td>
+                <td>{convertSexToEstonian(person.sex)}</td>
+                <td>{convertUnixTimestampToDate(person.date)}</td>
+                <td>{person.phone}</td>
+              </tr>
+              <tr className={`table-row collapse ${index === selectedIndex ? 'show' : ''}`}>
+              <td>Additional data1</td>
+              <td>Additional data2</td>
+              <td>Additional data3</td>
+              <td>Additional data4</td>
+              <td>Additional data5</td>
+              </tr>
+            </React.Fragment>
+          ))}
         </tbody>
       </table>
     </div>
