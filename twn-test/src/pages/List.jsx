@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import savedData from '../assets/table_data.json'
 import SortButtons from '../components/SortButtons'
+import doggy from '../images/doggy.jpg'
 
 function List() {
 
@@ -37,6 +38,23 @@ function List() {
     setSelectedIndex(selectedIndex === index ? -1 : index);
   }
 
+  const renderParagraphs = (rawData) => {
+    let shorterText = '';
+    const words = rawData.split(' ');
+    if(words.length > 40) {
+      words.length = 40;
+      shorterText = words.join(' ') + '...';
+    }
+    const editedData = shorterText.replace(/<p>/g, '').replace(/<\/p>/g, '\n');
+    return (
+      <div>
+        {editedData.split('\n').map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ))}
+      </div>
+    );
+  }
+
 
   return (
     <div className='page'>
@@ -58,14 +76,16 @@ function List() {
                 <td>{person.surname}</td>
                 <td>{convertSexToEstonian(person.sex)}</td>
                 <td>{convertUnixTimestampToDate(person.date)}</td>
-                <td>{person.phone}</td>
+                <td>renderParagraphs</td>
               </tr>
               <tr className={`table-row collapse ${index === selectedIndex ? 'show' : ''}`}>
-              <td>Additional data1</td>
-              <td>Additional data2</td>
-              <td>Additional data3</td>
-              <td>Additional data4</td>
-              <td>Additional data5</td>
+                <td className='expanded-data' colSpan='2'>
+                  <img className='personal-image' src={person.image.large} alt={person.image.alt} colSpan='3' />
+                </td>
+                <td className='expanded-text' colSpan='3'>
+                  {renderParagraphs(person.body)}
+                  <button>loe rohkem</button>
+                </td>
               </tr>
             </React.Fragment>
           ))}

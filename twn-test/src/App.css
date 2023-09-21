@@ -237,7 +237,6 @@ button{
 table {
   width: 100%;
   margin: 35px 0;
-  
   font-size: larger;
 }
 thead {
@@ -266,10 +265,31 @@ tbody tr {
   font-weight: 900;
 }
 
-tbody tr:hover {
+/* tbody tr:hover {
   cursor: pointer;
   color:rgb(25, 25, 25);
   transition: 0.15s;
+} */
+
+.expanded-data {
+  height: 380px;
+  background-color: #efefef;
+}
+
+.personal-image {
+  height: 340px;
+  width: 340px;
+  object-fit: cover;
+  padding: 20px;
+}
+
+.expanded-text {
+  height: 300px;
+  margin-top: 0;
+  color: rgb(100,100,100);
+  line-height: 1.25;
+  font-weight: 100;
+  background-color: #efefef;
 }
 
 .light-row {
