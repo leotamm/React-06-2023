@@ -148,7 +148,7 @@ button{
 }
 
 button:hover {
-  background-color: #1aeb89;
+  background-color: #14cc76;
   transition: 0.5s;
 }
 
@@ -205,25 +205,31 @@ button:hover {
   text-transform: uppercase;
   color: var(--twn-textColor);
   text-align: right;
-  margin: 10 0;
+  margin: 10px 0px;
+  transition-duration: 0.25s;
+}
+
+#bar-items #bar-image{
+  transition-timing-function: ease;
 }
 
 .bar-items:hover{
-  color: var(--twn-highlightColor)
+  color: var(--twn-highlightColor);  
 }
 
-.bar_image {
+.bar-image {
   display: inline-block;
   vertical-align: middle;
-  width: 20;
-  height: 20;
-  margin-left: 10;
-  padding: 3
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  padding: 3px;
+  transition-duration: 0.25s;
 }
 
-.bar_image:hover {
-  width: 30;
-  height: 30;
+.bar-image:hover {
+  color: #14cc76;
+  transform: scale(1.5); 
 }
 
 .top-bar {

@@ -5,7 +5,6 @@ import SortButtons from '../components/SortButtons'
 function List() {
 
   const [list, setList] = useState([]);
-  const [sortToggle, setSortToggle] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   useEffect(() => {
@@ -22,8 +21,11 @@ function List() {
     if (sex === 'f') {
       return 'Naine';
     }
-    if (sex === 'm') {
+    else if (sex === 'm') {
       return 'Mees';
+    }
+    else {
+      return 'teadmmata';
     }
   }
 
@@ -40,7 +42,7 @@ function List() {
   const renderParagraphs = (rawData) => {
     let shorterText = '';
     const words = rawData.split(' ');
-    if(words.length > 35) {
+    if (words.length > 35) {
       words.length = 35;
       shorterText = words.join(' ') + '...';
     }
@@ -63,15 +65,14 @@ function List() {
           <SortButtons
             list={list}
             setList={setList}
-            sortToggle={sortToggle}
-            setSortToggle={setSortToggle}
           />
         </thead>
         <tbody>
           {list.map((person, index) => (
             <React.Fragment key={index}>
               <tr className='table-row' onClick={() => toggleRow(index)}>
-                <td>{person.firstname}</td>
+                <td>{person.firstname}
+                </td>
                 <td>{person.surname}</td>
                 <td>{convertSexToEstonian(person.sex)}</td>
                 <td>{convertUnixTimestampToDate(person.date)}</td>
@@ -83,6 +84,7 @@ function List() {
                 </td>
                 <td className='expanded-text' colSpan='3'>
                   {renderParagraphs(person.body)}
+                  {/* <p dangerouslySetInnerHTML={{ __html: person.body }} /> */}
                   <button>loe rohkem</button>
                 </td>
               </tr>

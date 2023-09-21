@@ -1,25 +1,28 @@
 import React, { useState } from 'react'
-import '../css/NavBar.css'
+// import '../css/NavBar.css'
 import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
-import Hamburger from 'hamburger-react'
-import '../images/question-mark.png'
+// import Hamburger from 'hamburger-react'
+import logo from '../images/logo.svg'
+import questionIcon from '../images/question-mark.png'
+import fileIcon from '../images/file.png'
+import gridIcon from '../images/table-grid.png'
+import pictureIcon from '../images/picture.png'
 
 function NavBar() {
 
-    // const [isOpen, setOpen] = useState(false);
     const [expand] = useState(false);
 
     return (
         <>
             <Navbar key={expand} expand={expand} sticky='top' className="bg-body-tertiary mb-5" style={{ height: 75 }}>
-                <Container className="containter-lg">
-                    <Container style={{ display: 'block', justifyContent: 'space-between' }}>
+                <Container className="containter-lg" style={{position: 'absolute'}}>
+                    <Container>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                         <img
-                            src='../images/logo.svg'
+                            src={logo}
                             alt="TWN logo"
-                            width="50"
-                            height="50"
+                            width="150"
+                            height="150"
                             padding="3"
                         />
                     </Container>
@@ -35,16 +38,16 @@ function NavBar() {
                         <Offcanvas.Body >
                             <Nav className="justify-content-end flex-grow-2 pe-3 $offcanvas-horizontal-width:200">
                                 <Nav.Link className='bar-items' href='/intro'>Nõuded
-                                    {/* <img className='bar_image' src='../images/question-mark.png' alt="question mark" /> */}
+                                    <img className='bar-image' src={questionIcon} alt="question" />
                                 </Nav.Link>
                                 <Nav.Link className='bar-items' href='/article'>Artikkel
-                                    {/* <img className='bar_image' src='../images/file.png' alt="file" /> */}
+                                    <img className='bar-image' src={fileIcon} alt="file" />
                                 </Nav.Link>
                                 <Nav.Link className='bar-items' href='/list'>Tabel
-                                    {/* <img className='bar_image' src='../images/table-grid.png' alt="table" /> */}
+                                    <img className='bar-image' src={gridIcon} alt="table" />
                                 </Nav.Link>
                                 <Nav.Link className='bar-items' href='/life'>Game of Life
-                                    {/* <img className='bar_image' src='../images/picture.png' alt="landscape" /> */}
+                                    <img className='bar-image' src={pictureIcon} alt="landscape" />
                                 </Nav.Link>
                             </Nav>
                         </Offcanvas.Body>

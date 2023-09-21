@@ -15,6 +15,8 @@ function Article() {
     setArticle(savedText);
   }
 
+  
+
   return (
     <div className='page'>
       <h1>{article.title}</h1>
