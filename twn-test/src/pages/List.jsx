@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import savedData from '../assets/table_data.json'
 import SortButtons from '../components/SortButtons'
-import doggy from '../images/doggy.jpg'
 
 function List() {
 
@@ -41,8 +40,8 @@ function List() {
   const renderParagraphs = (rawData) => {
     let shorterText = '';
     const words = rawData.split(' ');
-    if(words.length > 40) {
-      words.length = 40;
+    if(words.length > 35) {
+      words.length = 35;
       shorterText = words.join(' ') + '...';
     }
     const editedData = shorterText.replace(/<p>/g, '').replace(/<\/p>/g, '\n');
@@ -76,7 +75,7 @@ function List() {
                 <td>{person.surname}</td>
                 <td>{convertSexToEstonian(person.sex)}</td>
                 <td>{convertUnixTimestampToDate(person.date)}</td>
-                <td>renderParagraphs</td>
+                <td>{person.phone}</td>
               </tr>
               <tr className={`table-row collapse ${index === selectedIndex ? 'show' : ''}`}>
                 <td className='expanded-data' colSpan='2'>

@@ -138,13 +138,18 @@ body {
 button{
   color: var(--twn-textColor);
   background-color: var(--twn-highlightColor);
+  border: none;
   border-bottom: #03875c 7px solid;
-  border-right: none ;
   padding: 15px 50px;
   margin: 15px;
   font-family: var(--twn-font);
   text-transform: uppercase;
   font-weight: 700;
+}
+
+button:hover {
+  background-color: #1aeb89;
+  transition: 0.5s;
 }
 
 .button-pair{
