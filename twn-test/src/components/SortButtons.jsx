@@ -25,6 +25,9 @@ function SortButtons(props) {
                 break;
             default: setFirstNameSortToggle(0)
         }
+        setLastNameSortToggle(0);
+        setSexSortToggle(0);
+        setDateSortToggle(0);
     }
 
     const sortBySurname = () => {
@@ -42,6 +45,9 @@ function SortButtons(props) {
                 break;
             default: setLastNameSortToggle(0)
         }
+        setFirstNameSortToggle(0)
+        setSexSortToggle(0);
+        setDateSortToggle(0);
     }
 
     const sortBySex = () => {
@@ -59,6 +65,9 @@ function SortButtons(props) {
                 break;
             default: setSexSortToggle(0)
         }
+        setFirstNameSortToggle(0)
+        setLastNameSortToggle(0);
+        setDateSortToggle(0);
     }
 
     const sortByDate = () => {
@@ -76,29 +85,32 @@ function SortButtons(props) {
                 break;
             default: setDateSortToggle(0)
         }
+        setFirstNameSortToggle(0)
+        setLastNameSortToggle(0);
+        setSexSortToggle(0);
     }
 
     return (
         <tr>
             <th onClick={() => sortByFirstName()}>Eesnimi{' '}
-                {sortFirstNameToggle === 0 && <FontAwesomeIcon icon={faSort} />}
-                {sortFirstNameToggle === 1 && <FontAwesomeIcon icon={faSortDown} />}
-                {sortFirstNameToggle === 2 && <FontAwesomeIcon icon={faSortUp} />}
+                {sortFirstNameToggle === 0 && <FontAwesomeIcon icon={faSort} size='lg' />}
+                {sortFirstNameToggle === 1 && <FontAwesomeIcon icon={faSortDown} size='lg' />}
+                {sortFirstNameToggle === 2 && <FontAwesomeIcon icon={faSortUp} size='lg' />}
             </th>
             <th onClick={() => sortBySurname()}>Perekonnanimi{' '}
-                {sortLastNameToggle === 0 && <FontAwesomeIcon icon={faSort} />}
-                {sortLastNameToggle === 1 && <FontAwesomeIcon icon={faSortDown} />}
-                {sortLastNameToggle === 2 && <FontAwesomeIcon icon={faSortUp} />}
+                {sortLastNameToggle === 0 && <FontAwesomeIcon icon={faSort} size='lg' />}
+                {sortLastNameToggle === 1 && <FontAwesomeIcon icon={faSortDown} size='lg' />}
+                {sortLastNameToggle === 2 && <FontAwesomeIcon icon={faSortUp} size='lg' />}
             </th>
             <th onClick={() => sortBySex()}>Sugu{' '}
-                {sortSexToggle === 0 && <FontAwesomeIcon icon={faSort} />}
-                {sortSexToggle === 1 && <FontAwesomeIcon icon={faSortDown} />}
-                {sortSexToggle === 2 && <FontAwesomeIcon icon={faSortUp} />}
+                {sortSexToggle === 0 && <FontAwesomeIcon icon={faSort} size='lg' />}
+                {sortSexToggle === 1 && <FontAwesomeIcon icon={faSortDown} size='lg' />}
+                {sortSexToggle === 2 && <FontAwesomeIcon icon={faSortUp} size='lg' />}
             </th>
             <th onClick={() => sortByDate()}>Sünnikuupäev{' '}
-                {sortDateToggle === 0 && <FontAwesomeIcon icon={faSort} />}
-                {sortDateToggle === 1 && <FontAwesomeIcon icon={faSortDown} />}
-                {sortDateToggle === 2 && <FontAwesomeIcon icon={faSortUp} />}
+                {sortDateToggle === 0 && <FontAwesomeIcon icon={faSort} size='lg' />}
+                {sortDateToggle === 1 && <FontAwesomeIcon icon={faSortDown} size='lg' />}
+                {sortDateToggle === 2 && <FontAwesomeIcon icon={faSortUp} size='lg' />}
             </th>
             <th>Telefon</th>
         </tr>

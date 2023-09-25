@@ -6,6 +6,7 @@ function Article() {
   const [article, setArticle] = useState([]);
 
   useEffect(() => {
+
     fetch('https://midaiganes.irw.ee/api/list/972d2b8a')
       .then(res => res.json())
       .then(data => setArticle(data || []))
@@ -15,14 +16,12 @@ function Article() {
     setArticle(savedText);
   }
 
-  
-
   return (
     <div className='page'>
       <h1>{article.title}</h1>
-      <p>{article.intro}</p>
+      <p dangerouslySetInnerHTML={{ __html: article.intro }} />
       <img className='doggy-pic' src='https://midaiganes.irw.ee/api/imgs/large/a3dac073.jpg' alt='doggie' />
-      <p>{article.body}</p>
+      <p dangerouslySetInnerHTML={{ __html: article.body }} />
       <button className='custom-button'>amet</button>
     </div>
   )

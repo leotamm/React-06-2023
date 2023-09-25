@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import savedData from '../assets/table_data.json'
 import SortButtons from '../components/SortButtons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+
 
 function List() {
 
   const [list, setList] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const pageSize = 10;
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     fetch('https://midaiganes.irw.ee/api/list?limit=500')
@@ -56,6 +61,27 @@ function List() {
     );
   }
 
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+
+  const displayedData = list.slice(startIndex, endIndex);
+
+  const handlePageChange = (pageNumber) => {
+    if ((currentPage <= 1 && pageNumber === 0) ||
+      (currentPage >= 4 && pageNumber === 5)) {
+      return;
+    }
+    if (currentPage > 1 && pageNumber === 0) {
+      setCurrentPage(currentPage - 1);
+      return;
+    }
+    if (currentPage < 4 && pageNumber === 5) {
+      setCurrentPage(currentPage + 1);
+      return;
+    }
+    setCurrentPage(pageNumber);
+  }
+
 
   return (
     <div className='page'>
@@ -68,11 +94,10 @@ function List() {
           />
         </thead>
         <tbody>
-          {list.map((person, index) => (
+          {displayedData.map((person, index) => (
             <React.Fragment key={index}>
               <tr className='table-row' onClick={() => toggleRow(index)}>
-                <td>{person.firstname}
-                </td>
+                <td>{person.firstname}</td>
                 <td>{person.surname}</td>
                 <td>{convertSexToEstonian(person.sex)}</td>
                 <td>{convertUnixTimestampToDate(person.date)}</td>
@@ -92,6 +117,14 @@ function List() {
           ))}
         </tbody>
       </table>
+      <div className="pagination">
+        <FontAwesomeIcon icon={faAngleLeft} size="xl" onClick={() => handlePageChange(0)} />
+        <span className='pag-page' onClick={() => handlePageChange(1)}> 1 </span>
+        <span className='pag-page' onClick={() => handlePageChange(2)}> 2 </span>
+        <span className='pag-page' onClick={() => handlePageChange(3)}> 3 </span>
+        <span className='pag-page' onClick={() => handlePageChange(4)}> 4 </span>
+        <FontAwesomeIcon icon={faAngleRight} size="xl" onClick={() => handlePageChange(5)} />
+      </div>
     </div>
   )
 }

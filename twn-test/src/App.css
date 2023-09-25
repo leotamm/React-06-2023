@@ -303,6 +303,28 @@ tbody tr {
   background-color: #efefef;
 }
 
+.pagination {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pag-page {
+  height: 50px;
+  width: 50px;
+  padding-top: 6px;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  background-color: none;
+  display: inline-block;
+}
+
+.pag-page:hover {
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
 .light-row {
   opacity: 10%;
 }
