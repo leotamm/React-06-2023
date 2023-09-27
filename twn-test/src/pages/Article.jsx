@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import savedText from '../assets/article_text.json'
+import DOMPurify from 'dompurify';
+
 
 function Article() {
 
-  const [article, setArticle] = useState([]);
+  const [article, setArticle] = useState({ title: '', body: '', intro: '' });
 
   useEffect(() => {
 
     fetch('https://midaiganes.irw.ee/api/list/972d2b8a')
       .then(res => res.json())
-      .then(data => setArticle(data || []))
+      .then((data) =>
+        setArticle({
+          title: DOMPurify.sanitize(data.title) || '',
+          body: DOMPurify.sanitize(data.body) || '',
+          intro: DOMPurify.sanitize(data.intro) || '',
+        }))
   }, []);
 
   if (article.length === 0) {

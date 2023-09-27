@@ -6,6 +6,7 @@ import Article from './pages/Article';
 import List from './pages/List';
 import Life from './pages/Life';
 import NavBar from './components/NavBar';
+import SingleArticle from './pages/SingleArticle';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/intro' element={<Intro />} />
         <Route path='/article' element={<Article />} />
+        <Route path='/article/:userId' element={<SingleArticle />} />
         <Route path='/list' element={<List />} />
         <Route path='/life' element={<Life />} />
         <Route path='/assets/' />

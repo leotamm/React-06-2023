@@ -30,7 +30,7 @@ function List() {
       return 'Mees';
     }
     else {
-      return 'teadmmata';
+      return 'teadmata';
     }
   }
 
@@ -81,7 +81,6 @@ function List() {
     }
     setCurrentPage(pageNumber);
   }
-
 
   return (
     <div className='page'>
