@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import savedData from '../assets/table_data.json'
 import SortButtons from '../components/SortButtons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 
 function List() {
 
   const [list, setList] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const pageSize = 10;
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('https://midaiganes.irw.ee/api/list?limit=500')
@@ -41,7 +44,7 @@ function List() {
   }
 
   const toggleRow = (index) => {
-    setSelectedIndex(selectedIndex === index ? -1 : index);
+    setSelectedIndex(selectedIndex === index ? null : index);
   }
 
   const renderParagraphs = (rawData) => {
@@ -82,6 +85,11 @@ function List() {
     setCurrentPage(pageNumber);
   }
 
+  const gotoArticle = (id) => {
+    navigate('/article/' + id);
+    return id;
+  }
+
   return (
     <div className='page'>
       <h1>Nimekiri</h1>
@@ -95,12 +103,12 @@ function List() {
         <tbody>
           {displayedData.map((person, index) => (
             <React.Fragment key={index}>
-              <tr className='table-row' onClick={() => toggleRow(index)}>
-                <td>{person.firstname}</td>
-                <td>{person.surname}</td>
-                <td>{convertSexToEstonian(person.sex)}</td>
-                <td>{convertUnixTimestampToDate(person.date)}</td>
-                <td>{person.phone}</td>
+              <tr className={`table-row ${index === selectedIndex ? 'selected' : ''}`} onClick={() => toggleRow(index)}>
+                <td className='tighter-text'>{person.firstname}</td>
+                <td className='tighter-text'>{person.surname}</td>
+                <td className='tighter-text'>{convertSexToEstonian(person.sex)}</td>
+                <td className='tighter-text'>{convertUnixTimestampToDate(person.date)}</td>
+                <td className='tighter-text'>{person.phone}</td>
               </tr>
               <tr className={`table-row collapse ${index === selectedIndex ? 'show' : ''}`}>
                 <td className='expanded-data' colSpan='2'>
@@ -109,7 +117,7 @@ function List() {
                 <td className='expanded-text' colSpan='3'>
                   {renderParagraphs(person.body)}
                   {/* <p dangerouslySetInnerHTML={{ __html: person.body }} /> */}
-                  <button>loe rohkem</button>
+                  <button as={Link} to={'/article/' + person.id} onClick={() => gotoArticle(person.id)}>loe rohkem</button>
                 </td>
               </tr>
             </React.Fragment>

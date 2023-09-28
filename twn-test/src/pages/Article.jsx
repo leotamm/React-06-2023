@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import savedText from '../assets/article_text.json'
+import singleArticle from '../assets/single_article.json'
 import DOMPurify from 'dompurify';
 
 
@@ -20,7 +20,7 @@ function Article() {
   }, []);
 
   if (article.length === 0) {
-    setArticle(savedText);
+    setArticle(singleArticle);
   }
 
   return (
