@@ -1,0 +1,24 @@
+.rbc-toolbar button.rbc-active {
+    color: blue;
+    background-color: red
+}
+
+.rbc-header {
+    color: blue;
+    background-color: yellowgreen;
+    height: 50px;
+}
+
+.rbc-time-view .rbc-row {
+    min-height: 0px;
+    font-size: 24px;
+}
+
+.rbc-event {
+    padding: 0px;
+    font-size: 16px;
+}
+
+.rbc-event-label {
+    display: none;
+}

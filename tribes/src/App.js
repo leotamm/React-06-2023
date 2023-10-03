@@ -5,11 +5,12 @@ import Chat from "./pages/Chat";
 import Tasks from "./pages/Tasks";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import 'react-big-calendar/lib/css/react-big-calendar.css'
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello Tribe Member!</h1>
+      <h1>Hello member!</h1>
       <Routes>
         <Route path='/calendar' element={<TribeCalendar />} />
         <Route path='/tasks' element={<Tasks />} />
