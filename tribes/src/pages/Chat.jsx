@@ -2,7 +2,9 @@ import React from 'react'
 
 function Chat() {
   return (
-    <div>Chat</div>
+    <div>
+      <h2>Chat</h2>
+    </div>
   )
 }
 
