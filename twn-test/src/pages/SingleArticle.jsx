@@ -4,30 +4,22 @@ import allSavedArticles from '../assets/all_articles.json'
 
 function SingleArticle() {
 
-    useEffect(() => {
-        alert('Reached single article page');
-    }, []);
-
     const { userId } = useParams();
-
-    const [articles, setArticles] = useState([]);
     const [selectedArticle, setSelectedArticle] = useState();
 
     useEffect(() => {
         fetch('https://midaiganes.irw.ee/api/list?limit=500')
             .then(res => res.json())
             .then((data) =>
-                [setArticles(data.list || []),
+                [setSelectedArticle(data.list.find(singleArticle => singleArticle.id === userId)),
                 console.log('Using API data')]
             )
     }, []);
 
-    if (articles.length === 0) {
-        setArticles(allSavedArticles);
+    if (selectedArticle.length === 0) {
+        setSelectedArticle(allSavedArticles);
         console.log('Using saved text');
     }
-
-    setSelectedArticle(articles.find(singleArticle => singleArticle.id === userId));
     
     return (
         <div className='page'>
