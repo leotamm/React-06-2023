@@ -41,7 +41,7 @@ const components = {
 function TribeCalendar() {
   return (
     <div>
-      <h2>Tribe calendar</h2>
+      <h2>/ Tribe Calendar page /</h2>
 
       <Calendar
         localizer={localizer}

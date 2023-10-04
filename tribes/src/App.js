@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import './App.css';
+import './index.css';
 import TribeCalendar from "./pages/TribeCalendar";
 import Chat from "./pages/Chat";
 import Tasks from "./pages/Tasks";
