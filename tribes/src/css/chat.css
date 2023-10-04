@@ -19,7 +19,7 @@
 }
 
 .chat-video {
-    width: 100%;
+    width: 600px;
     max-width: 100%;
     height: auto;
 }
@@ -27,7 +27,7 @@
 .chat-button {
     position: absolute;
     bottom: 20px;
-    left: 20px;
+    left: 45%;
 
     appearance: none;
     border: none;
