@@ -1,17 +1,22 @@
 import { Routes, Route } from "react-router-dom";
 import './index.css';
+import HomePage from '../src/pages/HomePage'
 import TribeCalendar from "./pages/TribeCalendar";
 import Chat from "./pages/Chat";
 import Tasks from "./pages/Tasks";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
-import 'react-big-calendar/lib/css/react-big-calendar.css'
+import BottomNavBar from "./components/BottomNavBar";
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 function App() {
+
   return (
     <div className="App">
       <h1>Hello member!</h1>
+      <BottomNavBar/>
       <Routes>
+        <Route path='/' element={<HomePage />} />
         <Route path='/calendar' element={<TribeCalendar />} />
         <Route path='/tasks' element={<Tasks />} />
         <Route path='/chat' element={<Chat />} />

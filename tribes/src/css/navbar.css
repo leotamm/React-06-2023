@@ -1,0 +1,19 @@
+.bottom-navbar-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Optional: Adjust the z-index as needed */
+}
+
+.navbar-justify-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-icon {
+    height: 30px;
+    width: 30px;
+}
