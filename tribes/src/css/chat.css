@@ -27,10 +27,11 @@
 .chat-button {
     position: absolute;
     bottom: 20px;
-    left: 45%;
+    left: 50%;
 
     appearance: none;
     border: none;
+    border-radius: 10px;
     outline: none;
 
     padding: 8px 16px;
@@ -46,6 +47,12 @@
 
 .chat-button:hover {
     background-position: 100%;
+}
+
+.chat-button-image {
+    color: #fff;
+    height: 30px;
+    align-items: center;
 }
 
 .chat-canvas {

@@ -10,7 +10,7 @@ function Chat() {
 
   const getVideo = () => {
     navigator.mediaDevices
-      .getUserMedia({ audio: false, video: { width: 1280, height: 720 } })
+      .getUserMedia({ audio: false, video: { width: 1920, height: 1080 } })
       .then(function (mediaStream) {
         var video = document.querySelector("video");
         video.srcObject = mediaStream;
@@ -55,11 +55,15 @@ function Chat() {
       <h2>/ Chat page /</h2>
       <div className='camera'>
         <video className='chat-video' autoPlay={true} ref={videoRef}></video>
-        <button className='chat-button' onClick={() => takePhoto()}>Pildistan!</button>
+        <button className='chat-button' onClick={() => takePhoto()}>
+          <img className='chat-button-image' src='camera-icon.png' alt='camera' />
+        </button>
       </div>
       <div className={'result ' + (hasPhoto ? 'hasPhoto' : '')}>
         <canvas className='chat-canvas' ref={photoRef}></canvas>
-        <button className='chat-button' onClick={() => closePhoto()}>Kustuta!</button>
+        <button className='chat-button' onClick={() => closePhoto()}>
+        <img className='chat-button-image' src='trash-icon.png' alt='trash bin' />
+        </button>
       </div>
     </div>
   )
