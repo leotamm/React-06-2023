@@ -23,9 +23,9 @@ function Chat() {
       })
   }
 
-  useEffect(() => {
-    getVideo();
-  }, [videoRef]);
+  // useEffect(() => {
+  //   getVideo();
+  // }, [videoRef]);
 
   const takePhoto = () => {
     const width = 414;
