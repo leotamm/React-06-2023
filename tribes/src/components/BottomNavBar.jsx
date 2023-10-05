@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
@@ -9,28 +9,33 @@ import TasksIcon from '../assets/images/tasks-icon.png'
 import ChatIcon from '../assets/images/chat-icon.png'
 import SettingsIcon from '../assets/images/settings-icon.png'
 
-
 function BottomNavBar() {
+
+    const navigate = useNavigate(null);
+
     return (
-        <div className='bottom-navbar-container'>
-            <Navbar className="bg-body-tertiary">
-                <Container>
-                    <Nav className='navbar-justify-between'>
-                        <Nav.Link as={Link} to='/calendar'>Calendar
-                            <img className='navbar-icon' src={CalIcon} alt='calendar'></img>
-                        </Nav.Link>
-                        <Nav.Link as={Link} to='/tasks'>Tasks
-                            <img className='navbar-icon' src={TasksIcon} alt='calendar'></img>
-                        </Nav.Link>
-                        <Nav.Link as={Link} to='/chat'>Chat
-                            <img className='navbar-icon' src={ChatIcon} alt='calendar'></img>
-                        </Nav.Link>
-                        <Nav.Link as={Link} to='/settings'>Settings
-                            <img className='navbar-icon' src={SettingsIcon} alt='calendar'></img>
-                        </Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar>
+        <div className='bottom-navbar'>
+            <Container style={{ width: '50%' }}>
+                <div className='navbar-justify-between'>
+                    <div style={{ width: 80 }} onClick={() => navigate('/calendar')}>
+                        <img className='navbar-icon' src={CalIcon} alt='calendar'></img>
+                        <div>Calendar</div>
+                    </div>
+                    <div style={{ width: 80 }} onClick={() => navigate('/tasks')}>
+                        <img className='navbar-icon' src={TasksIcon} alt='calendar'></img>
+                        <div>Tasks</div>
+                    </div>
+                    <div style={{ width: 80 }} onClick={() => navigate('/chat')}>
+                        <img className='navbar-icon' src={ChatIcon} alt='calendar'></img>
+                        <div>Chat</div>
+                    </div>
+                    <div style={{ width: 80 }} onClick={() => navigate('/settings')}>
+                        <img className='navbar-icon' src={SettingsIcon} alt='calendar'></img>
+                        <div>Settings</div>
+                    </div>
+                </div>
+            </Container>
+
         </div>
     )
 }

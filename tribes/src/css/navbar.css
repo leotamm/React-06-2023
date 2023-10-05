@@ -1,20 +1,25 @@
-.bottom-navbar-container {
+
+.bottom-navbar {
     position: fixed;
+    height: 80px;
     bottom: 0;
     left: 0;
-    width: 100%;
-    z-index: 1000;
-    /* Optional: Adjust the z-index as needed */
-}
+    right: 0;
+    background-color: #fff; /* Set your desired background color */
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for the navbar */
+    z-index: 1000; /* Ensure it appears above other content */
+  }
 
 .navbar-justify-between {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .navbar-icon {
-    filter: hue-rotate(120deg);
+    filter: invert(33%) sepia(36%) saturate(5315%) hue-rotate(243deg) brightness(102%) contrast(101%);
     height: 40px;
     width: 40px;
 }

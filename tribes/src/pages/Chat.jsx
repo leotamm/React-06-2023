@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import '../css/chat.css'
+import CameraIcon from '../assets/images/camera-icon.png'
+import TrashIcon from '../assets/images/trash-icon.png'
 
 function Chat() {
 
@@ -22,7 +24,7 @@ function Chat() {
         console.log(err);
       })
   }
-
+  // INFO: webcam temporariliy disabled
   // useEffect(() => {
   //   getVideo();
   // }, [videoRef]);
@@ -56,13 +58,13 @@ function Chat() {
       <div className='camera'>
         <video className='chat-video' autoPlay={true} ref={videoRef}></video>
         <button className='chat-button' onClick={() => takePhoto()}>
-          <img className='chat-button-image' src='camera-icon.png' alt='camera' />
+          <img className='chat-button-image' src={CameraIcon} alt='camera' />
         </button>
       </div>
       <div className={'result ' + (hasPhoto ? 'hasPhoto' : '')}>
         <canvas className='chat-canvas' ref={photoRef}></canvas>
         <button className='chat-button' onClick={() => closePhoto()}>
-        <img className='chat-button-image' src='trash-icon.png' alt='trash bin' />
+        <img className='chat-button-image' src={TrashIcon} alt='trash bin' />
         </button>
       </div>
     </div>
