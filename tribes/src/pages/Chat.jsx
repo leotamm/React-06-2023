@@ -54,7 +54,7 @@ function Chat() {
 
   return (
     <div>
-      <h2>/ Chat page /</h2>
+      <h4>/ Chat page /</h4><br />
       <div className='camera'>
         <video className='chat-video' autoPlay={true} ref={videoRef}></video>
         <button className='chat-button' onClick={() => takePhoto()}>

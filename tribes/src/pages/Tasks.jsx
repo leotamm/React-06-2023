@@ -3,7 +3,7 @@ import React from 'react'
 function Tasks() {
   return (
     <div>
-      <h2>/ on Tasks page /</h2>
+      <h4>/ on Tasks page /</h4><br />
     </div>
   )
 }

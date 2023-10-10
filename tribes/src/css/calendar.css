@@ -22,3 +22,7 @@
 .rbc-event-label {
     display: none;
 }
+
+Button {
+    margin: 30px 0;
+}
