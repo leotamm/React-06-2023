@@ -10,9 +10,10 @@ import getDay from 'date-fns/getDay'
 import et from 'date-fns/locale/et'
 import "react-big-calendar/lib/css/react-big-calendar.css"
 import '../css/calendar.css'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Modal from 'react-bootstrap/Modal'
+import { Dropdown } from 'react-bootstrap'
 
 
 
@@ -51,6 +52,8 @@ function TribeCalendar() {
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
 
+  const eventUserRef = useRef(null);
+  const eventAccessRef = useRef(false);
   const eventTitleRef = useRef(null);
   const eventStartRef = useRef(null);
   const eventEndRef = useRef(null);
@@ -77,6 +80,15 @@ function TribeCalendar() {
                 autoFocus
               />
             </Form.Group>
+
+            <Form.Group className='mb-3'>
+              <Form.Check
+                type='checkbox'
+                label='Private Event (Details for your eyes only)'
+                ref={eventAccessRef}
+              />
+            </Form.Group>
+
             <Form.Group className='mb-3'>
               <Form.Label>Start</Form.Label>
               <Form.Control
