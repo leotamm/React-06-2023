@@ -1,11 +1,11 @@
 export const tribeEvents = [
 	{
 		id: 0,
-		user: 'user 1',
-		access: 'private',
+		user: 'User 1',
+		isPrivate: true,
 		title: 'Training',
-		start: new Date(2023, 9, 3, 9, 0, 0),
-		end: new Date(2023, 9, 3, 13, 0, 0),
+		start: new Date(2023, 9, 12, 9, 0, 0),
+		end: new Date(2023, 9, 12, 13, 0, 0),
 		comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 		resourceId: 1,
 		data: {
@@ -13,12 +13,12 @@ export const tribeEvents = [
 		}
 	},
 	{
-		id: 1,
-		user: 'user 1',
-		access: 'public',
+		id: 1,	
+		user: 'User 2',
+		isPrivate: false,
 		title: 'Late lunch',
-		start: new Date(2023, 9, 3, 14, 0, 0),
-		end: new Date(2023, 9, 3, 16, 30, 0),
+		start: new Date(2023, 9, 12, 14, 0, 0),
+		end: new Date(2023, 9, 12, 16, 30, 0),
 		comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 		resourceId: 2,
 		data: {
@@ -27,11 +27,11 @@ export const tribeEvents = [
 	},
 	{
 		id: 2,
-		user: 'user 2',
-		access: 'public',
+		user: 'User 3',
+		isPrivate: false,
 		title: 'Fight club',
-		start: new Date(2023, 9, 3, 8, 30, 0),
-		end: new Date(2023, 9, 3, 12, 30, 0),
+		start: new Date(2023, 9, 12, 8, 30, 0),
+		end: new Date(2023, 9, 12, 12, 30, 0),
 		comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 		resourceId: 3,
 		data: {
@@ -40,11 +40,11 @@ export const tribeEvents = [
 	},
 	{
 		id: 3,
-		user: 'user 4',
-		access: 'public',
+		user: 'User 4',
+		isPrivate: false,
 		title: 'Party',
-		start: new Date(2023, 9, 3, 21, 0, 0),
-		end: new Date(2023, 9, 4, 10, 30, 0),
+		start: new Date(2023, 9, 12, 21, 0, 0),
+		end: new Date(2023, 9, 13, 10, 30, 0),
 		comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 		resourceId: 4,
 		data: {
@@ -53,11 +53,24 @@ export const tribeEvents = [
 	},
 	{
 		id: 4,
-		user: 'user 5',
-		access: 'public',
+		user: 'User 5',
+		isPrivate: false,
 		title: 'Movies',
-		start: new Date(2023, 9, 3, 21, 30, 0),
-		end: new Date(2023, 9, 3, 23, 30, 0),
+		start: new Date(2023, 9, 12, 21, 30, 0),
+		end: new Date(2023, 9, 12, 23, 30, 0),
+		comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+		resourceId: 5,
+		data: {
+			restrictions: 'Do not disturb'
+		}
+	},
+	{
+		id: 5,
+		user: 'User 5',
+		isPrivate: true,
+		title: 'Fishing',
+		start: new Date(2023, 9, 12, 6, 30, 0),
+		end: new Date(2023, 9, 12, 9, 30, 0),
 		comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 		resourceId: 5,
 		data: {
@@ -67,9 +80,9 @@ export const tribeEvents = [
 ];
 
 export const tribeResources = [
-	{ id: 1, title: "User 1" },
-	{ id: 2, title: "User 2" },
-	{ id: 3, title: "User 3" },
-	{ id: 4, title: "User 4" },
-	{ id: 5, title: "User 5" },
+	{ id: 1, title: "Data 1" },
+	{ id: 2, title: "Data 2" },
+	{ id: 3, title: "Data 3" },
+	{ id: 4, title: "Data 4" },
+	{ id: 5, title: "Data 5" },
 ];
