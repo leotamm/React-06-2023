@@ -24,10 +24,10 @@ function Chat() {
         console.log(err);
       })
   }
-  // INFO: webcam temporariliy disabled
-  // useEffect(() => {
-  //   getVideo();
-  // }, [videoRef]);
+  //INFO: webcam and mic on/off
+  useEffect(() => {
+    getVideo();
+  }, [videoRef]);
 
   const takePhoto = () => {
     const width = 414;
@@ -54,7 +54,9 @@ function Chat() {
 
   return (
     <div>
-      <h4>/ Chat page /</h4><br />
+      <h4>/ Chat page /</h4>
+      <p>This page is for communication</p>
+      <p>Current state: Webcam and microphone enabled</p>
       <div className='camera'>
         <video className='chat-video' autoPlay={true} ref={videoRef}></video>
         <button className='chat-button' onClick={() => takePhoto()}>

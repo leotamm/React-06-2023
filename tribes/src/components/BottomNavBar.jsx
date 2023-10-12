@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import '../css/navbar.css'
 import CalIcon from '../assets/images/calendar-icon.png'
-import TasksIcon from '../assets/images/tasks-icon.png'
+import IdeasIcon from '../assets/images/ideas-icon.png'
 import ChatIcon from '../assets/images/chat-icon.png'
 import SettingsIcon from '../assets/images/settings-icon.png'
 
@@ -21,9 +21,9 @@ function BottomNavBar() {
                         <img className='navbar-icon' src={CalIcon} alt='calendar'></img>
                         <div>Calendar</div>
                     </div>
-                    <div style={{ width: 80 }} onClick={() => navigate('/tasks')}>
-                        <img className='navbar-icon' src={TasksIcon} alt='calendar'></img>
-                        <div>Tasks</div>
+                    <div style={{ width: 80 }} onClick={() => navigate('/ideas')}>
+                        <img className='navbar-icon' src={IdeasIcon} alt='ideas'></img>
+                        <div>Ideas</div>
                     </div>
                     <div style={{ width: 80 }} onClick={() => navigate('/chat')}>
                         <img className='navbar-icon' src={ChatIcon} alt='calendar'></img>

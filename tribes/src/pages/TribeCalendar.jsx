@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar'
 import { tribeEvents, tribeResources } from '../data/calendarData.jsx'
 import format from 'date-fns/format'
@@ -30,15 +30,6 @@ const localizer = dateFnsLocalizer({
 
 const components = {
   event: (props) => {
-    // const request = props.event.data.restrictions;
-    // switch (request) {
-    //   case 'Do not disturb':
-    //     return <div style={{ background: 'red', height: '100%', padding: '5px' }}>{props.title}</div>
-    //   case 'Welcome to contact':
-    //     return <div style={{ background: 'green', height: '100%', padding: '5px' }}>{props.title}</div>
-    //   default:
-    //     return <div style={{ background: 'yellow', height: '100%', padding: '5px' }}>{props.title}</div>
-    // }
     const request = props.event.user;
     switch (request) {
       case 'User 1':
@@ -59,20 +50,30 @@ const components = {
 
 function TribeCalendar() {
 
+  const [allEvents, setAllEvents] = useState(tribeEvents);
+
+  // useEffect(() => {
+  //   fetch(config.CALENDAR_DATA_URL)
+  //   .then(res => res.json())
+  //   .then(data => setAllEvents(data || []))
+  //   .catch((error) => {
+  //     console.error(error)
+  //   })
+  // }, []);
+
   const [newEvent, setNewEvent] = useState({
-    id: '',
-    user: '',
+    id: "",
+    user: "",
     isPrivate: false,
-    start: '',
-    end: '',
-    comment: '',
-    resourceId: '',
+    start: "",
+    end: "",
+    comment: "",
+    resourceId: "",
     data: {
       restrictions: 'Welcome to contact'
     }
   });
 
-  const [allEvents, setAllEvents] = useState(tribeEvents);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -81,24 +82,30 @@ function TribeCalendar() {
   }
   const handleShowModal = () => {
     setNewEvent({
-      id: '',
-      user: '',
-      title: '',
+      id: "",
+      user: "",
+      title: "",
       isPrivate: false,
-      start: '',
-      end: '',
-      comment: ''
+      start: "",
+      end: "",
+      comment: ""
     });
     setShowModal(true);
   }
 
   const handleAddEvent = () => {
-    console.log('Saving new event: ' + newEvent);
     setAllEvents([...allEvents, newEvent]);
-    console.log('New events list: ' + allEvents);
+    fetch(config.CALENDAR_DATA_URL, {
+      method: "PUT",
+      body: JSON.stringify(allEvents)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
   }
 
   const handleSaveEvent = () => {
+    // check if all data is valid, then proceed
     handleAddEvent();
     setShowModal(false);
 
@@ -107,6 +114,8 @@ function TribeCalendar() {
   return (
     <div>
       <h4>/ Tribe Calendar page /</h4>
+      <p>This page is for sharing schedules</p>
+      <p>Current state: 5 color-coordinated users on shared calendar, data being migrated to database</p>
       <Button variant="primary" onClick={() => handleShowModal()}>
         Add event
       </Button><br />
@@ -188,7 +197,7 @@ function TribeCalendar() {
         min={new Date(0, 0, 0, config.CALENDAR_START_HOUR, 0, 0)}
         max={new Date(0, 0, 0, config.CALENDAR_END_HOUR, 0, 0)}
         defaultView="day"
-        views={['day', 'week', 'month', 'work_week', 'agenda']}
+        views={['day', 'week', 'month']}
         startAccessor="start"
         endAccessor="end"
         components={components}
