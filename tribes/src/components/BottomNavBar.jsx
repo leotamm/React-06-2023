@@ -15,23 +15,23 @@ function BottomNavBar() {
 
     return (
         <div className='bottom-navbar'>
-            <Container style={{ width: '50%' }}>
+            <Container >
                 <div className='navbar-justify-between'>
-                    <div style={{ width: 80 }} onClick={() => navigate('/calendar')}>
+                    <div style={{ width: '25%' }} onClick={() => navigate('/calendar')}>
                         <img className='navbar-icon' src={CalIcon} alt='calendar'></img>
-                        <div>Calendar</div>
+                        <div className='icon-text'>Calendar</div>
                     </div>
-                    <div style={{ width: 80 }} onClick={() => navigate('/ideas')}>
+                    <div style={{ width: '25%' }} onClick={() => navigate('/ideas')}>
                         <img className='navbar-icon' src={IdeasIcon} alt='ideas'></img>
-                        <div>Ideas</div>
+                        <div className='icon-text'>Ideas</div>
                     </div>
-                    <div style={{ width: 80 }} onClick={() => navigate('/chat')}>
+                    <div style={{ width: '25%' }} onClick={() => navigate('/chat')}>
                         <img className='navbar-icon' src={ChatIcon} alt='calendar'></img>
-                        <div>Chat</div>
+                        <div className='icon-text'>Chat</div>
                     </div>
-                    <div style={{ width: 80 }} onClick={() => navigate('/settings')}>
+                    <div style={{ width: '25%' }} onClick={() => navigate('/settings')}>
                         <img className='navbar-icon' src={SettingsIcon} alt='calendar'></img>
-                        <div>Settings</div>
+                        <div className='icon-text'>Settings</div>
                     </div>
                 </div>
             </Container>

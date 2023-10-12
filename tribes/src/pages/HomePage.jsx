@@ -3,7 +3,8 @@ import React from 'react'
 function HomePage() {
   return (
     <div>
-      <h4>/ on Home page /</h4><br />
+      <p>Welcome to the Tribes app!</p>
+      <p>Start sharing and communicating with your group!</p>
     </div>
   )
 }

@@ -113,9 +113,7 @@ function TribeCalendar() {
 
   return (
     <div>
-      <h4>/ Tribe Calendar page /</h4>
       <p>This page is for sharing schedules</p>
-      <p>Current state: 5 color-coordinated users on shared calendar, data being migrated to database</p>
       <Button variant="primary" onClick={() => handleShowModal()}>
         Add event
       </Button><br />
@@ -150,7 +148,7 @@ function TribeCalendar() {
                 onChange={(e) => setNewEvent({ ...newEvent, isPrivate: e.target.value })}
               />
             </Form.Group>
-            <label>Start Date</label>
+            <label>Start Time</label>
             <Form.Group className='mb-3'>
               <DateTimePicker
                 calendarAriaLabel="Toggle calendar"
@@ -161,7 +159,7 @@ function TribeCalendar() {
                 value={newEvent.start}
               />
             </Form.Group>
-            <label>End Date</label>
+            <label>End Time</label>
             <Form.Group className='mb-3'>
               <DateTimePicker
                 calendarAriaLabel="Toggle calendar"
@@ -201,7 +199,7 @@ function TribeCalendar() {
         startAccessor="start"
         endAccessor="end"
         components={components}
-        style={{ height: 550 }}
+        style={{ height: 600 }}
       />
     </div>
   )

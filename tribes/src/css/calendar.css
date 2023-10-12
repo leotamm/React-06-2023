@@ -1,6 +1,12 @@
 .rbc-toolbar button.rbc-active {
+    margin: 10px 0;
     color: blue;
     background-color: red
+}
+.rbc-toolbar-label {
+    font-size: 22px;
+    color: red;
+    font-weight: 900;
 }
 
 .rbc-header {
@@ -24,5 +30,29 @@
 }
 
 Button {
-    margin: 30px 0;
+    margin: 20px 0;
+}
+
+.react-datetime-picker {
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+}
+
+.react-datetime-picker__wrapper {
+    height: 50px;
+    min-width: 300px;
+}
+
+.react-datetime-picker__inputGroup{
+    padding: 5px;
+}
+
+.react-datetime-picker__inputGroup__divider{
+    width: 10px;
+}
+
+
+
+.react-datetime-picker__button {
+    margin: 10px 0;
 }
