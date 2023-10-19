@@ -11,10 +11,10 @@ import DateTimePicker from 'react-datetime-picker'
 import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
-//import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
+import { Watch } from 'react-loader-spinner'
 import config from '../data/config.json'
 
 const locales = {
@@ -51,11 +51,18 @@ const components = {
 
 
 function TribeCalendar() {
-  
+
   // const [allEvents, setAllEvents] = useState(tribeEvents);
   const [allEvents, setAllEvents] = useState(tribeEvents);
-  
-  const [isLoading, setLoading] = useState(false);
+
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 5000)
+  }, []);
+
 
   // useEffect(() => {
   //   fetch(config.CALENDAR_DATA_URL)
@@ -63,7 +70,7 @@ function TribeCalendar() {
   //   .then(data => setAllEvents(data || []))
   //   .catch((error) => {
   //     console.error(error)
-  //   }); setLoading(true);
+  //   }); setLoading(false);
   // }, []);
 
   const [newEvent, setNewEvent] = useState({
@@ -104,9 +111,9 @@ function TribeCalendar() {
       method: "PUT",
       body: JSON.stringify(allEvents)
     })
-    .catch((err) => {
-      console.error(err)
-    })
+      .catch((err) => {
+        console.error(err)
+      })
   }
 
   const handleSaveEvent = () => {
@@ -122,6 +129,17 @@ function TribeCalendar() {
       <Button variant="primary" onClick={() => handleShowModal()}>
         Add event
       </Button><br />
+
+      <Watch
+        height="50"
+        width="50"
+        radius="48"
+        color="#844FFF"
+        ariaLabel="watch-loading"
+        wrapperStyle={{ margin: 'auto', width: 50 }}
+        wrapperClassName=""
+        visible={isLoading}
+      />
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>

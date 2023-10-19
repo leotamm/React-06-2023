@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import InputGroup from 'react-bootstrap/InputGroup';
+import InputGroup from 'react-bootstrap/InputGroup'
+import toast, { Toaster } from 'react-hot-toast'
 import config from '../data/config.json'
 
 
@@ -40,7 +41,8 @@ function Ideas() {
     const selectedQuestion = ideaQuestionRef.current.value;
     setIdeaStatus('CONFIRM');
     setIdeaQuestion(selectedQuestion);
-    console.log('Registered question: ' + selectedQuestion);
+    console.log('Registered type: ' + ideaType + ' for users ' + ideaUsers + ' and the question is: ' + selectedQuestion);
+    toast.success('Idea is submitted!');
   }
 
   const restart = () => {
@@ -94,6 +96,9 @@ function Ideas() {
           <Button onClick={() => registerQuestion()}>SUBMIT IDEA</Button>
         </div>}
 
+      <div>
+        <Toaster/>
+      </div>
 
       <Button variant='danger' onClick={() => restart()}>RESTART</Button>
 
