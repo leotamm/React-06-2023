@@ -11,6 +11,7 @@ import DateTimePicker from 'react-datetime-picker'
 import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
+//import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
@@ -48,9 +49,13 @@ const components = {
   }
 }
 
-function TribeCalendar() {
 
+function TribeCalendar() {
+  
+  // const [allEvents, setAllEvents] = useState(tribeEvents);
   const [allEvents, setAllEvents] = useState(tribeEvents);
+  
+  const [isLoading, setLoading] = useState(false);
 
   // useEffect(() => {
   //   fetch(config.CALENDAR_DATA_URL)
@@ -58,7 +63,7 @@ function TribeCalendar() {
   //   .then(data => setAllEvents(data || []))
   //   .catch((error) => {
   //     console.error(error)
-  //   })
+  //   }); setLoading(true);
   // }, []);
 
   const [newEvent, setNewEvent] = useState({

@@ -3,5 +3,6 @@
     "CALENDAR_END_HOUR": 23,
     "CALENDAR_INTERVAL_MIN": 45,
     "CALENDAR_DATA_URL": "https://tribes-bc5e4-default-rtdb.europe-west1.firebasedatabase.app/calendarData.json",
-    "CALENDAR_RESOURCES_URL": "https://tribes-bc5e4-default-rtdb.europe-west1.firebasedatabase.app/calendarResources.json"
+    "CALENDAR_RESOURCES_URL": "https://tribes-bc5e4-default-rtdb.europe-west1.firebasedatabase.app/calendarResources.json",
+    "USER_DATA_URL": "https://tribes-bc5e4-default-rtdb.europe-west1.firebasedatabase.app/users.json"
 }
