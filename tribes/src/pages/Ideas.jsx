@@ -16,6 +16,17 @@ function Ideas() {
   const ideaQuestionRef = useRef(null)
   const [ideaQuestion, setIdeaQuestion] = useState(null);
 
+  const [idea, setIdea] = useState({
+    type: "",
+    users: [],
+    question: "",
+    isActive: true,
+    replies: {
+      user: "",
+      reply: ""
+    }
+  });
+
   useEffect(() => {
     fetch(config.USER_DATA_URL)
       .then(res => res.json())
